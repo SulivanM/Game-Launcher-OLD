@@ -300,14 +300,14 @@ aside .sidebar .message-count {
 }
 
 .right .top a i::before {
-    background-color: #11151b;
-    padding: 8px;
-    border-radius: 50%;
-    border: 2px solid var(--color-info-dark);
-    transition: color 0.3s ease;
+  background-color: #11151b;
+  padding: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-info-dark);
+  transition: color 0.3s ease;
 }
 
-.right .top a i::hover {
+.right .top a:hover i::before {
   color: #fff;
 }
 
