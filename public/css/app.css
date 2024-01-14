@@ -1133,6 +1133,14 @@ main {
     cursor: pointer;
 }
 
+.game-header .addon-button i {
+  transition: color 0.3s;
+}
+
+.game-header .addon-button i:hover {
+  color: #fff;
+}
+
 @media (max-width: 768px) {
     .game-header {
         flex-direction: column;
