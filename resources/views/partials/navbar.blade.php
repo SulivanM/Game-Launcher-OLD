@@ -21,18 +21,18 @@
           <p><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></p>
         </div>
         <a href="{{ route('profile') }}">
-			<div class="profile-photo">
-				@if(Auth::user()->profile_image)
-					<img src="{{ asset('images/profiles/' . Auth::user()->profile_image) }}" alt="Profile Image">
-				@else
-					<img src="{{ asset('images/profile-icon.png') }}" alt="Default Profile Image">
-				@endif
-			</div>
-		</a>
+          <div class="profile-photo">
+            @if(Auth::user()->profile_image)
+            <img src="{{ asset('images/profiles/' . Auth::user()->profile_image) }}" alt="Profile Image">
+            @else
+            <img src="{{ asset('images/profile-icon.png') }}" alt="Default Profile Image">
+            @endif
+          </div>
+        </a>
       </div>
-	  <a href="{{ route('settings.show') }}">
-		  <i class="fa-solid fa-gear"></i>
-	  </a>
+      <a href="{{ route('settings.show') }}">
+        <i class="fa-solid fa-gear"></i>
+      </a>
     </div>
   </div>
 </div>
