@@ -9,7 +9,7 @@
         <h1>DIGITAL +</h1>
         <br>
         <h1>
-          <span style="color:#3c454c;"> COMING </span>
+          <span style="color:#3c454c;"> COMINGEE </span>
           <span class="primary">SOON</span>
         </h1>
         <p style="color: #fdfdfd;">More Details <span style="color: white;">></span>
