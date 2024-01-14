@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Models\Game;
+use Illuminate\Http\Request;
+
+class GameController extends Controller
+{
+    public function show($id)
+	{
+		$game = Game::find($id);
+
+		if (!$game) {
+			abort(404); // Gérer le cas où le jeu n'est pas trouvé
+		}
+
+		return view('games.show', compact('game'));
+	}
+}

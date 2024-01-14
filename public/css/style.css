@@ -1,0 +1,261 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #ffffff #000000;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #000000;
+}
+
+body {
+  background-color: #11151b;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+    background-color: #181e25;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+	border-bottom: 2px #fff solid;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}
+
+.logo-img {
+    max-width: 80px;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.title-main {
+    color: #fff;
+    padding-top: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 25;
+
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: 18px;
+    }
+}
+
+
+.connect-form {
+  background-color: #171f29;
+  border-radius: 5px;
+  text-align: center;
+  width: 535px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.connect-form .logo {
+  height: 130px;
+}
+
+.container.show-form .connect-form {
+  transform: translateY(0);
+}
+
+h1 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+h5 {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="checkbox"],
+input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: #1d2733;
+  color: #ffffff;
+}
+
+button[type="submit"],
+button[type="button"]{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.or {
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.additional-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-button,
+.register-button,
+.forgot-password-button {
+  width: 212px;
+  padding: 12px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  border: 2px solid #ffffff;
+}
+
+.register-button i,
+.forgot-password-button i {
+  margin-right: 5px;
+}
+
+.register-button:hover,
+.forgot-password-button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-button {
+  width: 270px;
+  padding: 12px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.social-button.twitter {
+  border: 2px solid #00b1ff;
+}
+
+.social-button.github {
+  border: 2px solid #ffffff;
+}
+
+.social-button.discord {
+  border: 2px solid #6900ff;
+}
+
+.social-button i {
+  margin-right: 5px;
+}
+
+.social-button:hover {
+  background-color: currentColor;
+}
+
+.social-button.twitter:hover {
+  background-color: #00b1ff;
+}
+
+.social-button.github:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.social-button.discord:hover {
+  background-color: #6900ff;
+}
+
+@media (max-width: 600px) {
+  .connect-form {
+    width: 80%;
+  }
+
+  .register-button,
+  .forgot-password-button {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.slider {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .slider {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.slider-tile {
+	margin-top: 80px;
+	max-height: 275px;
+}

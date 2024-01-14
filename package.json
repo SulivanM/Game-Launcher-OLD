@@ -1,0 +1,28 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.23.7",
+        "axios": "^1.6.5",
+        "laravel-mix": "^6.0.11",
+        "lodash": "^4.17.19",
+        "postcss": "^8.3.11",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.37.5",
+        "sass-loader": "^12.2.0",
+        "vue-loader": "^17.4.2",
+        "vue-template-compiler": "^2.7.16"
+    },
+    "dependencies": {
+        "@sentry/browser": "^7.92.0",
+        "bootstrap": "^5.3.2",
+        "particles.js": "^2.0.0",
+        "vue": "^3.4.5"
+    }
+}
