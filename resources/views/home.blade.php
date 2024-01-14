@@ -10,7 +10,7 @@
         <br>
         <h1>
           <span style="color:#3c454c;"> COMING </span>
-          <span class="primary">SOONNE</span>
+          <span class="primary">SOON</span>
         </h1>
         <p style="color: #fdfdfd;">More Details <span style="color: white;">></span>
         </p>
