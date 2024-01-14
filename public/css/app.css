@@ -188,8 +188,14 @@ aside .sidebar .icons {
 }
 
 aside .sidebar .icons > i {
-    color: #7d8da1;
+  color: #7d8da1;
+  transition: color 0.3s;
 }
+
+aside .sidebar .icons > i:hover {
+  color: #ffffff;
+}
+
 
 aside .sidebar a.active {
     background: var(--color-light);

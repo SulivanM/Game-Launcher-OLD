@@ -19,6 +19,7 @@
             <form>
                 <input type="text" class="search-input" name="query" placeholder="Search...">
                 <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
     </header>
