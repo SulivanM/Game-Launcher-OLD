@@ -64,7 +64,7 @@
       <span class="material-symbols-sharp">add</span>
       <h1 class="h1">Suggestions</h1>
     </a>
-    <a href="../downloads">
+    <a id="downloadLink" href="../downloads">
       <span class="material-symbols-sharp">download</span>
       <h1 class="h1">Downloads</h1>
     </a>
@@ -92,3 +92,24 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
   </div>
 </aside>
+<script>
+    const downloadLink = document.getElementById('downloadLink');
+
+    // Vérifie si la variable window.process existe (indiquant qu'on est dans Electron)
+    if (typeof window.process !== 'undefined' && window.process.type === 'renderer') {
+        // L'utilisateur a cliqué sur le lien dans Electron, pas besoin d'afficher d'alerte
+        downloadLink.addEventListener('click', (event) => {
+            // Vous pouvez ajouter ici tout traitement supplémentaire nécessaire pour Electron
+        });
+    } else {
+        // L'utilisateur a tenté d'accéder au lien sans Electron, affiche une alerte
+        downloadLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'This feature is only accessible through the Electron app.',
+            });
+        });
+    }
+</script>
