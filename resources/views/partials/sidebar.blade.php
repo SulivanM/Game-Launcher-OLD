@@ -108,7 +108,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'This feature is only accessible through the Electron app.',
+                text: 'This feature is only accessible with launcher app.',
             });
         });
     }
