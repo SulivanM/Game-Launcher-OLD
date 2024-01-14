@@ -1124,7 +1124,7 @@ main {
     color: #fff;
 }
 
-.game-header .search-button {
+.game-header .addon-button {
     padding: 5px 10px;
     color: #fff;
     border: 1px solid var(--color-info-dark);
