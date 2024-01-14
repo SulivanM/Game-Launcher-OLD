@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="sidebar">
-    <a href="{{ route('collections') }}">
+    <a href="../collections">
       <button class="play-button rounded-corners">
         Play
         <span class="vector-icon">
@@ -18,6 +18,7 @@
         </span>
       </button>
     </a>
+
     <a href="../home" class="active">
       <span class="material-symbols-sharp">house</span>
       <h1 class="h1">Home</h1>
