@@ -304,6 +304,11 @@ aside .sidebar .message-count {
     padding: 8px;
     border-radius: 50%;
     border: 2px solid var(--color-info-dark);
+    transition: color 0.3s ease;
+}
+
+.right .top a i::hover {
+  color: #fff;
 }
 
 .search__input {
@@ -610,7 +615,7 @@ main {
 }
 
 .banner .dfjsac .social-links a i:hover {
-    color: #804dce;
+    color: #fff;
 }
 .statistics {
     margin-top: 20px;

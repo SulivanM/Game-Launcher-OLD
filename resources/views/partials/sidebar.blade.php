@@ -37,7 +37,7 @@
       <a href="../notifications">
         <span class="material-symbols-sharp">mail_outline</span>
         <h1 class="h1">Notifications</h1>
-        <circle class="message-count">2</circle>
+        <circle class="message-count">0</circle>
       </a>
       <a href="../trophy">
         <span class="material-symbols-sharp">star</span>
