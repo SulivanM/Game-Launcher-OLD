@@ -453,7 +453,13 @@ main {
     padding: 20px;
     font-size: 15px;
     color: var(--color-dark-varient);
+    transition: color 0.3s ease;
 }
+
+.links > a:hover {
+    color: #fff;
+}
+
 .line {
     border-bottom: 4px solid var(--color-danger);
     width: 150px;
