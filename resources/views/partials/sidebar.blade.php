@@ -95,17 +95,12 @@
 <script>
     const downloadLink = document.getElementById('downloadLink');
 
-    // Vérifie si la page est ouverte dans Electron
     if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
-        // L'utilisateur a cliqué sur le lien dans Electron, pas besoin d'afficher d'alerte
         downloadLink.addEventListener('click', (event) => {
-            // Vous pouvez ajouter ici tout traitement supplémentaire nécessaire pour Electron
         });
     } else {
-        // L'utilisateur a tenté d'accéder au lien sans Electron, affiche une alerte
         downloadLink.addEventListener('click', (event) => {
             event.preventDefault();
-            // Ou utilisez SweetAlert2 si vous le préférez
             Swal.fire({ icon: 'error', title: 'Error', text: 'This feature is only accessible with the launcher app.' });
         });
     }
