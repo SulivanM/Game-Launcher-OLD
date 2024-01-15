@@ -109,12 +109,12 @@
     });
   }
 
-  const downloadLink = document.getElementById('launcherDL');
+  const launcherDL = document.getElementById('launcherDL');
 
   if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
-    downloadLink.style.display = 'none';
+    launcherDL.style.display = 'none';
   } else {
-    downloadLink.addEventListener('click', (event) => {
+    launcherDL.addEventListener('click', (event) => {
       event.preventDefault();
     });
   }
