@@ -101,7 +101,7 @@
     } else {
         downloadLink.addEventListener('click', (event) => {
             event.preventDefault();
-            Swal.fire({ icon: 'error', title: 'Error', text: 'This feature is only accessible with the launcher app.' });
+            Swal.fire({ icon: 'error', title: 'Error', text: 'This feature is only accessible with launcher app.' });
         });
     }
 </script>
