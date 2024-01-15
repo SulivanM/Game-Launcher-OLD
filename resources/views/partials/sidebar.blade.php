@@ -90,21 +90,32 @@
       <h1 class="h1">{{ ('Logout') }}</h1>
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-    <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe">
+    <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe"
+      id="launcherDL">
       <button class="launcher-dl-button">INSTALL LAUNCHER</button>
     </a>
   </div>
 </aside>
 <script>
-    const downloadLink = document.getElementById('downloadLink');
+  const downloadLink = document.getElementById('downloadLink');
 
-    if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
-        downloadLink.addEventListener('click', (event) => {
-        });
-    } else {
-        downloadLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            Swal.fire({ icon: 'error', title: 'Error', text: 'This feature is only accessible with launcher app.' });
-        });
-    }
+  if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
+    downloadLink.addEventListener('click', (event) => {
+    });
+  } else {
+    downloadLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      Swal.fire({ icon: 'error', title: 'Error', text: 'This feature is only accessible with launcher app.' });
+    });
+  }
+
+  const downloadLink = document.getElementById('launcherDL');
+
+  if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
+    downloadLink.style.display = 'none';
+  } else {
+    downloadLink.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+  }
 </script>
