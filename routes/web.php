@@ -70,7 +70,6 @@ Route::get('/trophy', function () {
 Route::get('/tchat', [ChatController::class, 'index'])->name('chat.index');
 Route::post('/tchat/send-message', [ChatController::class, 'sendMessage'])->name('chat.send');
 
-
 Route::get('/streams', function () {
     return view('streams');
 });
@@ -79,4 +78,8 @@ Route::get('/balance', function () {
 });
 Route::get('/suggests', function () {
     return view('suggests');
+});
+
+Route::get('/downloads', function () {
+    return view('downloads');
 });
