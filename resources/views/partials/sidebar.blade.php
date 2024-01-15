@@ -99,18 +99,20 @@
     if (typeof window.process !== 'undefined' && window.process.type === 'renderer') {
         // L'utilisateur a cliqué sur le lien dans Electron, pas besoin d'afficher d'alerte
         downloadLink.addEventListener('click', (event) => {
-            console.log('Link clicked in Electron');
             // Ajoutez ici tout traitement supplémentaire nécessaire pour Electron
+            // Par exemple, vous pourriez ouvrir une nouvelle fenêtre Electron avec une URL spécifique
+            event.preventDefault();
+            // Ouvrir une nouvelle fenêtre dans Electron
+            require('electron').shell.openExternal(downloadLink.href);
         });
     } else {
         // L'utilisateur a tenté d'accéder au lien sans Electron, affiche une alerte
         downloadLink.addEventListener('click', (event) => {
             event.preventDefault();
-            console.log('Link clicked without Electron');
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'This feature is only accessible with launcher app.',
+                text: 'This feature is only accessible with the launcher app.',
             });
         });
     }
