@@ -95,25 +95,18 @@
 <script>
     const downloadLink = document.getElementById('downloadLink');
 
-    // Vérifie si la variable window.process existe (indiquant qu'on est dans Electron)
-    if (typeof window.process !== 'undefined' && window.process.type === 'renderer') {
+    // Vérifie si la page est ouverte dans Electron
+    if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
         // L'utilisateur a cliqué sur le lien dans Electron, pas besoin d'afficher d'alerte
         downloadLink.addEventListener('click', (event) => {
-            // Ajoutez ici tout traitement supplémentaire nécessaire pour Electron
-            // Par exemple, vous pourriez ouvrir une nouvelle fenêtre Electron avec une URL spécifique
-            event.preventDefault();
-            // Ouvrir une nouvelle fenêtre dans Electron
-            require('electron').shell.openExternal(downloadLink.href);
+            // Vous pouvez ajouter ici tout traitement supplémentaire nécessaire pour Electron
         });
     } else {
         // L'utilisateur a tenté d'accéder au lien sans Electron, affiche une alerte
         downloadLink.addEventListener('click', (event) => {
             event.preventDefault();
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'This feature is only accessible with the launcher app.',
-            });
+            // Ou utilisez SweetAlert2 si vous le préférez
+            Swal.fire({ icon: 'error', title: 'Error', text: 'This feature is only accessible with the launcher app.' });
         });
     }
 </script>
