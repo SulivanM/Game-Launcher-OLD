@@ -215,7 +215,7 @@ aside .sidebar a .active span {
 }
 
 aside .sidebar a:hover {
-    color: var(--color-primary);
+    color: #fff;
 }
 
 aside .sidebar a:hover span {
