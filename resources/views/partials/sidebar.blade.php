@@ -90,7 +90,9 @@
       <h1 class="h1">{{ ('Logout') }}</h1>
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-    <button class="launcher-dl-button">INSTALL LAUNCHER</button>
+    <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe">
+      <button class="launcher-dl-button">INSTALL LAUNCHER</button>
+    </a>
   </div>
 </aside>
 <script>
