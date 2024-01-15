@@ -99,12 +99,14 @@
     if (typeof window.process !== 'undefined' && window.process.type === 'renderer') {
         // L'utilisateur a cliqué sur le lien dans Electron, pas besoin d'afficher d'alerte
         downloadLink.addEventListener('click', (event) => {
-            // Vous pouvez ajouter ici tout traitement supplémentaire nécessaire pour Electron
+            console.log('Link clicked in Electron');
+            // Ajoutez ici tout traitement supplémentaire nécessaire pour Electron
         });
     } else {
         // L'utilisateur a tenté d'accéder au lien sans Electron, affiche une alerte
         downloadLink.addEventListener('click', (event) => {
             event.preventDefault();
+            console.log('Link clicked without Electron');
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
