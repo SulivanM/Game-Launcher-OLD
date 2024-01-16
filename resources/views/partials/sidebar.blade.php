@@ -90,7 +90,7 @@
       <h1 class="h1">{{ ('Logout') }}</h1>
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-      <button class="launcher-dl-button">INSTALL LAUNCHER</button>
+      <button id="launcherDownload" class="launcher-dl-button">INSTALL LAUNCHER</button>
   </div>
 </aside>
 <script>
