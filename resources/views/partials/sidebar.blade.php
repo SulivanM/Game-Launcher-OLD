@@ -114,8 +114,6 @@
   if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
     launcherDL.style.display = 'none';
   } else {
-    launcherDL.addEventListener('click', (event) => {
-      event.preventDefault();
-    });
+    // Nothing
   }
 </script>
