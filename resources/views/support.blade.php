@@ -21,6 +21,11 @@
           </form>
         </div>
       </header>
+      <img src="{{ asset('images/app/shop-banner.jpg') }}" alt="Bannière">
+      <div class="subv-banner-text">
+        <h1>Ticket</h1>
+        <p>If you encounter any issues, kindly submit a support ticket for prompt assistance.</p>
+      </div>
     </div>
   </main>
 </div>
