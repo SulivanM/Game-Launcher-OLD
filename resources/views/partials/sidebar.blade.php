@@ -19,7 +19,7 @@
       </button>
     </a>
 
-    <a href="{{ route('home.show') }}" class="active">
+    <a href="../home" class="active">
       <span class="material-symbols-sharp">house</span>
       <h1 class="h1">Home</h1>
     </a>
@@ -27,44 +27,44 @@
       <span class="material-symbols-sharp">search</span>
       <h1 class="h1">Search</h1>
     </a>
-    <a href="{{ route('friends.show') }}">
+    <a href="../friends">
       <span class="material-symbols-sharp">person_add</span>
       <h1 class="h1">Friends</h1>
     </a>
-    <a href="{{ route('games.show') }}">
+    <a href="../games">
       <span class="material-symbols-sharp">gamepad</span>
       <h1 class="h1">Games</h1>
     </a>
-    <a href="{{ route('collections.show') }}">
+    <a href="../collections">
       <span class="material-symbols-sharp">gamepad</span>
       <h1 class="h1">Collections</h1>
     </a>
-    <a href="{{ route('notifications.show') }}">
+    <a href="../notifications">
       <span class="material-symbols-sharp">mail_outline</span>
       <h1 class="h1">Notifications</h1>
       <circle class="message-count">0</circle>
     </a>
-    <a href="{{ route('trophy.show') }}">
+    <a href="../trophy">
       <span class="material-symbols-sharp">star</span>
       <h1 class="h1">Trophy</h1>
     </a>
-    <a href="{{ route('tchat.show') }}">
+    <a href="../tchat">
       <span class="material-symbols-sharp">person</span>
       <h1 class="h1">Tchat</h1>
     </a>
-    <a href="{{ route('streams.show') }}">
+    <a href="../streams">
       <span class="material-symbols-sharp">camera</span>
       <h1 class="h1">Streams</h1>
     </a>
-    <a href="{{ route('balance.show') }}">
+    <a href="../balance">
       <span class="material-symbols-sharp">add</span>
       <h1 class="h1">Balance</h1>
     </a>
-    <a href="{{ route('suggests.show') }}">
+    <a href="../suggests">
       <span class="material-symbols-sharp">add</span>
       <h1 class="h1">Suggestions</h1>
     </a>
-    <a id="downloadLink" href="{{ route('downloads.show') }}">
+    <a id="downloadLink" href="../downloads">
       <span class="material-symbols-sharp">download</span>
       <h1 class="h1">Downloads</h1>
     </a>
@@ -76,7 +76,7 @@
       <i class="fa-brands fa-youtube"></i>
       <i class="fa-brands fa-discord"></i>
     </div>
-    <a href="{{ route('support.show') }}">
+    <a href="../support">
       <span class="material-symbols-sharp">logout</span>
       <h1 class="h1">Support</h1>
     </a>
@@ -114,6 +114,8 @@
   if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
     launcherDL.style.display = 'none';
   } else {
-    // Nothing
+    launcherDL.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
   }
 </script>
