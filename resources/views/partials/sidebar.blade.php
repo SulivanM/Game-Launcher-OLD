@@ -109,13 +109,13 @@
     });
   }
 
-  const launcherDL = document.getElementById('launcherDL');
+  // const launcherDL = document.getElementById('launcherDL');
 
-  if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
-    launcherDL.style.display = 'none';
-  } else {
-    launcherDL.addEventListener('click', (event) => {
-      event.preventDefault();
-    });
-  }
+  // if (navigator.userAgent.toLowerCase().indexOf('electron') > -1) {
+  //   launcherDL.style.display = 'none';
+  // } else {
+  //   launcherDL.addEventListener('click', (event) => {
+  //     event.preventDefault();
+  //   });
+  // }
 </script>
