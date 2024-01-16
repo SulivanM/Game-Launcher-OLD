@@ -19,7 +19,7 @@
       </button>
     </a>
 
-    <a href="../home" class="active">
+    <a href="{{ route('home.show') }}" class="active">
       <span class="material-symbols-sharp">house</span>
       <h1 class="h1">Home</h1>
     </a>
@@ -27,44 +27,44 @@
       <span class="material-symbols-sharp">search</span>
       <h1 class="h1">Search</h1>
     </a>
-    <a href="../friends">
+    <a href="{{ route('friends.show') }}">
       <span class="material-symbols-sharp">person_add</span>
       <h1 class="h1">Friends</h1>
     </a>
-    <a href="../games">
+    <a href="{{ route('games.show') }}">
       <span class="material-symbols-sharp">gamepad</span>
       <h1 class="h1">Games</h1>
     </a>
-    <a href="../collections">
+    <a href="{{ route('collections.show') }}">
       <span class="material-symbols-sharp">gamepad</span>
       <h1 class="h1">Collections</h1>
     </a>
-    <a href="../notifications">
+    <a href="{{ route('notifications.show') }}">
       <span class="material-symbols-sharp">mail_outline</span>
       <h1 class="h1">Notifications</h1>
       <circle class="message-count">0</circle>
     </a>
-    <a href="../trophy">
+    <a href="{{ route('trophy.show') }}">
       <span class="material-symbols-sharp">star</span>
       <h1 class="h1">Trophy</h1>
     </a>
-    <a href="../tchat">
+    <a href="{{ route('tchat.show') }}">
       <span class="material-symbols-sharp">person</span>
       <h1 class="h1">Tchat</h1>
     </a>
-    <a href="../streams">
+    <a href="{{ route('streams.show') }}">
       <span class="material-symbols-sharp">camera</span>
       <h1 class="h1">Streams</h1>
     </a>
-    <a href="../balance">
+    <a href="{{ route('balance.show') }}">
       <span class="material-symbols-sharp">add</span>
       <h1 class="h1">Balance</h1>
     </a>
-    <a href="../suggests">
+    <a href="{{ route('suggests.show') }}">
       <span class="material-symbols-sharp">add</span>
       <h1 class="h1">Suggestions</h1>
     </a>
-    <a id="downloadLink" href="../downloads">
+    <a id="downloadLink" href="{{ route('downloads.show') }}">
       <span class="material-symbols-sharp">download</span>
       <h1 class="h1">Downloads</h1>
     </a>
@@ -76,7 +76,7 @@
       <i class="fa-brands fa-youtube"></i>
       <i class="fa-brands fa-discord"></i>
     </div>
-    <a href="#">
+    <a href="{{ route('support.show') }}">
       <span class="material-symbols-sharp">logout</span>
       <h1 class="h1">Support</h1>
     </a>

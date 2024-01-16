@@ -79,7 +79,9 @@ Route::get('/balance', function () {
 Route::get('/suggests', function () {
     return view('suggests');
 });
-
+Route::get('/support', function () {
+    return view('support');
+});
 Route::get('/downloads', function () {
     return view('downloads');
 });
