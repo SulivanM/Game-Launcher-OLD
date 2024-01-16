@@ -80,7 +80,7 @@
       <span class="material-symbols-sharp">logout</span>
       <h1 class="h1">Support</h1>
     </a>
-    <a href="#">
+    <a href="{{ route('settings.show') }}">
       <span class="material-symbols-sharp">settings</span>
       <h1 class="h1">Settings</h1>
     </a>
