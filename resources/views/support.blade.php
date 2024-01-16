@@ -27,6 +27,9 @@
         <p>If you encounter any issues, kindly submit a support ticket for prompt assistance.</p>
       </div>
     </div>
+    <div class="title-space">
+      <h2>SOON</h2>
+    </div>
   </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
