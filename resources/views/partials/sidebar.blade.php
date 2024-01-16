@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="sidebar">
-    <a href="../collections">
+    <a href="../collections" style="margin-left: 0;">
       <button class="play-button rounded-corners">
         Play
         <span class="vector-icon">
