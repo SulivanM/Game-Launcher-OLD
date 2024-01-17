@@ -2,7 +2,7 @@ function showTickets() {
     document.getElementById("ticketsSection").style.display = "block";
     document.getElementById("formSection").style.display = "none";
     document.getElementById("faqSection").style.display = "none";
-};
+}
 
 function showForm() {
     document.getElementById("ticketsSection").style.display = "none";
@@ -17,17 +17,12 @@ function showFAQ() {
 }
 
 function toggleAnswer(index) {
-    var faqAnswer = document.getElementsByClassName('faq-answer');
-    faqAnswer[index].style.display = (faqAnswer[index].style.display === 'block') ? 'none' : 'block';
+    var faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(function (item, i) {
+        if (i === index) {
+            item.classList.toggle("active");
+        } else {
+            item.classList.remove("active");
+        }
+    });
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    var faqItems = document.getElementsByClassName('faq-item');
-    for (var i = 0; i < faqItems.length; i++) {
-        faqItems[i].addEventListener('click', function () {
-            this.classList.toggle('active');
-            var index = Array.prototype.indexOf.call(this.parentElement.children, this);
-            toggleAnswer(index);
-        });
-    }
-});

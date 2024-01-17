@@ -1189,9 +1189,21 @@ main {
     }
 }
 
+#faqSection {
+    display: block;
+}
+
+.title-space {
+    background-color: #11151b;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
 .faq-container {
     max-width: 980px;
-    margin: 50px auto;
+    margin: 0 auto;
     background-color: #11151b;
     border-radius: 8px;
     overflow: hidden;
@@ -1202,6 +1214,7 @@ main {
     padding: 15px;
     cursor: pointer;
     position: relative;
+    color: #fff;
 }
 
 .faq-item:last-child {
@@ -1219,6 +1232,7 @@ main {
     display: none;
     padding: 10px;
     border-top: 1px solid var(--color-info-dark);
+    color: #fff;
 }
 
 .faq-item.active {

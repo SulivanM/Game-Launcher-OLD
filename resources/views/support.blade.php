@@ -56,10 +56,10 @@
         <button type="submit">Submit Ticket</button>
       </form>
     </div>
-    <div id="faqSection" style="display: block;">
-      <div class="title-space">
-        <h2>FAQ</h2>
-      </div>
+    <div class="title-space">
+      <h2>FAQ</h2>
+    </div>
+    <div id="faqSection">
       <p>This section aims to answer frequently asked questions. Feel free to explore the content below.</p>
       <div class="faq-container">
         <div class="faq-item">
