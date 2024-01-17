@@ -12,7 +12,7 @@ class TicketController extends Controller
     {
         $user = Auth::user();
         $tickets = $user->tickets;
-        return view('tickets.index', compact('user'));
+        return view('support', compact('user', 'tickets'));
     }
 
     public function store(Request $request)
