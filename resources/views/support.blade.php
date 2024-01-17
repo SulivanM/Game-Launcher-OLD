@@ -48,19 +48,44 @@
     <div class="title-space" id="formSection" style="display: none;">
       <h2>Support Tickets</h2>
       <form action="{{ route('tickets.store') }}" method="POST">
-          @csrf
-          <label for="subject">Subject:</label>
-          <input type="text" name="subject" required>
-          <label for="description">Description:</label>
-          <textarea name="description" required></textarea>
-          <button type="submit">Submit Ticket</button>
+        @csrf
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" required>
+        <label for="description">Description:</label>
+        <textarea name="description" required></textarea>
+        <button type="submit">Submit Ticket</button>
       </form>
     </div>
     <div id="faqSection" style="display: none;">
       <div class="title-space">
-      <h2>FAQ</h2>
+        <h2>FAQ</h2>
       </div>
       <p>This is the FAQ section. Add your FAQ content here.</p>
+      <div class="faq-container">
+        <div class="faq-item">
+          How do I create an account?
+          <i class="fas fa-chevron-down"></i>
+          <div class="faq-answer">
+            Creating an account is easy! Just click on the "Sign Up" button and follow the instructions.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          Can I reset my password?
+          <i class="fas fa-chevron-down"></i>
+          <div class="faq-answer">
+            Yes, you can reset your password by clicking on the "Forgot Password" link on the login page.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          How can I contact customer support?
+          <i class="fas fa-chevron-down"></i>
+          <div class="faq-answer">
+            You can contact our customer support team by sending an email to support@example.com.
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </div>

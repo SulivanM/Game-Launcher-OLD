@@ -1189,6 +1189,43 @@ main {
     }
 }
 
+.faq-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item i {
+    float: right;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.faq-item.active {
+    background-color: #f9f9f9;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
 footer {
     background-color: #11151b;
     border-top: 1px solid var(--color-info-dark);
