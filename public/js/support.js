@@ -21,10 +21,10 @@ function toggleAnswer(index) {
     faqItems.forEach(function (item, i) {
         var answer = item.querySelector('.faq-answer');
         if (i === index) {
-            item.classList.toggle('active');
+            item.classList.toggle('faq-active');
             answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         } else {
-            item.classList.remove('active');
+            item.classList.remove('faq-active');
             answer.style.display = 'none';
         }
     });
