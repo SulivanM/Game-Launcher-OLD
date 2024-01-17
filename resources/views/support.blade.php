@@ -56,7 +56,7 @@
         <button type="submit">Submit Ticket</button>
       </form>
     </div>
-    <div id="faqSection" style="display: none;">
+    <div id="faqSection" style="display: block;">
       <div class="title-space">
         <h2>FAQ</h2>
       </div>
@@ -64,17 +64,17 @@
       <div class="faq-container">
         <div class="faq-item">
           <div class="faq-question" onclick="toggleAnswer(0)">
-            How do I submit a support ticket?
+            How do I submit a support ticket? <i class="fas fa-chevron-right"></i>
           </div>
           <div class="faq-answer">
-            To submit a support ticket, click "Open Ticket" on this page. Fill in the required fields and click “Submit
-            ticket”.
+            To submit a support ticket, click "Open Ticket" on this page. Fill in the required fields and click
+            “Submit ticket”.
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleAnswer(1)">
-            Can I edit or update my submitted ticket?
+            Can I edit or update my submitted ticket? <i class="fas fa-chevron-right"></i>
           </div>
           <div class="faq-answer">
             Yes, if you have additional information you can reply to the answer.
@@ -83,7 +83,7 @@
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleAnswer(2)">
-            How can I check the status of my ticket?
+            How can I check the status of my ticket? <i class="fas fa-chevron-right"></i>
           </div>
           <div class="faq-answer">
             You can check the status of your ticket in the "My Ticket" section. Open the ticket details to view its

@@ -1198,23 +1198,27 @@ main {
 }
 
 .faq-item {
-    border-bottom: 1px solid var(--color-info-dark);;
+    border-bottom: 1px solid var(--color-info-dark);
     padding: 15px;
     cursor: pointer;
+    position: relative;
 }
 
 .faq-item:last-child {
     border-bottom: none;
 }
 
-.faq-item i {
-    float: right;
+.faq-question i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .faq-answer {
     display: none;
     padding: 10px;
-    border-top: 1px solid var(--color-info-dark);;
+    border-top: 1px solid var(--color-info-dark);
 }
 
 .faq-item.active {
