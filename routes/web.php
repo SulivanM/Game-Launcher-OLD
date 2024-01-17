@@ -10,6 +10,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TicketController;
 use App\Models\Game;
 use App\Models\User;
+use App\Models\Ticket;
 
 
 /*
