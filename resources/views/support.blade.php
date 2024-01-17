@@ -56,7 +56,7 @@
         <button type="submit">Submit Ticket</button>
       </form>
     </div>
-    <div id="faqSection">
+    <div id="faqSection" style="display: none;">
     <div class="title-space">
         <h2>FAQ</h2>
     </div>
