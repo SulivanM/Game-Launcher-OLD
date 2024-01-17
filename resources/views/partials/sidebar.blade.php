@@ -114,7 +114,7 @@
     launcherDL.style.display = 'none';
   } else {
     launcherDL.addEventListener('click', (event) => {
-      event.preventDefault();
+      // Nothing
     });
   }
 </script>
