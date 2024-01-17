@@ -86,6 +86,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
     Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
 });
+Route::get('/support', function () {
+    return view('support');
+});
 Route::get('/downloads', function () {
     return view('downloads');
 });
