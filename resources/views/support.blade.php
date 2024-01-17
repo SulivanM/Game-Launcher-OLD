@@ -45,7 +45,7 @@
         <p>{{ $ticket->description }}</p>
         <p>Status: {{ $ticket->status }}</p>
 
-        @if(Auth::user() && (Auth::user()->is_admin || Auth::user()->id === $ticket->user_id))
+        @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
         <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
           @csrf
           @method('PATCH')
@@ -53,7 +53,6 @@
         </form>
         @endif
       </div>
-
       @endforeach
     </div>
   </main>
