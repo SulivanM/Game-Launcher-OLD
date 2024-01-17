@@ -17,12 +17,15 @@ function showFAQ() {
 }
 
 function toggleAnswer(index) {
-    var faqItems = document.querySelectorAll(".faq-item");
+    var faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(function (item, i) {
+        var answer = item.querySelector('.faq-answer');
         if (i === index) {
-            item.classList.toggle("active");
+            item.classList.toggle('active');
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         } else {
-            item.classList.remove("active");
+            item.classList.remove('active');
+            answer.style.display = 'none';
         }
     });
 }
