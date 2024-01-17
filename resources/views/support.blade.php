@@ -60,29 +60,34 @@
       <div class="title-space">
         <h2>FAQ</h2>
       </div>
-      <p>This is the FAQ section. Add your FAQ content here.</p>
+      <p>This section aims to answer frequently asked questions. Feel free to explore the content below.</p>
       <div class="faq-container">
         <div class="faq-item">
-          How do I create an account?
-          <i class="fas fa-chevron-down"></i>
+          <div class="faq-question" onclick="toggleAnswer(0)">
+            How do I submit a support ticket?
+          </div>
           <div class="faq-answer">
-            Creating an account is easy! Just click on the "Sign Up" button and follow the instructions.
+            To submit a support ticket, click "Open Ticket" on this page. Fill in the required fields and click “Submit
+            ticket”.
           </div>
         </div>
 
         <div class="faq-item">
-          Can I reset my password?
-          <i class="fas fa-chevron-down"></i>
+          <div class="faq-question" onclick="toggleAnswer(1)">
+            Can I edit or update my submitted ticket?
+          </div>
           <div class="faq-answer">
-            Yes, you can reset your password by clicking on the "Forgot Password" link on the login page.
+            Yes, if you have additional information you can reply to the answer.
           </div>
         </div>
 
         <div class="faq-item">
-          How can I contact customer support?
-          <i class="fas fa-chevron-down"></i>
+          <div class="faq-question" onclick="toggleAnswer(2)">
+            How can I check the status of my ticket?
+          </div>
           <div class="faq-answer">
-            You can contact our customer support team by sending an email to support@example.com.
+            You can check the status of your ticket in the "My Ticket" section. Open the ticket details to view its
+            current status.
           </div>
         </div>
       </div>
