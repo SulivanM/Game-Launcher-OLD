@@ -11,6 +11,7 @@ class TicketController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $tickets = $user->tickets;
         return view('tickets.index', compact('user'));
     }
 
