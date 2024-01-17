@@ -57,6 +57,9 @@
       </form>
     </div>
     <div id="faqSection" style="display: none;">
+      <div class="title-space">
+      <h2>FAQ</h2>
+      </div>
       <p>This is the FAQ section. Add your FAQ content here.</p>
     </div>
   </main>
