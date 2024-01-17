@@ -8,7 +8,7 @@
       <header class="subv-header">
         <div class="left-menu">
           <a href="#">My Ticket</a>
-          <a id="open-ticket">Open Ticket</a>
+          <a href="#">Open Ticket</a>
           <a href="#">FAQ</a>
         </div>
         <div class="search-box">
@@ -27,18 +27,8 @@
         <p>If you encounter any issues, kindly submit a support ticket for prompt assistance.</p>
       </div>
     </div>
-    <div class="title-space">
+    <div class="title-space" id="ticketsSection">
       <h2>Support Tickets</h2>
-
-      <form action="{{ route('tickets.store') }}" method="POST">
-        @csrf
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" required>
-        <label for="description">Description:</label>
-        <textarea name="description" required></textarea>
-        <button type="submit">Submit Ticket</button>
-      </form>
-
       @foreach($user->tickets ?? [] as $ticket)
       <div>
         <h3>{{ $ticket->subject }}</h3>
@@ -55,58 +45,22 @@
       </div>
       @endforeach
     </div>
+    <div class="title-space" id="formSection" style="display: none;">
+      <h2>Support Tickets</h2>
+      <form action="{{ route('tickets.store') }}" method="POST">
+          @csrf
+          <label for="subject">Subject:</label>
+          <input type="text" name="subject" required>
+          <label for="description">Description:</label>
+          <textarea name="description" required></textarea>
+          <button type="submit">Submit Ticket</button>
+      </form>
+    </div>
+    <div id="faqSection" style="display: none;">
+      <p>This is the FAQ section. Add your FAQ content here.</p>
+    </div>
   </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Ajoutez un gestionnaire de clic sur le lien "Open Ticket"
-        document.getElementById('open-ticket').addEventListener('click', function (event) {
-            event.preventDefault();
-
-            // Affichez la fenêtre modale avec le formulaire
-            Swal.fire({
-                title: 'Open Ticket',
-                html:
-                    '<form id="ticket-form">' +
-                    '   <label for="subject">Subject:</label>' +
-                    '   <input type="text" name="subject" id="subject" required>' +
-                    '   <label for="description">Description:</label>' +
-                    '   <textarea name="description" id="description" required></textarea>' +
-                    '</form>',
-                showCancelButton: true,
-                confirmButtonText: 'Submit Ticket',
-                cancelButtonText: 'Cancel',
-                preConfirm: () => {
-                    // Récupérez les données du formulaire
-                    const formData = new FormData();
-                    formData.append('subject', Swal.getPopup().querySelector('#subject').value);
-                    formData.append('description', Swal.getPopup().querySelector('#description').value);
-
-                    // Soumettez les données via AJAX
-                    return fetch('{{ route('tickets.store') }}', {
-                        method: 'POST',
-                        body: formData,
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .catch(error => {
-                        Swal.showValidationMessage(`Request failed: ${error}`);
-                    });
-                },
-            }).then(result => {
-                // Vérifiez si la requête AJAX a réussi
-                if (result.isConfirmed) {
-                    Swal.fire('Ticket submitted successfully!', '', 'success');
-                    // Vous pouvez actualiser la page ici si nécessaire
-                    location.reload();
-                }
-            });
-        });
-    });
-</script>
+<script src="{{ asset('js/support.js') }}"></script>
 @endsection
