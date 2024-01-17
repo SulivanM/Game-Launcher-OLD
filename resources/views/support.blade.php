@@ -28,7 +28,29 @@
       </div>
     </div>
     <div class="title-space">
-      <h2>SOON</h2>
+      <h2>Tickets</h2>
+
+      <form action="{{ route('tickets.store') }}" method="POST">
+        @csrf
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" required>
+        <label for="description">Description:</label>
+        <textarea name="description" required></textarea>
+        <button type="submit">Submit Ticket</button>
+      </form>
+
+      @foreach($user->tickets as $ticket)
+      <div>
+        <h3>{{ $ticket->subject }}</h3>
+        <p>{{ $ticket->description }}</p>
+        <p>Status: {{ $ticket->status }}</p>
+        <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
+          @csrf
+          @method('PATCH')
+          <button type="submit">Close Ticket</button>
+        </form>
+      </div>
+      @endforeach
     </div>
   </main>
 </div>
