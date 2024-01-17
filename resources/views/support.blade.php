@@ -7,9 +7,9 @@
     <div class="subv-banner">
       <header class="subv-header">
         <div class="left-menu">
-          <a href="#">My Ticket</a>
-          <a href="#">Open Ticket</a>
-          <a href="#">FAQ</a>
+          <a href="#" onclick="showTickets()">My Ticket</a>
+          <a href="#" onclick="showForm()">Open Ticket</a>
+          <a href="#" onclick="showFAQ()">FAQ</a>
         </div>
         <div class="search-box">
           <form>
