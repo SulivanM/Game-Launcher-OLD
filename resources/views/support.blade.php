@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="title-space">
-      <h2>Tickets</h2>
+      <h2>Support Tickets</h2>
 
       <form action="{{ route('tickets.store') }}" method="POST">
         @csrf
@@ -44,11 +44,14 @@
         <h3>{{ $ticket->subject }}</h3>
         <p>{{ $ticket->description }}</p>
         <p>Status: {{ $ticket->status }}</p>
+
+        @if(Auth::user()->is_admin)
         <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
           @csrf
           @method('PATCH')
           <button type="submit">Close Ticket</button>
         </form>
+        @endif
       </div>
       @endforeach
     </div>
