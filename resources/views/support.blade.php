@@ -59,48 +59,54 @@
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Ajoutez un gestionnaire de clic sur le lien "Open Ticket"
-    document.getElementById('open-ticket').addEventListener('click', function (event) {
-        event.preventDefault();
+    document.addEventListener('DOMContentLoaded', function () {
+        // Ajoutez un gestionnaire de clic sur le lien "Open Ticket"
+        document.getElementById('open-ticket').addEventListener('click', function (event) {
+            event.preventDefault();
 
-        // Affichez la fenêtre modale avec le formulaire
-        Swal.fire({
-            title: 'Open Ticket',
-            html:
-                '<form id="ticket-form">' +
-                '   @csrf' +
-                '   <label for="subject">Subject:</label>' +
-                '   <input type="text" name="subject" id="subject" required>' +
-                '   <label for="description">Description:</label>' +
-                '   <textarea name="description" id="description" required></textarea>' +
-                '</form>',
-            showCancelButton: true,
-            confirmButtonText: 'Submit Ticket',
-            cancelButtonText: 'Cancel',
-            preConfirm: () => {
-                // Récupérez les données du formulaire
-                const formData = new FormData(document.getElementById('ticket-form'));
+            // Affichez la fenêtre modale avec le formulaire
+            Swal.fire({
+                title: 'Open Ticket',
+                html:
+                    '<form id="ticket-form">' +
+                    '   <label for="subject">Subject:</label>' +
+                    '   <input type="text" name="subject" id="subject" required>' +
+                    '   <label for="description">Description:</label>' +
+                    '   <textarea name="description" id="description" required></textarea>' +
+                    '</form>',
+                showCancelButton: true,
+                confirmButtonText: 'Submit Ticket',
+                cancelButtonText: 'Cancel',
+                preConfirm: () => {
+                    // Récupérez les données du formulaire
+                    const formData = new FormData();
+                    formData.append('subject', Swal.getPopup().querySelector('#subject').value);
+                    formData.append('description', Swal.getPopup().querySelector('#description').value);
 
-                // Soumettez les données via AJAX
-                return fetch('{{ route('tickets.store') }}', {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json()) // Parsez la réponse JSON
-                .catch(error => {
-                    Swal.showValidationMessage(`Request failed: ${error}`);
-                });
-            },
-        }).then(result => {
-            // Vérifiez si la requête AJAX a réussi
-            if (result.isConfirmed && result.value.status === 'success') {
-                Swal.fire('Ticket submitted successfully!', '', 'success');
-                // Vous pouvez actualiser la page ici si nécessaire
-                location.reload();
-            }
+                    // Soumettez les données via AJAX
+                    return fetch('{{ route('tickets.store') }}', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        Swal.showValidationMessage(`Request failed: ${error}`);
+                    });
+                },
+            }).then(result => {
+                // Vérifiez si la requête AJAX a réussi
+                if (result.isConfirmed) {
+                    Swal.fire('Ticket submitted successfully!', '', 'success');
+                    // Vous pouvez actualiser la page ici si nécessaire
+                    location.reload();
+                }
+            });
         });
     });
-});
 </script>
 @endsection
