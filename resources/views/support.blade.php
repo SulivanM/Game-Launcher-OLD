@@ -40,20 +40,21 @@
       </form>
 
       @foreach($user->tickets ?? [] as $ticket)
-    <div>
+      <div>
         <h3>{{ $ticket->subject }}</h3>
         <p>{{ $ticket->description }}</p>
         <p>Status: {{ $ticket->status }}</p>
 
-        @if(Auth::user() && Auth::user()->is_admin)
-            <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
-                @csrf
-                @method('PATCH')
-                <button type="submit">Close Ticket</button>
-            </form>
+        @if(Auth::user() && (Auth::user()->is_admin || Auth::user()->id === $ticket->user_id))
+        <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
+          @csrf
+          @method('PATCH')
+          <button type="submit">Close Ticket</button>
+        </form>
         @endif
-    </div>
-@endforeach
+      </div>
+
+      @endforeach
     </div>
   </main>
 </div>

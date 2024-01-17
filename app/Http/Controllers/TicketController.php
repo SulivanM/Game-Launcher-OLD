@@ -32,11 +32,15 @@ class TicketController extends Controller
 
     public function close(Ticket $ticket)
     {
-        // Assuming you have an 'is_admin' column in your users table to check if the user is an admin
-        if (Auth::user()->is_admin) {
+        // Vérifie si l'utilisateur authentifié est le propriétaire du ticket
+        if (Auth::user()->id === $ticket->user_id) {
+            // Marque le ticket comme "closed"
             $ticket->update(['status' => 'closed']);
+
+            // Redirige vers la vue des tickets avec un message de succès
             return redirect()->route('tickets.index')->with('success', 'Ticket closed successfully.');
         } else {
+            // Redirige vers la vue des tickets avec un message d'erreur
             return redirect()->route('tickets.index')->with('error', 'You do not have permission to close this ticket.');
         }
     }
