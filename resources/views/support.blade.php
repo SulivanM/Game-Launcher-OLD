@@ -79,16 +79,31 @@
                 confirmButtonText: 'Submit Ticket',
                 cancelButtonText: 'Cancel',
                 preConfirm: () => {
-                    // Vous pouvez ajouter une logique de validation supplémentaire ici si nécessaire
-                    const subject = document.getElementById('subject').value;
-                    const description = document.getElementById('description').value;
-                    if (!subject || !description) {
-                        Swal.showValidationMessage('Subject and description are required');
-                    } else {
-                        // Soumettez le formulaire
-                        document.getElementById('ticket-form').submit();
-                    }
+                    // Récupérez les données du formulaire
+                    const formData = new FormData(document.getElementById('ticket-form'));
+
+                    // Soumettez les données via AJAX
+                    return fetch('{{ route('tickets.store') }}', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .catch(error => {
+                        Swal.showValidationMessage(`Request failed: ${error}`);
+                    });
                 },
+            }).then(result => {
+                // Vérifiez si la requête AJAX a réussi
+                if (result.isConfirmed) {
+                    Swal.fire('Ticket submitted successfully!', '', 'success');
+                    // Vous pouvez actualiser la page ici si nécessaire
+                    location.reload();
+                }
             });
         });
     });
