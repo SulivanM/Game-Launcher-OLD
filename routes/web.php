@@ -46,12 +46,12 @@ Route::post('/settings', [SettingsController::class, 'update'])->name('settings.
 Route::get('/games/{id}', [GameController::class, 'show'])->name('games.show');
 Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
-	Route::get('/search-friends', [FriendController::class, 'searchFriends'])->name('search.friends');
-    Route::post('/send-friend-request/{friend}', [FriendController::class, 'sendFriendRequest'])->name('send.friend.request');
-    Route::post('/accept-friend-request/{friend}', [FriendController::class, 'acceptFriendRequest'])->name('accept.friend.request');
-    Route::post('/decline-friend-request/{friend}', [FriendController::class, 'declineFriendRequest'])->name('decline.friend.request');
-    Route::post('/remove-friend/{friend}', [FriendController::class, 'removeFriend'])->name('remove.friend');
+Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
+Route::get('/search-friends', [FriendController::class, 'searchFriends'])->name('search.friends');
+Route::post('/send-friend-request/{friend}', [FriendController::class, 'sendFriendRequest'])->name('send.friend.request');
+Route::post('/accept-friend-request/{friend}', [FriendController::class, 'acceptFriendRequest'])->name('accept.friend.request');
+Route::post('/decline-friend-request/{friend}', [FriendController::class, 'declineFriendRequest'])->name('decline.friend.request');
+Route::post('/remove-friend/{friend}', [FriendController::class, 'removeFriend'])->name('remove.friend');
 
 Route::get('/preloader', function () {
     return view('preloader');
@@ -81,11 +81,9 @@ Route::get('/balance', function () {
 Route::get('/suggests', function () {
     return view('suggests');
 });
-Route::middleware(['auth'])->group(function () {
-    Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
-    Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
-    Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
-});
+Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
+Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
+Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
 Route::get('/support', function () {
     return view('support');
 });
