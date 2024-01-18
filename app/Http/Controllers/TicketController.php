@@ -6,7 +6,7 @@ use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TicketController extends Controlle
+class TicketController extends Controller
 {
     public function index()
     {
