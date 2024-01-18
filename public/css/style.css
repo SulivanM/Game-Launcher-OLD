@@ -5,6 +5,11 @@
     scrollbar-color: #ffffff #000000;
 }
 
+@font-face {
+  font-family: 'pirulen';
+  src: url('fonts/pirulen_rg.otf') format('truetype');
+}
+
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
     width: 16px;
