@@ -10,8 +10,18 @@ class TicketController extends Controller
 {
     public function index()
     {
+        // Check if the user is authenticated
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in to view your tickets.');
+        }
+
+        // Get the authenticated user
         $user = Auth::user();
+
+        // Get the user's tickets
         $tickets = $user->tickets;
+
+        // Pass the user and tickets to the view
         return view('support', compact('user', 'tickets'));
     }
 
