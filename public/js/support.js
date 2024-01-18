@@ -1,11 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Show preloader on page load
     showPreloader();
 
+    // Hide preloader after 4 seconds (4000 milliseconds)
+    setTimeout(function () {
+        hidePreloader();
+    }, 4000);
 
-    document.getElementById("ticketsLink").addEventListener("click", function () {
-        showPreloader();
-        showTickets();
-    });
+    // Add event listeners for section changes
+    document
+        .getElementById("ticketsLink")
+        .addEventListener("click", function () {
+            showPreloader();
+            showTickets();
+        });
 
     document.getElementById("formLink").addEventListener("click", function () {
         showPreloader();
@@ -16,10 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         showPreloader();
         showFAQ();
     });
-
-    setTimeout(function () {
-        hidePreloader();
-    }, 4000);
 });
 
 function showPreloader() {
@@ -55,15 +59,16 @@ function showFAQ() {
 }
 
 function toggleAnswer(index) {
-    var faqItems = document.querySelectorAll('.faq-item');
+    var faqItems = document.querySelectorAll(".faq-item");
     faqItems.forEach(function (item, i) {
-        var answer = item.querySelector('.faq-answer');
+        var answer = item.querySelector(".faq-answer");
         if (i === index) {
-            item.classList.toggle('faq-active');
-            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            item.classList.toggle("faq-active");
+            answer.style.display =
+                answer.style.display === "none" ? "block" : "none";
         } else {
-            item.classList.remove('faq-active');
-            answer.style.display = 'none';
+            item.classList.remove("faq-active");
+            answer.style.display = "none";
         }
     });
 }
