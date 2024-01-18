@@ -29,25 +29,7 @@
     </div>
     <div class="title-space" id="ticketsSection">
       <h2>Support Tickets</h2>
-      <!-- @if(count($user->tickets) > 0)
-      @foreach($user->tickets as $ticket)
-      <div>
-        <h3>{{ $ticket->subject }}</h3>
-        <p>{{ $ticket->description }}</p>
-        <p>Status: {{ $ticket->status }}</p>
 
-        @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
-        <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
-          @csrf
-          @method('PATCH')
-          <button type="submit">Close Ticket</button>
-        </form>
-        @endif
-      </div>
-      @endforeach
-      @else
-      <p>You dont have ticket for the moment.</p>
-      @endif -->
       {{ dd($user) }}
 
     </div>
