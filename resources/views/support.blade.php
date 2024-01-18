@@ -7,9 +7,9 @@
     <div class="subv-banner">
       <header class="subv-header">
         <div class="left-menu">
-          <a href="#" onclick="showTickets()">My Ticket</a>
-          <a href="#" onclick="showForm()">Open Ticket</a>
-          <a href="#" onclick="showFAQ()">FAQ</a>
+          <a href="#" data-target="support-tickets">My Ticket</a>
+          <a href="#" data-target="open-tickets">Open Ticket</a>
+          <a href="#" data-target="faq-tickets">FAQ</a>
         </div>
         <div class="search-box">
           <form>
@@ -31,44 +31,43 @@
       <span class="dc-loader"></span>
     </div>
     <div class="section" id="support-tickets" style="display:none;">
-    <div class="title-space" id="ticketsSection">
-      <h2>Support Tickets</h2>
-      @if(count($user->tickets) > 0)
-      @foreach($user->tickets as $ticket)
-      <div>
-        <h3>{{ $ticket->subject }}</h3>
-        <p>{{ $ticket->description }}</p>
-        <p>Status: {{ $ticket->status }}</p>
+      <div class="title-space">
+        <h2>Support Tickets</h2>
+        @if(count($user->tickets) > 0)
+        @foreach($user->tickets as $ticket)
+        <div>
+          <h3>{{ $ticket->subject }}</h3>
+          <p>{{ $ticket->description }}</p>
+          <p>Status: {{ $ticket->status }}</p>
 
-        @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
-        <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
-          @csrf
-          @method('PATCH')
-          <button type="submit">Close Ticket</button>
-        </form>
+          @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
+          <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
+            @csrf
+            @method('PATCH')
+            <button type="submit">Close Ticket</button>
+          </form>
+          @endif
+        </div>
+        @endforeach
+        @else
+        <p>You don't have a ticket for the moment.</p>
         @endif
       </div>
-      @endforeach
-      @else
-      <p>You don't have a ticket for the moment.</p>
-      @endif
-    </div>
     </div>
     <div class="section" id="open-tickets" style="display:none;">
-    <div class="title-space" id="formSection" style="display: none;">
-      <h2>Support Tickets</h2>
-      <form action="{{ route('tickets.store') }}" method="POST">
-        @csrf
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" required>
-        <label for="description">Description:</label>
-        <textarea name="description" required></textarea>
-        <button type="submit">Submit Ticket</button>
-      </form>
-    </div>
+      <div class="title-space">
+        <h2>Support Tickets</h2>
+        <form action="{{ route('tickets.store') }}" method="POST">
+          @csrf
+          <label for="subject">Subject:</label>
+          <input type="text" name="subject" required>
+          <label for="description">Description:</label>
+          <textarea name="description" required></textarea>
+          <button type="submit">Submit Ticket</button>
+        </form>
+      </div>
     </div>
     <div class="section" id="faq-tickets" style="display:none;">
-    <div id="faqSection" style="display: none;">
       <div class="title-space">
         <h2>FAQ</h2>
       </div>
@@ -103,7 +102,6 @@
           </div>
         </div>
       </div>
-    </div>
     </div>
   </main>
 </div>
