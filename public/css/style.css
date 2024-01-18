@@ -265,3 +265,16 @@ button[type="button"]{
 	margin-top: 80px;
 	max-height: 275px;
 }
+
+footer {
+  background-color: #11151b;
+  border-top: 1px solid var(--color-info-dark);
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
