@@ -41,14 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
   
-        // Reset text color for all links
-        pageLinks.forEach(function (navLink) {
-          navLink.style.color = ""; // Reset the color to its default value
-        });
-  
-        // Change text color to white for the clicked link
-        link.style.color = "white";
-  
         // Show the loader on each section change
         loaders.forEach(function (loader) {
           loader.style.display = "block";
