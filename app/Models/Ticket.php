@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ticket extends Model
+class Ticket extends Mode
 {
     protected $fillable = ['user_id', 'subject', 'description', 'status'];
 
