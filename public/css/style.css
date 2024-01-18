@@ -28,13 +28,14 @@ body {
 }
 
 .header {
-    background-color: #181e25;
+    background-color: #201334;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-	border-bottom: 2px #fff solid;
+	  border-bottom: 2px #201334 solid;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .logo {
