@@ -1,3 +1,41 @@
+document.addEventListener("DOMContentLoaded", function () {
+    showPreloader();
+
+
+    document.getElementById("ticketsLink").addEventListener("click", function () {
+        showPreloader();
+        showTickets();
+    });
+
+    document.getElementById("formLink").addEventListener("click", function () {
+        showPreloader();
+        showForm();
+    });
+
+    document.getElementById("faqLink").addEventListener("click", function () {
+        showPreloader();
+        showFAQ();
+    });
+
+    setTimeout(function () {
+        hidePreloader();
+    }, 4000);
+});
+
+function showPreloader() {
+    var loaders = document.querySelectorAll(".dc-loader");
+    loaders.forEach(function (loader) {
+        loader.style.display = "block";
+    });
+}
+
+function hidePreloader() {
+    var loaders = document.querySelectorAll(".dc-loader");
+    loaders.forEach(function (loader) {
+        loader.style.display = "none";
+    });
+}
+
 function showTickets() {
     document.getElementById("ticketsSection").style.display = "block";
     document.getElementById("formSection").style.display = "none";

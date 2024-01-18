@@ -27,6 +27,9 @@
         <p>If you encounter any issues, kindly submit a support ticket for prompt assistance.</p>
       </div>
     </div>
+    <div class="title-space">
+      <span class="dc-loader"></span>
+    </div>
     <div class="title-space" id="ticketsSection">
       <h2>Support Tickets</h2>
       @if(count($user->tickets) > 0)
