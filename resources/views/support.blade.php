@@ -29,7 +29,8 @@
     </div>
     <div class="title-space" id="ticketsSection">
       <h2>Support Tickets</h2>
-      @foreach($user->tickets ?? [] as $ticket)
+      @if(count($user->tickets) > 0)
+      @foreach($user->tickets as $ticket)
       <div>
         <h3>{{ $ticket->subject }}</h3>
         <p>{{ $ticket->description }}</p>
@@ -41,11 +42,12 @@
           @method('PATCH')
           <button type="submit">Close Ticket</button>
         </form>
-        @else
-                <p>You dont have ticket for the moment.</p>
         @endif
       </div>
       @endforeach
+      @else
+      <p>You dont have ticket for the moment.</p>
+      @endif
     </div>
     <div class="title-space" id="formSection" style="display: none;">
       <h2>Support Tickets</h2>
