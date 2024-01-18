@@ -56,12 +56,12 @@ class User extends Authenticatable
 
 
     public function friendRequests()
-{
-    return $this->belongsToMany(User::class, 'friends', 'friend_id', 'user_id')
-        ->using(Friendship::class)
-        ->withPivot('accepted')
-        ->wherePivot('accepted', 0);
-}
+    {
+        return $this->belongsToMany(User::class, 'friends', 'friend_id', 'user_id')
+            ->using(Friendship::class)
+            ->withPivot('accepted')
+            ->wherePivot('accepted', 0);
+    }
 
 
     public function acceptFriendRequest(User $user)
@@ -73,7 +73,7 @@ class User extends Authenticatable
     {
         $this->friendRequests()->detach($user->id);
     }
-	public function messages()
+    public function messages()
     {
         return $this->hasMany(Message::class);
     }
@@ -82,4 +82,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ticket::class);
     }
+
 }

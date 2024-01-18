@@ -46,7 +46,7 @@
       </div>
       @endforeach
       @else
-      <p>You dont have ticket for the moment.</p>
+      <p>You don't have a ticket for the moment.</p>
       @endif
     </div>
     <div class="title-space" id="formSection" style="display: none;">
