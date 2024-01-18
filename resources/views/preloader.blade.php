@@ -1,91 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Loading</title>
-    <style>
-      body {
-        background-color: #000;
-        overflow: hidden;
+
+<head>
+  <title>Loading</title>
+  <style>
+    body {
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .preloader-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: flippx 2s infinite linear;
+    }
+
+    .loader:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      transform-origin: -24px 50%;
+      animation: spin 1s infinite linear;
+    }
+
+    .loader:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    @keyframes flippx {
+
+      0%,
+      49% {
+        transform: scaleX(1);
       }
 
-      .preloader-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
+      50%,
+      100% {
+        transform: scaleX(-1);
       }
+    }
 
-      .loader {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 6rem;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
       }
+    }
+  </style>
+</head>
 
-      .loader:before,
-      .loader:after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        animation: pulsOut 1.8s ease-in-out infinite;
-        filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
-      }
+<body>
+  <div class="preloader-container">
+    <span class="loader"></span>
+  </div>
+</body>
 
-      .loader:before {
-        width: 100%;
-        padding-bottom: 100%;
-        box-shadow: inset 0 0 0 1rem #fff;
-        animation-name: pulsIn;
-      }
-
-      .loader:after {
-        width: calc(100% - 2rem);
-        padding-bottom: calc(100% - 2rem);
-        box-shadow: 0 0 0 0 #fff;
-      }
-
-      @keyframes pulsIn {
-        0% {
-          box-shadow: inset 0 0 0 1rem #fff;
-          opacity: 1;
-        }
-
-        50%,
-        100% {
-          box-shadow: inset 0 0 0 0 #fff;
-          opacity: 0;
-        }
-      }
-
-      @keyframes pulsOut {
-
-        0%,
-        50% {
-          box-shadow: 0 0 0 0 #fff;
-          opacity: 0;
-        }
-
-        100% {
-          box-shadow: 0 0 0 1rem #fff;
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="preloader-container">
-      <span class="loader"></span>
-    </div>
-  </body>
 </html>
