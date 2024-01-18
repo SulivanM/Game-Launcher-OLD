@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="sidebar">
-    <a href="../collections">
+    <a href="../collections" style="margin-left: 0;">
       <button class="play-button rounded-corners">
         Play
         <span class="vector-icon">
@@ -76,11 +76,11 @@
       <i class="fa-brands fa-youtube"></i>
       <i class="fa-brands fa-discord"></i>
     </div>
-    <a href="#">
+    <a href="../support">
       <span class="material-symbols-sharp">logout</span>
       <h1 class="h1">Support</h1>
     </a>
-    <a href="#">
+    <a href="{{ route('settings.show') }}">
       <span class="material-symbols-sharp">settings</span>
       <h1 class="h1">Settings</h1>
     </a>
@@ -90,8 +90,7 @@
       <h1 class="h1">{{ ('Logout') }}</h1>
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-    <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe"
-      id="launcherDL">
+    <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe" style="margin-left: 0;" id="launcherDL">
       <button class="launcher-dl-button">INSTALL LAUNCHER</button>
     </a>
   </div>
@@ -115,7 +114,7 @@
     launcherDL.style.display = 'none';
   } else {
     launcherDL.addEventListener('click', (event) => {
-      event.preventDefault();
+      // Nothing
     });
   }
 </script>

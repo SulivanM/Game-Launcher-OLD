@@ -7,8 +7,10 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\TicketController;
 use App\Models\Game;
 use App\Models\User;
+use App\Models\Ticket;
 
 
 /*
@@ -79,7 +81,14 @@ Route::get('/balance', function () {
 Route::get('/suggests', function () {
     return view('suggests');
 });
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
+    Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
+    Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
+});
+Route::get('/support', function () {
+    return view('support');
+});
 Route::get('/downloads', function () {
     return view('downloads');
 });

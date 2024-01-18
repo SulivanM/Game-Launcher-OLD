@@ -1064,7 +1064,7 @@ main {
     src: url(../fonts/Pixel.ttf);
 }
 
-.shop-banner {
+.subv-banner {
     position: relative;
     max-height: 450px;
     overflow: hidden;
@@ -1073,13 +1073,13 @@ main {
     background-size: cover;
 }
 
-.shop-banner img {
+.subv-banner img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.shop-banner-text {
+.subv-banner-text {
     position: absolute;
     top: 50%;
     left: 5%;
@@ -1090,7 +1090,7 @@ main {
     margin: 0;
 }
 
-.shop-banner-text h1 {
+.subv-banner-text h1 {
     font-size: 30px;
     font-weight: bold;
     color: #fff;
@@ -1099,7 +1099,7 @@ main {
     text-shadow: 2px 2px 2px black;
 }
 
-.shop-banner-text p {
+.subv-banner-text p {
     font-size: 25px;
     color: #fff;
     margin: 0;
@@ -1107,7 +1107,7 @@ main {
     text-shadow: 2px 2px 2px black;
 }
 
-.game-header {
+.subv-header {
     border: 1px solid var(--color-info-dark);
     border-radius: 10px;
     background-color: #11151b;
@@ -1123,22 +1123,22 @@ main {
     right: 0;
 }
 
-.game-header .left-menu {
+.subv-header .left-menu {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-.game-header .search-box {
+.subv-header .search-box {
     display: flex;
     align-items: center;
 }
 
-.game-header .search-box i {
+.subv-header .search-box i {
     padding: 0;
 }
 
-.game-header .search-input {
+.subv-header .search-input {
     padding: 5px;
     border: 1px solid var(--color-info-dark);
     background-color: #11151b;
@@ -1147,7 +1147,7 @@ main {
     color: #fff;
 }
 
-.game-header .addon-button {
+.subv-header .addon-button {
     padding: 5px 10px;
     color: #fff;
     border: 1px solid var(--color-info-dark);
@@ -1156,37 +1156,90 @@ main {
     cursor: pointer;
 }
 
-.game-header .addon-button i {
+.subv-header .addon-button i {
     transition: color 0.3s;
 }
 
-.game-header .addon-button i:hover {
+.subv-header .addon-button i:hover {
     color: #fff;
 }
 
 @media (max-width: 768px) {
-    .game-header {
+    .subv-header {
         flex-direction: column;
         align-items: stretch;
         margin: 0;
     }
 
-    .game-header .left-menu {
+    .subv-header .left-menu {
         flex-direction: column;
         gap: 10px;
     }
 
-    .game-header .search-box {
+    .subv-header .search-box {
         margin-top: 10px;
     }
 
-    .shop-banner {
+    .subv-banner {
         max-height: 500px;
     }
 
-    .shop-banner-text {
+    .subv-banner-text {
         display: none;
     }
+}
+
+#faqSection {
+    display: block;
+}
+
+.title-space {
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.faq-container {
+    max-width: 980px;
+    margin: 0 auto;
+    background-color: #11151b;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--color-info-dark);
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    color: #fff;
+}
+
+.faq-item.active {
+    background-color: #11151b;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
 }
 
 footer {
