@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Show preloader on page load
     showPreloader();
 
     // Hide preloader after 4 seconds (4000 milliseconds)
@@ -7,22 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
         hidePreloader();
     }, 4000);
 
-    // Add event listeners for section changes
-    document
-        .getElementById("ticketsLink")
-        .addEventListener("click", function () {
-            showPreloader();
-            showTickets();
-        });
-
-    document.getElementById("formLink").addEventListener("click", function () {
-        showPreloader();
-        showForm();
-    });
-
-    document.getElementById("faqLink").addEventListener("click", function () {
-        showPreloader();
-        showFAQ();
+    // Add event listener for section changes
+    document.addEventListener("click", function (event) {
+        if (event.target.matches("#ticketsLink")) {
+            changeSection("ticketsSection");
+        } else if (event.target.matches("#formLink")) {
+            changeSection("formSection");
+        } else if (event.target.matches("#faqLink")) {
+            changeSection("faqSection");
+        }
     });
 });
 
@@ -40,35 +32,20 @@ function hidePreloader() {
     });
 }
 
-function showTickets() {
-    document.getElementById("ticketsSection").style.display = "block";
-    document.getElementById("formSection").style.display = "none";
-    document.getElementById("faqSection").style.display = "none";
-}
+function changeSection(sectionId) {
+    showPreloader();
 
-function showForm() {
-    document.getElementById("ticketsSection").style.display = "none";
-    document.getElementById("formSection").style.display = "block";
-    document.getElementById("faqSection").style.display = "none";
-}
-
-function showFAQ() {
-    document.getElementById("ticketsSection").style.display = "none";
-    document.getElementById("formSection").style.display = "none";
-    document.getElementById("faqSection").style.display = "block";
-}
-
-function toggleAnswer(index) {
-    var faqItems = document.querySelectorAll(".faq-item");
-    faqItems.forEach(function (item, i) {
-        var answer = item.querySelector(".faq-answer");
-        if (i === index) {
-            item.classList.toggle("faq-active");
-            answer.style.display =
-                answer.style.display === "none" ? "block" : "none";
-        } else {
-            item.classList.remove("faq-active");
-            answer.style.display = "none";
-        }
+    // Hide all sections
+    var sections = document.querySelectorAll(".title-space");
+    sections.forEach(function (section) {
+        section.style.display = "none";
     });
+
+    // Show the selected section
+    document.getElementById(sectionId).style.display = "block";
+
+    // Hide preloader after a short delay (adjust as needed)
+    setTimeout(function () {
+        hidePreloader();
+    }, 500); // You can adjust the delay here if needed
 }
