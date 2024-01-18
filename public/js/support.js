@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Select all loaders, sections, and navigation links
     var loaders = document.querySelectorAll(".dc-loader");
     var sections = document.querySelectorAll(".section");
-    var navLinks = document.querySelectorAll(".nav-link");
+    var pageLinks = document.querySelectorAll(".page-link");
   
     // Flag to indicate if an animation is in progress
     var animationInProgress = false;
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   
     // Add a click handler for each navigation link
-    navLinks.forEach(function (link) {
+    pageLinks.forEach(function (link) {
       link.addEventListener("click", function (event) {
         event.preventDefault();
   
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
   
         // Reset text color for all links
-        navLinks.forEach(function (navLink) {
+        pageLinks.forEach(function (navLink) {
           navLink.style.color = ""; // Reset the color to its default value
         });
   
