@@ -41,6 +41,8 @@
           @method('PATCH')
           <button type="submit">Close Ticket</button>
         </form>
+        @else
+                <p>You dont have ticket for the moment.</p>
         @endif
       </div>
       @endforeach
