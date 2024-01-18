@@ -25,6 +25,8 @@
       <div class="subv-banner-text">
         <h1>Ticket</h1>
         <p>If you encounter any issues, kindly submit a support ticket for prompt assistance.</p>
+        {{ dd($user) }}
+
       </div>
     </div>
     <div class="title-space" id="ticketsSection">

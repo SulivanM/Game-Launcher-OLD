@@ -11,9 +11,11 @@ class TicketController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $tickets = $user->tickets;  // Fix the typo here
+        $tickets = $user->tickets;
         return view('support', compact('user', 'tickets'));
     }
+
+
     public function store(Request $request)
     {
         $request->validate([
