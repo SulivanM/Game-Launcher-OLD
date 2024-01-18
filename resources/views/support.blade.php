@@ -25,13 +25,11 @@
       <div class="subv-banner-text">
         <h1>Ticket</h1>
         <p>If you encounter any issues, kindly submit a support ticket for prompt assistance.</p>
-        {{ dd($user) }}
-
       </div>
     </div>
     <div class="title-space" id="ticketsSection">
       <h2>Support Tickets</h2>
-      @if(count($user->tickets) > 0)
+      <!-- @if(count($user->tickets) > 0)
       @foreach($user->tickets as $ticket)
       <div>
         <h3>{{ $ticket->subject }}</h3>
@@ -49,7 +47,9 @@
       @endforeach
       @else
       <p>You dont have ticket for the moment.</p>
-      @endif
+      @endif -->
+      {{ dd($user) }}
+
     </div>
     <div class="title-space" id="formSection" style="display: none;">
       <h2>Support Tickets</h2>
