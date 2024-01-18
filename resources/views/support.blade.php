@@ -30,6 +30,7 @@
     <div class="title-space">
       <span class="dc-loader"></span>
     </div>
+    <div class="section" id="support-tickets" style="display:none;">
     <div class="title-space" id="ticketsSection">
       <h2>Support Tickets</h2>
       @if(count($user->tickets) > 0)
@@ -52,6 +53,8 @@
       <p>You don't have a ticket for the moment.</p>
       @endif
     </div>
+    </div>
+    <div class="section" id="open-tickets" style="display:none;">
     <div class="title-space" id="formSection" style="display: none;">
       <h2>Support Tickets</h2>
       <form action="{{ route('tickets.store') }}" method="POST">
@@ -63,6 +66,8 @@
         <button type="submit">Submit Ticket</button>
       </form>
     </div>
+    </div>
+    <div class="section" id="faq-tickets" style="display:none;">
     <div id="faqSection" style="display: none;">
       <div class="title-space">
         <h2>FAQ</h2>
@@ -98,6 +103,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </main>
 </div>
