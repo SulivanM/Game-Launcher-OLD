@@ -14,7 +14,7 @@ class TicketController extends Controller
         $tickets = $user->tickets;
         return view('support', compact('user', 'tickets'));
     }
-
+d
     public function store(Request $request)
     {
         $request->validate([
