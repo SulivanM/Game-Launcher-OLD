@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="uuid-3afbf257-4431-414d-81a0-be9cc8e1b7f5" data-name="Calque 4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<svg id="uuid-5b86c963-5300-4cc8-97f9-9caddd5a8128" data-name="Calque 4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464.43 247.88">
   <defs>
     <style>
-      .uuid-bd1ffc29-bd9e-447c-8c11-605d6eee28b7, .uuid-409d1fea-5ee8-4d21-b327-138154494b98 {
-        fill: #fff;
-      }
-
-      .uuid-409d1fea-5ee8-4d21-b327-138154494b98 {
+      .uuid-34caa787-503d-4f72-a17a-4858bede1fd6 {
         font-family: PirulenRg-Regular, Pirulen;
         font-size: 227px;
       }
+
+      .uuid-34caa787-503d-4f72-a17a-4858bede1fd6, .uuid-b83d0777-1383-42ff-a1fe-023f14bcb5a9 {
+        fill: #1d1d1b;
+      }
     </style>
   </defs>
-  <text class="uuid-409d1fea-5ee8-4d21-b327-138154494b98" transform="translate(27.46 193.4)"><tspan x="0" y="0">DC</tspan></text>
-  <path class="uuid-bd1ffc29-bd9e-447c-8c11-605d6eee28b7" d="m1.47,33.6h76.11v23.47H22C9.86,57.07,0,47.21,0,35.07H0C0,34.25.66,33.6,1.47,33.6Z"/>
+  <text class="uuid-34caa787-503d-4f72-a17a-4858bede1fd6" transform="translate(27.46 193.4)"><tspan x="0" y="0">DC</tspan></text>
+  <path class="uuid-b83d0777-1383-42ff-a1fe-023f14bcb5a9" d="m1.47,33.6h76.11v23.47H22C9.86,57.07,0,47.21,0,35.07H0C0,34.25.66,33.6,1.47,33.6Z"/>
 </svg>
