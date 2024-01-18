@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="title-space" id="ticketsSection">
-      <h2>Support Ticket</h2>
+      <h2>Support Tickets</h2>
       @if(count($user->tickets) > 0)
       @foreach($user->tickets as $ticket)
       <div>
