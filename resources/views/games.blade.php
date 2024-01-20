@@ -69,6 +69,12 @@
                     <p>{{ $game->description }}</p>
                     <div class="button-all-games">
                         <a href="{{ route('games.show', ['id' => $game->id]) }}">PLAY NOW FOR FREE !</a>
+
+                        {{-- Ajouter un bouton pour ajouter le jeu à la collection --}}
+                        <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
+                            @csrf
+                            <button type="submit">Ajouter à ma collection</button>
+                        </form>
                     </div>
                 </div>
             </div>
