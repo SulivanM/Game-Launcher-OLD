@@ -60,7 +60,7 @@
             <h2>ALL GAMES</h2>
         </div>
         <div class="all-games-container">
-        @foreach ($games as $game)
+            @foreach ($games as $game)
             <div class="all-games">
                 <img src="{{ asset('images/games/' . $game->game_image) }}" alt="{{ $game->title }}" class="game-image">
                 <div class="game-details">
@@ -69,12 +69,7 @@
                     <p>{{ $game->description }}</p>
                     <div class="button-all-games">
                         <a href="{{ route('games.show', ['id' => $game->id]) }}">PLAY NOW FOR FREE !</a>
-
-                        {{-- Ajouter un bouton pour ajouter le jeu à la collection --}}
-                        <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
-                            @csrf
-                            <button type="button" onclick="addToCollection('{{ $game->id }}')">Ajouter à ma collection</button>
-                        </form>
+                        <a href="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">PLAY NOW FOR FREE !</a>
                     </div>
                 </div>
             </div>
