@@ -529,7 +529,7 @@ main {
 .all-games {
     position: relative;
     width: calc(25% - 20px);
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 10px;
     border: #fff 1px solid;
     overflow: hidden;
@@ -553,6 +553,12 @@ main {
     }
 }
 
+.all-games img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #fff;
+}
+
 .button-all-games,
 .button-all-games a,
 .button-all-games button {
@@ -571,10 +577,9 @@ main {
     transition-duration: 0.4s;
     cursor: pointer;
     margin: 5px;
-    text-decoration: none; /* Ajout pour enlever la décoration du lien */
-    border: none; /* Ajout pour enlever la bordure du bouton */
+    text-decoration: none;
+    border: none;
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
         position: relative;
         width: 100%;
