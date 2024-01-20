@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
@@ -24,11 +25,15 @@ class CollectionController extends Controller
         $game = Game::find($gameId);
 
         if ($user && $game) {
-            $user->games()->attach($game->id);
+            if (!$user->games->contains($game->id)) {
+                $user->games()->attach($game->id);
+
+                return Redirect::to('/collections');
+            } else {
+                return Redirect::to('/collections');
+            }
         }
 
-        $games = $user->games;
-
-        return view('/collections', compact('games'));
+        return Redirect::to('/collections');
     }
 }
