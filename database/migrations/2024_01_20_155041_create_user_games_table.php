@@ -18,7 +18,7 @@ class CreateUserGamesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('game_id')->constrained();
             $table->timestamps();
-        });
+        })
     }
 
     /**
