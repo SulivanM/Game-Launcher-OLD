@@ -519,26 +519,20 @@ main {
 
 .all-games-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 .all-games {
     position: relative;
-    width: calc(25% - 20px);
-    border-radius: 10px;
+    width: calc(33.33% - 20px);
     margin: 10px;
-    border: #fff 1px solid;
     overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
-
-    /* Responsive adjustments */
-    @media (max-width: 1200px) {
-        width: calc(33.33% - 20px);
-    }
 
     @media (max-width: 768px) {
         width: calc(50% - 20px);
@@ -556,36 +550,41 @@ main {
 .all-games img {
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.button-all-games,
-.button-all-games a,
-.button-all-games button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #804dce;
-    color: #fff;
-    padding: 10px 20px;
+.game-details {
+    padding: 15px;
+}
+
+.game-details h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.game-details h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.game-details p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.button-all-games {
     position: absolute;
     bottom: 0;
     right: 0;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 2;
-    transition-duration: 0.4s;
+    background-color: #804dce;
+    color: #fff;
+    padding: 10px 20px;
+    border-bottom-left-radius: 10px;
     cursor: pointer;
-    margin: 5px;
+    transition-duration: 0.4s;
     text-decoration: none;
     border: none;
-
-    @media (max-width: 768px) {
-        position: relative;
-        width: 100%;
-        border-radius: 0;
-        margin: 0;
-    }
 }
 
 .button-all-games:hover {
