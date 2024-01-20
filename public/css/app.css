@@ -571,6 +571,7 @@ main {
 .game-details p {
     font-size: 1em;
     margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .button-all-games {
