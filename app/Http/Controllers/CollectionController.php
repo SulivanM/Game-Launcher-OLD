@@ -14,7 +14,7 @@ class CollectionController extends Controller
 
         if ($user) {
             $games = $user->games;
-            return view('collections.index', compact('games'));
+            return view('collections', compact('games'));
         }
     }
 
