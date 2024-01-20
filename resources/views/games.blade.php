@@ -52,7 +52,6 @@
                                         @csrf
                                         <button type="submit" class="strim-btn">ADD TO MY COLLECTION</button>
                                     </form>
-                                    <a href="{{ $game->getGameRoute() }}" class="strim-btn">PLAY NOW</a>
                                 </div>
                             </div>
                         </div>

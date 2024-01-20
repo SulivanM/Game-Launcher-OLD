@@ -82,7 +82,10 @@
                   <h1>{{ $game->subtitle }} <span class="primary">!</span></h1>
                   <p>{{ $game->description }}</p>
                   <div class="button">
-                    <a href="{{ $game->getGameRoute() }}" class="strim-btn">PLAY NOW</a>
+                    <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
+                      @csrf
+                      <button type="submit" class="strim-btn">ADD TO MY COLLECTION</button>
+                    </form>
                   </div>
                 </div>
               </div>
