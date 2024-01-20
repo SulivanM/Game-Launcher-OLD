@@ -24,6 +24,6 @@ class CollectionController extends Controller
             $user->games()->attach($game->id);
         }
 
-        return redirect()->route('games.index')->with('success', 'Le jeu a été ajouté à votre collection.');
+        return view('games');
     }
 }
