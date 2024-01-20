@@ -29,6 +29,6 @@ class CollectionController extends Controller
 
         $games = $user->games;
 
-        return view('collections.index', compact('games'));
+        return view('collections', compact('games'));
     }
 }
