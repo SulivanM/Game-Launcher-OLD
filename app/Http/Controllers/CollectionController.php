@@ -14,7 +14,7 @@ class CollectionController extends Controller
 
         if ($user) {
             $games = $user->games;
-            return view('collections', compact('games'));
+            return view('/collections', compact('games'));
         }
     }
 
@@ -29,6 +29,6 @@ class CollectionController extends Controller
 
         $games = $user->games;
 
-        return view('collections', compact('games'));
+        return view('/collections', compact('games'));
     }
 }
