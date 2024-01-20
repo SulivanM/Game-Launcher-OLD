@@ -8,6 +8,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\CollectionController;
 use App\Models\Game;
 use App\Models\User;
 use App\Models\Ticket;
