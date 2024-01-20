@@ -15,7 +15,7 @@
           <div class="button-all-games">
             <form action="{{ route('games.show', ['id' => $game->id]) }}" method="get">
               @csrf
-              <button type="submit">PLAY NOW FOR FREE !</button>
+              <button type="submit" class="button-all-games">PLAY NOW FOR FREE !</button>
             </form>
           </div>
         </div>
