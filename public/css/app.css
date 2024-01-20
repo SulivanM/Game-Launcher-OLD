@@ -533,6 +533,24 @@ main {
     margin: 10px;
     border: #fff 1px solid;
     overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        width: calc(33.33% - 20px);
+    }
+
+    @media (max-width: 768px) {
+        width: calc(50% - 20px);
+    }
+
+    @media (max-width: 480px) {
+        width: calc(100% - 20px);
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .button-all-games,
@@ -555,22 +573,18 @@ main {
     margin: 5px;
     text-decoration: none; /* Ajout pour enlever la décoration du lien */
     border: none; /* Ajout pour enlever la bordure du bouton */
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        position: relative;
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+    }
 }
 
 .button-all-games:hover {
     background-color: #6c3ab9;
-}
-
-@media only screen and (max-width: 768px) {
-    .all-games {
-        width: calc(50% - 20px);
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .all-games {
-        width: calc(100% - 20px);
-    }
 }
 
 .first-txt {
