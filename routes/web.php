@@ -63,6 +63,7 @@ Route::get('/games', function () {
 Route::get('/collections', function () {
     return view('collections');
 });
+Route::post('/collections/add/{gameId}', 'CollectionController@addToCollection')->name('collections.add');
 Route::get('/notifications', function () {
     return view('notifications');
 });
