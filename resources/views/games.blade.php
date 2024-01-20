@@ -70,10 +70,11 @@
                     <div class="button-all-games">
                         <a href="{{ route('games.show', ['id' => $game->id]) }}">PLAY NOW FOR FREE !</a>
 
-                        {{-- Ajouter un bouton pour ajouter le jeu à la collection --}}
-                        <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
+                        <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post"
+                            id="add-to-collection-{{ $game->id }}">
                             @csrf
-                            <button type="submit">Ajouter à ma collection</button>
+                            <button type="button" onclick="addToCollection('{{ $game->id }}')">Ajouter à ma
+                                collection</button>
                         </form>
                     </div>
                 </div>
@@ -83,5 +84,6 @@
     </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
+<script src="{{ asset('js/games.js') }}"></script>
 <script src="{{ asset('js/carousel.js') }}"></script>
 @endsection
