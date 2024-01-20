@@ -12,12 +12,10 @@
           <h2>{{ $game->title }}</h2>
           <h1>{{ $game->subtitle }} <span class="primary">!</span></h1>
           <p>{{ $game->description }}</p>
-          <div class="button-all-games">
-            <form action="{{ route('games.show', ['id' => $game->id]) }}" method="get">
-              @csrf
-              <button type="submit" class="button-all-games">PLAY NOW FOR FREE !</button>
-            </form>
-          </div>
+          <form action="{{ route('games.show', ['id' => $game->id]) }}" method="get">
+            @csrf
+            <button type="submit" class="button-all-games">PLAY NOW FOR FREE !</button>
+          </form>
         </div>
       </div>
       @endforeach
