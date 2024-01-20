@@ -691,7 +691,7 @@ main {
 .slider .first-txt .button {
     margin-top: 20px;
 }
-.slider .first-txt .button a {
+.slider .first-txt .button button {
     padding: 10px 20px;
     display: inline-block;
     border-radius: 4px;
