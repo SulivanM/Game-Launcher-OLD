@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
@@ -13,5 +13,17 @@ class CollectionController extends Controller
         $games = $user->games;
 
         return view('collections.index', compact('games'));
+    }
+
+    public function addToCollection($gameId)
+    {
+        $user = auth()->user();
+        $game = Game::find($gameId);
+
+        if ($user && $game) {
+            $user->games()->attach($game->id);
+        }
+
+        return redirect()->route('games.index')->with('success', 'Le jeu a été ajouté à votre collection.');
     }
 }
