@@ -24,6 +24,6 @@ class CollectionController extends Controller
             $user->games()->attach($game->id);
         }
 
-        return view('games');
+        return view('games', compact('games'));
     }
 }
