@@ -69,6 +69,8 @@
                     <p>{{ $game->description }}</p>
                     <div class="button-all-games">
                         <a href="{{ route('games.show', ['id' => $game->id]) }}">PLAY NOW FOR FREE !</a>
+                    </div>
+                    <div class="button-all-games">
                         <a href="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">PLAY NOW FOR FREE !</a>
                     </div>
                 </div>
