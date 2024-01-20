@@ -587,11 +587,10 @@ main {
 }
 
 .button-all-games {
-    margin-top: 10px;
     background-color: #804dce;
     color: #fff;
     padding: 10px 20px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     cursor: pointer;
     transition-duration: 0.4s;
     text-decoration: none;
