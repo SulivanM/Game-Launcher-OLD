@@ -92,12 +92,15 @@ img {
     font-weight: 400;
     font-size: 1.1rem;
 }
+
 h2 {
     font-size: 1.4rem;
 }
+
 h3 {
     font-size: 0.87rem;
 }
+
 h4 {
     font-size: 0.8rem;
 }
@@ -187,12 +190,12 @@ aside .sidebar .icons {
     margin-bottom: 2rem;
 }
 
-aside .sidebar .icons > i {
+aside .sidebar .icons>i {
     color: #7d8da1;
     transition: color 0.3s;
 }
 
-aside .sidebar .icons > i:hover {
+aside .sidebar .icons>i:hover {
     color: #ffffff;
 }
 
@@ -351,6 +354,7 @@ aside .sidebar .message-count {
     color: white;
     background-color: #11151b;
 }
+
 .search::placeholder {
     color: color(#575756 a(0.8));
     text-transform: uppercase;
@@ -368,14 +372,13 @@ main {
     background-color: #181a1e;
     min-height: 100vh;
 }
+
 .banner {
     width: 100%;
-    background-image: linear-gradient(
-            to right,
+    background-image: linear-gradient(to right,
             #181a1e 25%,
             #181a1e 5%,
-            rgba(0, 10, 0, 0.0523)
-        ),
+            rgba(0, 10, 0, 0.0523)),
         url("../images/app/banner.jpg");
     background-size: cover;
     background-position: center;
@@ -407,9 +410,11 @@ main {
     margin-top: 10%;
     margin-left: 2%;
 }
+
 .banner-text h1 {
     font-size: 45px;
 }
+
 .banner-text p {
     font-size: 15px;
     cursor: pointer;
@@ -428,7 +433,7 @@ main {
     }
 }
 
-.bottom > button {
+.bottom>button {
     border: 1px solid var(--color-info-dark);
     background-color: transparent;
     height: 40px;
@@ -439,24 +444,28 @@ main {
 
     margin-left: 20px;
 }
-.bottom > p {
+
+.bottom>p {
     padding: 20px;
 }
+
 .strim-btn {
     background-color: #804dce;
     border: 2px solid #150629;
 }
+
 .links {
     margin-top: 10px;
 }
-.links > a {
+
+.links>a {
     padding: 20px;
     font-size: 15px;
     color: var(--color-dark-varient);
     transition: color 0.3s ease;
 }
 
-.links > a:hover {
+.links>a:hover {
     color: #fff;
 }
 
@@ -471,9 +480,11 @@ main {
 .slider {
     display: grid;
 }
+
 .slider {
     margin-top: 30px;
 }
+
 .tile-1 {
     margin-left: 20px !important;
     margin-right: 20px !important;
@@ -482,6 +493,7 @@ main {
     background-image: linear-gradient(to right, #181a1e, rgba(117, 19, 93, 0));
     max-height: 275px;
 }
+
 .title-space {
     padding-top: 50px;
 }
@@ -575,17 +587,16 @@ main {
 }
 
 .button-all-games {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    margin-top: 10px;
     background-color: #804dce;
     color: #fff;
     padding: 10px 20px;
-    border-bottom-left-radius: 10px;
+    border-radius: 0 0 10px 10px;
     cursor: pointer;
     transition-duration: 0.4s;
     text-decoration: none;
     border: none;
+    display: block;
 }
 
 .button-all-games:hover {
@@ -599,7 +610,7 @@ main {
     text-shadow: 1px 1px 2px black;
 }
 
-.statistics > h1 {
+.statistics>h1 {
     margin-left: 20px;
     margin-top: 30px;
 }
@@ -611,10 +622,12 @@ main {
     height: 150px;
     margin: 20px 50px 20px 50px;
 }
-.data > div {
+
+.data>div {
     margin-top: 28px;
 }
-.data > div > p {
+
+.data>div>p {
     padding: 5px;
 }
 
@@ -626,19 +639,23 @@ main {
     border-radius: 20px;
     margin-left: -11px;
 }
+
 .banner .bottom {
     align-items: center;
 }
+
 .banner .bottom .fa-pencil {
     padding: 5px;
     border-radius: 50px;
     background-color: #11151b;
     font-size: 11px;
 }
+
 .banner .bottom .mx-3 {
     margin-left: 10px;
     margin-right: 10px;
 }
+
 .banner .dfjsac {
     display: flex;
     justify-content: space-between;
@@ -647,12 +664,14 @@ main {
     position: absolute;
     z-index: 5;
 }
+
 .social-links {
     padding: 10px;
     border: 1px solid var(--color-info-dark);
     border-radius: 10px;
     background-color: #11151b;
 }
+
 .banner .dfjsac .social-links a i {
     font-size: 18px;
     margin-left: 5px;
@@ -664,58 +683,72 @@ main {
 .banner .dfjsac .social-links a i:hover {
     color: #fff;
 }
+
 .statistics {
     margin-top: 20px;
 }
+
 .statistics .price-tag {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
 }
+
 .statistics .statistics-heading,
 .statistics .flag-img {
     align-items: center;
 }
+
 .statistics .flag-img img {
     width: 30px;
     border-radius: 50%;
 }
+
 .statistics .shield-img {
     max-width: 100px;
     margin: auto;
 }
+
 .statistics .price-tag .trophy-gold {
     color: gold;
 }
+
 .statistics .statistics-heading {
     gap: 30px;
     margin: 0px 20px;
 }
+
 .statistics .statistics-heading img {
     width: 30px;
     margin-left: -10px;
     border-radius: 50%;
     display: inline-block;
 }
+
 .slider {
     min-height: 250px;
 }
+
 .slider .first-txt {
     top: 24%;
 }
+
 .slider .first-txt h1 {
     margin-bottom: 20px;
 }
+
 .slider .first-txt .button {
     margin-top: 20px;
 }
+
 .slider .first-txt .button button {
     padding: 10px 20px;
     display: inline-block;
     border-radius: 4px;
     color: #fff;
 }
+
 .sidebar .play-button {
     position: relative;
     text-align: left;
@@ -724,11 +757,13 @@ main {
     margin-right: auto;
     margin-left: auto;
 }
+
 .sidebar .play-button .vector-icon {
     position: absolute;
     right: 0px;
     top: 0px;
 }
+
 .sidebar .play-button .fa-play-circle {
     color: #ffffff;
     font-size: 25px;
@@ -742,6 +777,7 @@ main {
     overflow: hidden;
     width: 100%;
 }
+
 .slider .owl-carousel.owl-drag .owl-item {
     width: 50%;
 }
@@ -749,10 +785,12 @@ main {
 .slider .slider-tile {
     min-height: 275px;
 }
+
 #carousel .owl-item.active {
     background-color: transparent;
     border-radius: 0px;
 }
+
 #basic-information {
     position: relative;
 }
@@ -795,10 +833,12 @@ main {
 }
 
 @keyframes flippx {
+
     0%,
     49% {
         transform: scaleX(1);
     }
+
     50%,
     100% {
         transform: scaleX(-1);
@@ -827,9 +867,11 @@ main {
     aside .sidebar h1 {
         display: none;
     }
+
     aside .sidebar a {
         width: 5.6rem;
     }
+
     aside .sidebar a:last-child {
         position: relative;
         margin-top: 1.8rem;
@@ -840,9 +882,11 @@ main {
     .body {
         max-width: 100%;
     }
+
     .container {
         grid-template-columns: 1fr;
     }
+
     aside {
         position: fixed;
         left: -100;
@@ -862,6 +906,7 @@ main {
             left: 0;
         }
     }
+
     aside .logo {
         margin-left: 1rem;
     }
@@ -869,6 +914,7 @@ main {
     aside .logo h2 {
         display: inline;
     }
+
     aside .sidebar h1 {
         display: inline;
     }
@@ -920,6 +966,7 @@ main {
     .right .profile .info {
         display: none;
     }
+
     .right .top button {
         display: inline-block;
         background: transparent;
@@ -949,25 +996,31 @@ main {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
     }
-    .slider > div.slider-tile {
+
+    .slider>div.slider-tile {
         margin-top: 100px;
     }
+
     main {
         width: 95%;
         height: 100%;
     }
+
     .banner-text {
         margin-top: 250px;
         margin-left: 30px;
     }
+
     .data {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         height: 100%;
     }
-    .data > div > p {
+
+    .data>div>p {
         padding: 10px;
     }
+
     .play-button {
         margin-left: 20px;
     }
@@ -975,6 +1028,7 @@ main {
     .container {
         margin: auto;
     }
+
     main {
         width: 100%;
     }
@@ -983,46 +1037,57 @@ main {
         margin-top: 150px;
         padding-top: 20px;
     }
+
     .banner .banner-text h1 {
         font-size: 32px;
     }
+
     .banner .banner-text br {
         display: none;
     }
+
     .banner .bottom {
         display: inherit;
         flex-wrap: wrap;
         align-items: center;
     }
-    .banner .bottom > button {
+
+    .banner .bottom>button {
         height: 35px;
         width: 100px;
         font-size: 14px;
     }
-    .banner .links > a {
+
+    .banner .links>a {
         padding: 7px 10px;
         display: inline-block;
         font-size: 13px;
     }
+
     .banner .line {
         visibility: hidden;
     }
+
     .slider {
         margin-top: 0px;
     }
+
     .slider .slider-tile {
         margin-top: 50px;
         margin-left: 0px !important;
         margin-right: 0px !important;
         min-height: 275px;
     }
+
     .statistics .data {
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
+
     .banner .dfjsac {
         display: block;
     }
+
     .banner .dfjsac .social-links,
     .banner .dfjsac .links {
         margin-bottom: 10px;
