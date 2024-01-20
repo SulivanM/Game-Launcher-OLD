@@ -73,7 +73,7 @@
                     {{-- Ajouter un bouton pour ajouter le jeu à la collection --}}
                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
                         @csrf
-                        <button type="submit">Ajouter à ma collection</button>
+                        <button type="submit" class="button-all-games">Ajouter à ma collection</button>
                     </form>
                 </div>
             </div>
