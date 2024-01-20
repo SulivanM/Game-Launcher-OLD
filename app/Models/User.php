@@ -83,4 +83,9 @@ class User extends Authenticatable
         return $this->hasMany(Ticket::class);
     }
 
+    public function games()
+    {
+        return $this->belongsToMany(Game::class, 'user_games')->withTimestamps();
+    }
+
 }
