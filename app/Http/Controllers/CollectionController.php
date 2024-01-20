@@ -9,10 +9,12 @@ class CollectionController extends Controller
 {
     public function index()
     {
-        $user = auth()->user();
-        $games = $user->games;
+        $user = Auth::user();
 
-        return view('collections.index', compact('games'));
+        if ($user) {
+            $games = $user->games;
+            return view('collections.index', compact('games'));
+        }
     }
 
     public function addToCollection($gameId)
