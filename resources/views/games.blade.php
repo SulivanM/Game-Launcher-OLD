@@ -49,6 +49,10 @@
                                 <div class="button">
                                     <a href="{{ $game->getGameRoute() }}" class="strim-btn">PLAY NOW</a>
                                 </div>
+                                <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="button-all-games">ADD TO MY COLLECTION</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -69,7 +73,7 @@
                     <p>{{ $game->description }}</p>
                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
                         @csrf
-                        <button type="submit" class="button-all-games">Ajouter à ma collection</button>
+                        <button type="submit" class="button-all-games">ADD TO MY COLLECTION</button>
                     </form>
                 </div>
             </div>
