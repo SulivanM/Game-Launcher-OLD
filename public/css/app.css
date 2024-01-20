@@ -535,7 +535,8 @@ main {
     overflow: hidden;
 }
 
-.button-all-games {
+.button-all-games,
+.button-all-games a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -551,11 +552,7 @@ main {
     transition-duration: 0.4s;
     cursor: pointer;
     margin: 5px;
-}
-
-.button-all-games a {
     text-decoration: none;
-    font-weight: bold;
 }
 
 .button-all-games:hover {
