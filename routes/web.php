@@ -61,9 +61,7 @@ Route::get('/games', function () {
     $games = Game::all();
     return view('games', compact('games'));
 });
-Route::get('/collections', function () {
-    return view('collections');
-});
+Route::get('/collections', [CollectionController::class, 'index'])->name('collections.index');
 Route::post('/collections/add/{gameId}', 'App\Http\Controllers\CollectionController@addToCollection')->name('collections.add');
 Route::get('/notifications', function () {
     return view('notifications');
