@@ -19,6 +19,7 @@
       <div class="profile">
         <div class="info">
           <p><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></p>
+          <p class="coin-text">0.00 DCOIN</p>
         </div>
         <a href="{{ route('profile') }}">
           <div class="profile-photo">
