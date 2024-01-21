@@ -19,9 +19,6 @@ class PayPalController extends Controller
         $paypalToken = $provider->getAccessToken();
 
         $package = $request->input('package');
-        $customAmount = $request->input('custom_amount');
-
-        $amount = ($package == 'custom') ? $customAmount : $package;
 
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
@@ -33,7 +30,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => $amount,
+                        "value" => $package,
                     ]
                 ]
             ]
@@ -66,12 +63,10 @@ class PayPalController extends Controller
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $user = auth()->user();
 
-            $package = $request->input('package');
-            $customAmount = $request->input('custom_amount');
-            $amount = ($package == 'custom') ? $customAmount : $package;
+            $amountPaid = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
 
             $user->update([
-                'dcoin' => $user->dcoin + $amount,
+                'dcoin' => $user->dcoin + $amountPaid,
             ]);
 
             return redirect()->route('balance')->with('payment_successful', true);

@@ -17,7 +17,6 @@
           <option value="5">5 DCOIN</option>
           <option value="10">10 DCOIN</option>
           <option value="50">50 DCOIN</option>
-          <option value="custom">Custom Amount</option>
         </select>
         
         <input type="text" name="custom_amount" id="custom_amount" placeholder="Enter custom amount" style="display: none;">
