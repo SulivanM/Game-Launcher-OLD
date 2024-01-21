@@ -79,8 +79,9 @@ Route::get('/streams', function () {
 Route::get('/balance', function () {
     return view('balance');
 })->name('balance')->middleware('auth');
-Route::post('/paypal/process', [PayPalController::class, 'process'])->name('paypal.process');
-Route::get('/paypal/confirm', [PayPalController::class, 'getExpressCheckoutDetails'])->name('paypal.confirm');
+Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 Route::get('/suggests', function () {
     return view('suggests');
 });

@@ -1,47 +1,101 @@
 <?php
-
+  
 namespace App\Http\Controllers;
-
+  
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Http\Request;
-
+  
 class PayPalController extends Controller
 {
-    public function process(Request $request)
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function index()
     {
-        $provider = new PayPalClient;
-
-        $response = $provider->addProduct('Demo Product', 'Demo Product', 'SERVICE', 'SOFTWARE')
-            ->addPlanTrialPricing('DAY', 7)
-            ->addDailyPlan('Demo Plan', 'Demo Plan', 1.50)
-            ->setReturnAndCancelUrl('https://launcher.digitalchocolate.online/paypal-success', 'https://launcher.digitalchocolate.online/paypal-cancel')
-            ->setupSubscription('John Doe', 'john@example.com', '2021-12-10');
-
-        if (isset($response['approve_link'])) {
-            return redirect($response['approve_link']);
-        } else {
-            return redirect('/balance')->with('error', 'Failed to retrieve approval link. Please try again.');
-        }
+        return view('balance');
     }
-
-    public function getExpressCheckoutDetails(Request $request)
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function payment(Request $request)
     {
-        $token = $request->get('token');
-        $payerId = $request->get('PayerID');
-
         $provider = new PayPalClient;
-
-        $response = $provider->capturePayment($token, $payerId);
-
-        if (isset($response['status']) && $response['status'] == 'success') {
-            // Update the 'dcoin' column of the authenticated user
-            auth()->user()->update([
-                'dcoin' => auth()->user()->dcoin + $response['amount'],
-            ]);
-
-            return redirect('/balance')->with('success', 'Payment successful. Your account has been credited.');
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+  
+        $response = $provider->createOrder([
+            "intent" => "CAPTURE",
+            "application_context" => [
+                "return_url" => route('paypal.payment.success'),
+                "cancel_url" => route('paypal.payment/cancel'),
+            ],
+            "purchase_units" => [
+                0 => [
+                    "amount" => [
+                        "currency_code" => "USD",
+                        "value" => "100.00"
+                    ]
+                ]
+            ]
+        ]);
+  
+        if (isset($response['id']) && $response['id'] != null) {
+  
+            foreach ($response['links'] as $links) {
+                if ($links['rel'] == 'approve') {
+                    return redirect()->away($links['href']);
+                }
+            }
+  
+            return redirect()
+                ->route('cancel.payment')
+                ->with('error', 'Something went wrong.');
+  
         } else {
-            return redirect('/balance')->with('error', 'Payment failed. Please try again.');
+            return redirect()
+                ->route('create.payment')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
+        }
+    
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function paymentCancel()
+    {
+        return redirect()
+              ->route('paypal')
+              ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+    }
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function paymentSuccess(Request $request)
+    {
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request['token']);
+  
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            return redirect()
+                ->route('paypal')
+                ->with('success', 'Transaction complete.');
+        } else {
+            return redirect()
+                ->route('paypal')
+                ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }
 }
