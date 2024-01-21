@@ -24,6 +24,7 @@ class User extends Authenticatable
         'prenom',
         'nom',
         'language',
+        'dcoin',
         'ip',
         'date_creation',
         'trophies',
@@ -51,7 +52,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id')
             ->withPivot('accepted')
-            ->with('friends'); // Charger les informations complètes des amis
+            ->with('friends');
     }
 
 
