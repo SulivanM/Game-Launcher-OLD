@@ -30,15 +30,14 @@ class PayPalController extends Controller
         $response = $provider->capturePayment($token, $payerId);
 
         if ($response['status'] == 'success') {
-            // Mettez à jour la colonne 'dcoin' de l'utilisateur authentifié
+            // Update the 'dcoin' column of the authenticated user
             auth()->user()->update([
                 'dcoin' => auth()->user()->dcoin + $response['amount'],
             ]);
 
-            return redirect('/balance')->with('success', 'Paiement réussi. Votre compte a été crédité.');
+            return redirect('/balance')->with('success', 'Payment successful. Your account has been credited.');
         } else {
-            return redirect('/balance')->with('error', 'Échec du paiement. Veuillez réessayer.');
+            return redirect('/balance')->with('error', 'Payment failed. Please try again.');
         }
     }
-
 }
