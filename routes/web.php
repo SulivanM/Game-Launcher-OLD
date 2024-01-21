@@ -9,6 +9,7 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\PayPalController;
 use App\Models\Game;
 use App\Models\User;
 use App\Models\Ticket;
@@ -77,7 +78,9 @@ Route::get('/streams', function () {
 });
 Route::get('/balance', function () {
     return view('balance');
-});
+})->name('balance')->middleware('auth');
+Route::post('/paypal/process', [PayPalController::class, 'process'])->name('paypal.process');
+Route::get('/paypal/confirm', [PayPalController::class, 'getExpressCheckoutDetails'])->name('paypal.confirm');
 Route::get('/suggests', function () {
     return view('suggests');
 });
