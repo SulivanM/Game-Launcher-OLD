@@ -1,29 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-use Auth;
 
 class PayPalController extends Controller
 {
     public function process(Request $request)
     {
-        $data = [];
-        $data['items'] = [
-            [
-                'name' => 'DCOIN',
-                'price' => $request->input('amount_custom', $request->input('amount')),
-                'qty' => 1,
-            ],
-        ];
-
         $provider = new PayPalClient;
 
-        $response = $provider->setExpressCheckout($data);
+        $response = $provider->addProduct('Demo Product', 'Demo Product', 'SERVICE', 'SOFTWARE')
+            ->addPlanTrialPricing('DAY', 7)
+            ->addDailyPlan('Demo Plan', 'Demo Plan', 1.50)
+            ->setReturnAndCancelUrl('https://example.com/paypal-success', 'https://example.com/paypal-cancel')
+            ->setupSubscription('John Doe', 'john@example.com', '2021-12-10');
 
-        return redirect($response['paypal_link']);
+        return redirect($response['approve_link']);
     }
 
     public function getExpressCheckoutDetails(Request $request)
@@ -33,14 +25,12 @@ class PayPalController extends Controller
 
         $provider = new PayPalClient;
 
-        $response = $provider->getExpressCheckoutDetails($token);
+        $response = $provider->capturePayment($token, $payerId);
 
-        $paymentStatus = $provider->doExpressCheckoutPayment($response, $token, $payerId);
-
-        if ($paymentStatus == 'success') {
+        if ($response['status'] == 'success') {
             // Mettez à jour la colonne 'dcoin' de l'utilisateur authentifié
-            Auth::user()->update([
-                'dcoin' => Auth::user()->dcoin + $response['PAYMENTREQUEST_0_AMT'],
+            auth()->user()->update([
+                'dcoin' => auth()->user()->dcoin + $response['amount'],
             ]);
 
             return redirect('/balance')->with('success', 'Paiement réussi. Votre compte a été crédité.');
