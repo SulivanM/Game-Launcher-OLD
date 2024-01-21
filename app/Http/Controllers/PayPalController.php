@@ -59,7 +59,6 @@ class PayPalController extends Controller
         } else {
             return redirect()
                 ->route('create.payment')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     
     }
@@ -72,8 +71,7 @@ class PayPalController extends Controller
     public function paymentCancel()
     {
         return redirect()
-              ->route('paypal')
-              ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+              ->route('balance')
     }
   
     /**
@@ -90,12 +88,10 @@ class PayPalController extends Controller
   
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()
-                ->route('paypal')
-                ->with('success', 'Transaction complete.');
+                ->route('balance')
         } else {
             return redirect()
-                ->route('paypal')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
+                ->route('balance')
         }
     }
 }
