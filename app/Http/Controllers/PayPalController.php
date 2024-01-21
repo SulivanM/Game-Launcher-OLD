@@ -40,4 +40,5 @@ class PayPalController extends Controller
             return redirect('/balance')->with('error', 'Échec du paiement. Veuillez réessayer.');
         }
     }
+
 }
