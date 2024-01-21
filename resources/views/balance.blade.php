@@ -10,7 +10,20 @@
     <div class="balance-container">
       <p class="coin-text">{{ number_format(Auth::user()->dcoin, 2) }} DCOIN</p>
 
-      <a href="{{ route('paypal.payment') }}" class="btn btn-success">Pay with PayPal </a>
+      <form action="{{ route('paypal.payment') }}" method="post">
+        @csrf
+        <label for="package">Select Package:</label>
+        <select name="package" id="package" class="form-control">
+          <option value="5">5 DCOIN</option>
+          <option value="10">10 DCOIN</option>
+          <option value="50">50 DCOIN</option>
+          <option value="custom">Custom Amount</option>
+        </select>
+        
+        <input type="text" name="custom_amount" id="custom_amount" placeholder="Enter custom amount" style="display: none;">
+
+        <button type="submit" class="btn btn-success">Pay with PayPal</button>
+      </form>
     </div>
 
   </main>
