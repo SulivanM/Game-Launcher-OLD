@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Facades\PayPal;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Auth;
 
 class PayPalController extends Controller
@@ -19,7 +19,9 @@ class PayPalController extends Controller
             ],
         ];
 
-        $response = PayPal::setExpressCheckout($data);
+        $provider = new PayPalClient;
+
+        $response = $provider->setExpressCheckout($data);
 
         return redirect($response['paypal_link']);
     }
@@ -29,14 +31,16 @@ class PayPalController extends Controller
         $token = $request->get('token');
         $payerId = $request->get('PayerID');
 
-        $response = PayPal::getExpressCheckoutDetails($token);
+        $provider = new PayPalClient;
 
-        $paymentStatus = PayPal::doExpressCheckoutPayment($response, $token, $payerId);
+        $response = $provider->getExpressCheckoutDetails($token);
+
+        $paymentStatus = $provider->doExpressCheckoutPayment($response, $token, $payerId);
 
         if ($paymentStatus == 'success') {
             // Mettez à jour la colonne 'dcoin' de l'utilisateur authentifié
-            auth()->user()->update([
-                'dcoin' => auth()->user()->dcoin + $response['PAYMENTREQUEST_0_AMT'],
+            Auth::user()->update([
+                'dcoin' => Auth::user()->dcoin + $response['PAYMENTREQUEST_0_AMT'],
             ]);
 
             return redirect('/balance')->with('success', 'Paiement réussi. Votre compte a été crédité.');
