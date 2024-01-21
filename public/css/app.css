@@ -401,7 +401,7 @@ main {
     height: 100%;
 }
 
-.search__container {
+.navbar {
     position: relative;
     z-index: 1;
 }
@@ -629,7 +629,7 @@ main {
     padding: 5px;
 }
 
-.search__container .fa-message sup {
+.navbar sup {
     background-color: var(--color-primary);
     color: #ffffff;
     font-size: 9px;

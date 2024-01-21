@@ -1,8 +1,8 @@
-<div class="search__container">
+<div class="navbar">
   <input class="search__input" type="text" id="search-input" placeholder="Search..">
   <i class="fa-regular fa-bell"></i>
   <i class="fa-solid fa-message">
-    <sup>0 </sup>
+    <sup>0</sup>
   </i>
   <div class="right">
     <div class="top">
