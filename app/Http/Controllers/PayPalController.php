@@ -17,6 +17,7 @@ class PayPalController extends Controller
             ->setReturnAndCancelUrl('https://example.com/paypal-success', 'https://example.com/paypal-cancel')
             ->setupSubscription('John Doe', 'john@example.com', '2021-12-10');
 
+
         return redirect($response['approve_link']);
     }
 
