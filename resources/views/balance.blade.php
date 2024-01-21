@@ -28,5 +28,27 @@
 
   </main>
 </div>
+
 <script src="{{ asset('js/index.js') }}"></script>
+
+@if(session('payment_cancelled'))
+    <script>
+        Swal.fire({
+            title: "Payment Canceled",
+            text: "Your payment has been canceled.",
+            icon: "warning",
+        });
+    </script>
+@endif
+
+@if(session('payment_successful'))
+    <script>
+        Swal.fire({
+            title: "Payment Successful",
+            text: "Your payment was successful.",
+            icon: "success",
+        });
+    </script>
+@endif
+
 @endsection

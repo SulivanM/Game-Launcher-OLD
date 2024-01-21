@@ -52,16 +52,9 @@ class PayPalController extends Controller
     }
 
     public function paymentCancel()
-    {
-        echo '<script>
-                Swal.fire({
-                    title: "Payment Canceled",
-                    text: "Your payment has been canceled.",
-                    icon: "warning",
-                });
-              </script>';
-        return redirect()->route('balance');
-    }
+{
+    return redirect()->route('balance')->with('payment_cancelled', true);
+}
 
     public function paymentSuccess(Request $request)
     {
@@ -71,14 +64,7 @@ class PayPalController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
-            echo '<script>
-                    Swal.fire({
-                        title: "Payment Successful",
-                        text: "Your payment was successful.",
-                        icon: "success",
-                    });
-                  </script>';
-            return redirect()->route('balance');
+            return redirect()->route('balance')->with('payment_successful', true);
         } else {
             return redirect()->route('balance');
         }
