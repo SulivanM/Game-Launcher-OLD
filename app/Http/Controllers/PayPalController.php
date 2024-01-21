@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Services\ExpressCheckout;
+use Srmklive\PayPal\Facades\PayPal;
 use Auth;
 
 class PayPalController extends Controller
