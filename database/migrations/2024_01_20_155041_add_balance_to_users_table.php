@@ -14,7 +14,7 @@ class AddBalanceToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->decimal('balance', 8, 2)->default(0.00)->after('language');
+            $table->dropColumn('balance');
         });
     }
 
@@ -26,7 +26,7 @@ class AddBalanceToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('balance');
+            $table->decimal('balance', 8, 2)->default(0.00)->after('language');
         });
     }
 }
