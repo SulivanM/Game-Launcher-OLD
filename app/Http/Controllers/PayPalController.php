@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Illuminate\Http\Request;
 
 class PayPalController extends Controller
 {
@@ -17,8 +17,11 @@ class PayPalController extends Controller
             ->setReturnAndCancelUrl('https://example.com/paypal-success', 'https://example.com/paypal-cancel')
             ->setupSubscription('John Doe', 'john@example.com', '2021-12-10');
 
-
-        return redirect($response['approve_link']);
+        if (isset($response['approve_link'])) {
+            return redirect($response['approve_link']);
+        } else {
+            return redirect('/balance')->with('error', 'Failed to retrieve approval link. Please try again.');
+        }
     }
 
     public function getExpressCheckoutDetails(Request $request)
@@ -30,7 +33,7 @@ class PayPalController extends Controller
 
         $response = $provider->capturePayment($token, $payerId);
 
-        if ($response['status'] == 'success') {
+        if (isset($response['status']) && $response['status'] == 'success') {
             // Update the 'dcoin' column of the authenticated user
             auth()->user()->update([
                 'dcoin' => auth()->user()->dcoin + $response['amount'],
