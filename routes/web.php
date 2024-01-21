@@ -79,10 +79,10 @@ Route::get('/streams', function () {
 Route::get('/balance', function () {
     return view('balance');
 })->name('balance')->middleware('auth');
-Route::get('/paypal/payment', 'PayPalController@index')->name('paypal.payment');
-Route::post('/paypal/payment', 'PayPalController@payment');
-Route::get('/paypal/payment/success', 'PayPalController@paymentSuccess')->name('paypal.payment.success');
-Route::get('/paypal/payment/cancel', 'PayPalController@paymentCancel')->name('paypal.payment.cancel');
+Route::get('/paypal/payment', [PayPalController::class, 'index'])->name('paypal.payment');
+Route::post('/paypal/payment', [PayPalController::class, 'payment']);
+Route::get('/paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+Route::get('/paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment.cancel');
 Route::get('/suggests', function () {
     return view('suggests');
 });
