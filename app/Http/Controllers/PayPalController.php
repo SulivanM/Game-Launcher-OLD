@@ -52,9 +52,9 @@ class PayPalController extends Controller
     }
 
     public function paymentCancel()
-{
-    return redirect()->route('balance')->with('payment_cancelled', true);
-}
+    {
+        return redirect()->route('balance')->with('payment_cancelled', true);
+    }
 
     public function paymentSuccess(Request $request)
     {
@@ -64,6 +64,16 @@ class PayPalController extends Controller
         $response = $provider->capturePaymentOrder($request['token']);
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+            $user = auth()->user();
+
+            $package = $request->input('package');
+            $customAmount = $request->input('custom_amount');
+            $amount = ($package == 'custom') ? $customAmount : $package;
+
+            $user->update([
+                'dcoin' => $user->dcoin + $amount,
+            ]);
+
             return redirect()->route('balance')->with('payment_successful', true);
         } else {
             return redirect()->route('balance');
