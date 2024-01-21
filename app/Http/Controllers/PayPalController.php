@@ -14,7 +14,7 @@ class PayPalController extends Controller
         $response = $provider->addProduct('Demo Product', 'Demo Product', 'SERVICE', 'SOFTWARE')
             ->addPlanTrialPricing('DAY', 7)
             ->addDailyPlan('Demo Plan', 'Demo Plan', 1.50)
-            ->setReturnAndCancelUrl('https://example.com/paypal-success', 'https://example.com/paypal-cancel')
+            ->setReturnAndCancelUrl('https://launcher.digitalchocolate.online/paypal-success', 'https://launcher.digitalchocolate.online/paypal-cancel')
             ->setupSubscription('John Doe', 'john@example.com', '2021-12-10');
 
         if (isset($response['approve_link'])) {
