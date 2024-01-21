@@ -10,8 +10,6 @@ class PayPalController extends Controller
 {
     public function process(Request $request)
     {
-        $provider = new ExpressCheckout();
-
         $data = [];
         $data['items'] = [
             [
@@ -21,7 +19,7 @@ class PayPalController extends Controller
             ],
         ];
 
-        $response = $provider->setExpressCheckout($data);
+        $response = PayPal::setExpressCheckout($data);
 
         return redirect($response['paypal_link']);
     }
@@ -31,15 +29,14 @@ class PayPalController extends Controller
         $token = $request->get('token');
         $payerId = $request->get('PayerID');
 
-        $provider = new ExpressCheckout();
+        $response = PayPal::getExpressCheckoutDetails($token);
 
-        $response = $provider->getExpressCheckoutDetails($token);
-
-        $paymentStatus = $provider->doExpressCheckoutPayment($response, $token, $payerId);
+        $paymentStatus = PayPal::doExpressCheckoutPayment($response, $token, $payerId);
 
         if ($paymentStatus == 'success') {
-            Auth::user()->update([
-                'dcoin' => Auth::user()->dcoin + $response['PAYMENTREQUEST_0_AMT'],
+            // Mettez à jour la colonne 'dcoin' de l'utilisateur authentifié
+            auth()->user()->update([
+                'dcoin' => auth()->user()->dcoin + $response['PAYMENTREQUEST_0_AMT'],
             ]);
 
             return redirect('/balance')->with('success', 'Paiement réussi. Votre compte a été crédité.');
