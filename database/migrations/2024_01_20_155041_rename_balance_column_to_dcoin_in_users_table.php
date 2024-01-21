@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddBalanceToUsersTable extends Migration
+class RenameBalanceColumnToDcoinInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddBalanceToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('balance');
+            $table->renameColumn('balance', 'dcoin');
         });
     }
 
@@ -26,7 +26,7 @@ class AddBalanceToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->decimal('balance', 8, 2)->default(0.00)->after('language');
+            $table->renameColumn('dcoin', 'balance');
         });
     }
 }
