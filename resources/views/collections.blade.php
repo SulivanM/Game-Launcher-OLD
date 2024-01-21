@@ -4,7 +4,11 @@
   @include('partials.sidebar')
   <main>
     @include('partials.navbar')
+    <div class="title-space">
+      <span class="dc-loader"></span>
+    </div>
     <div class="all-games-container">
+    <div class="section" id="game-collection" style="display:none;">
       @foreach ($games as $game)
       <div class="all-games">
         <img src="{{ asset('images/games/' . $game->game_image) }}" alt="{{ $game->title }}" class="game-image">
@@ -20,7 +24,9 @@
       </div>
       @endforeach
     </div>
+    </div>
   </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
+<script src="{{ asset('js/collections.js') }}"></script>
 @endsection
