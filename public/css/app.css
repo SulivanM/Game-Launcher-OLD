@@ -967,10 +967,6 @@ main {
         left: 60%;
     }
 
-    .right .profile .info {
-        display: none;
-    }
-
     .right .top button {
         display: inline-block;
         background: transparent;
@@ -1335,9 +1331,6 @@ footer {
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
 
 .footer-content {
