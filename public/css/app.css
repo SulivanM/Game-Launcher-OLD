@@ -864,6 +864,10 @@ main {
         display: none;
     }
 
+    aside .logo h2 {
+        display: none;
+    }
+
     aside .sidebar a {
         width: 5.6rem;
     }
