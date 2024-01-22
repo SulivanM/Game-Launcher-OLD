@@ -12,6 +12,7 @@
     </div>
     <div class="section" id="game-collection" style="display:none;">
       <div class="all-games-container">
+        @if(count($games) > 0)
         @foreach ($games as $game)
         <div class="all-games">
           <img src="{{ asset('images/games/' . $game->game_image) }}" alt="{{ $game->title }}" class="game-image">
@@ -26,6 +27,9 @@
           </div>
         </div>
         @endforeach
+        @else
+        <p>There are no games in your collection.</p>
+        @endif
       </div>
     </div>
   </main>
