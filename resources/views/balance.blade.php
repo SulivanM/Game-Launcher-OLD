@@ -8,8 +8,7 @@
     @include('partials.navbar')
     <div class="title-space">
       <h2>BALANCE</h2>
-    </div>
-    <div class="balance-container">
+      <div class="balance-container">
       <p class="coin-text">{{ number_format(Auth::user()->dcoin, 2) }} DCOIN</p>
 
       <form action="{{ route('paypal.payment') }}" method="post">
@@ -26,6 +25,7 @@
 
         <button type="submit" class="btn btn-success">Pay with PayPal</button>
       </form>
+    </div>
     </div>
 
   </main>
