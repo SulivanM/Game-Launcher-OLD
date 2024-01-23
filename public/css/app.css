@@ -617,6 +617,7 @@ main {
 .box-details p {
     font-size: 14px;
     margin-bottom: 40px;
+    text-transform: uppercase;
 }
 
 .all-box-container {
