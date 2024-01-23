@@ -675,6 +675,22 @@ main {
     border-bottom-right-radius: 10px;
 }
 
+.box-image {
+    width: 100%;
+    height: auto;
+}
+
+.box-details {
+    background-color: #150629;
+    color: #fff;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
 .box-details {
     padding: 15px;
 }
