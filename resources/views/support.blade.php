@@ -33,25 +33,30 @@
     <div class="section" id="support-tickets" style="display:none;">
       <div class="title-space">
         <h2>Support Tickets</h2>
-        @if(count($user->tickets) > 0)
-        @foreach($user->tickets as $ticket)
-        <div>
-          <h3>{{ $ticket->subject }}</h3>
-          <p>{{ $ticket->description }}</p>
-          <p>Status: {{ $ticket->status }}</p>
+        <div class="all-box-container">
+          @if(count($user->tickets) > 0)
+          @foreach($user->tickets as $ticket)
+          <div class="all-box">
+            <img src="{{ asset('images/profile-icon.png') }}" alt="Image" class="box-image">
+            <div class="box-details">
+              <h3>{{ $ticket->subject }}</h3>
+              <p>{{ $ticket->description }}</p>
+              <p>Status: {{ $ticket->status }}</p>
 
-          @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
-          <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
-            @csrf
-            @method('PATCH')
-            <button type="submit">Close Ticket</button>
-          </form>
+              @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
+              <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <button type="submit">Close Ticket</button>
+              </form>
+            </div>
+            @endif
+          </div>
+          @endforeach
+          @else
+          <p>You don't have a ticket for the moment.</p>
           @endif
         </div>
-        @endforeach
-        @else
-        <p>You don't have a ticket for the moment.</p>
-        @endif
       </div>
     </div>
     <div class="section" id="open-tickets" style="display:none;">
