@@ -33,12 +33,12 @@
     <div class="section" id="support-tickets" style="display:none;">
       <div class="title-space">
         <h2>Support Tickets</h2>
-        <div class="all-box-container">
+        <div class="all-games-container">
           @if(count($user->tickets) > 0)
           @foreach($user->tickets as $ticket)
-          <div class="all-box">
+          <div class="all-games">
             <img src="{{ asset('images/app/box-banner.jpg') }}" alt="Image" class="box-image">
-            <div class="box-details">
+            <div class="games-details">
               <h2>{{ $ticket->subject }}</h2>
               <p>{{ $ticket->description }}</p>
               <p>Status: {{ $ticket->status }}</p>
