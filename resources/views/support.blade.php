@@ -47,7 +47,7 @@
               <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <button type="submit">Close Ticket</button>
+                <button type="submit" class="button-all-games">Close Ticket</button>
               </form>
             </div>
             @endif
