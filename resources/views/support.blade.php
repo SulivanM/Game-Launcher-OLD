@@ -50,8 +50,8 @@
                 <button type="submit" class="button-all-games">Close Ticket</button>
               </form>
             </div>
-            @endif
           </div>
+          @endif
           @endforeach
           @else
           <p>You don't have a ticket for the moment.</p>
