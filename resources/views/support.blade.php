@@ -39,7 +39,7 @@
           <div class="all-box">
             <img src="{{ asset('images/profile-icon.png') }}" alt="Image" class="box-image">
             <div class="box-details">
-              <h3>{{ $ticket->subject }}</h3>
+              <h2>{{ $ticket->subject }}</h2>
               <p>{{ $ticket->description }}</p>
               <p>Status: {{ $ticket->status }}</p>
 
