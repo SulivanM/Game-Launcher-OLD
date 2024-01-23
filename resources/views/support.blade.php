@@ -37,7 +37,7 @@
           @if(count($user->tickets) > 0)
           @foreach($user->tickets as $ticket)
           <div class="all-box">
-            <img src="{{ asset('images/app/banner.jpg') }}" alt="Image" class="box-image">
+            <img src="{{ asset('images/app/box-banner.jpg') }}" alt="Image" class="box-image">
             <div class="box-details">
               <h2>{{ $ticket->subject }}</h2>
               <p>{{ $ticket->description }}</p>
