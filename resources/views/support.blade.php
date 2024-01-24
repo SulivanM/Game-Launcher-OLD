@@ -38,7 +38,7 @@
           @foreach($user->tickets as $ticket)
           <div class="card">
             <h3>{{ $ticket->subject }}</h3>
-            <p>{{ $ticket->description }}</p>
+            <h2>{{ $ticket->description }}</h2>
             <p>Status: {{ $ticket->status }}</p>
 
             @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
