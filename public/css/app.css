@@ -1352,6 +1352,7 @@ footer {
 
 .card label {
     margin-bottom: 5px;
+    color: #fff;
 }
 
 .card input,
@@ -1360,11 +1361,15 @@ footer {
     margin-bottom: 10px;
     border: 1px solid #fff;
     border-radius: 4px;
+    color: #150629;
+    /* Couleur du texte sur le fond */
+    background-color: #fff;
+    /* Fond de l'input et textarea */
 }
 
 .card button {
-    background-color: #150629;
-    color: #fff;
+    background-color: #fff;
+    color: #150629;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
