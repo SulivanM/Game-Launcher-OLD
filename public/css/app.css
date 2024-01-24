@@ -1318,3 +1318,40 @@ footer {
     max-width: 800px;
     margin: 0 auto;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    max-width: 100%;
+    color: #150629;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card form {
+    display: inline-block;
+}
+
+.card button {
+    background-color: #150629;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -34,21 +34,23 @@
       <div class="title-space">
         <h2>Support Tickets</h2>
         @if(count($user->tickets) > 0)
-        @foreach($user->tickets as $ticket)
-        <div>
-          <h3>{{ $ticket->subject }}</h3>
-          <p>{{ $ticket->description }}</p>
-          <p>Status: {{ $ticket->status }}</p>
+        <div class="card-container">
+          @foreach($user->tickets as $ticket)
+          <div class="card">
+            <h3>{{ $ticket->subject }}</h3>
+            <p>{{ $ticket->description }}</p>
+            <p>Status: {{ $ticket->status }}</p>
 
-          @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
-          <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
-            @csrf
-            @method('PATCH')
-            <button type="submit">Close Ticket</button>
-          </form>
-          @endif
+            @if(Auth::user() && (Auth::user()->id === $ticket->user_id) && $ticket->status !== 'closed')
+            <form action="{{ route('tickets.close', ['ticket' => $ticket]) }}" method="POST">
+              @csrf
+              @method('PATCH')
+              <button type="submit">Close Ticket</button>
+            </form>
+            @endif
+          </div>
+          @endforeach
         </div>
-        @endforeach
         @else
         <p>You don't have a ticket for the moment.</p>
         @endif
