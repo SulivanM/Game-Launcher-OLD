@@ -8,24 +8,21 @@
     @include('partials.navbar')
     <div class="title-space">
       <h2>BALANCE</h2>
-      <div class="balance-container">
-      <p class="coin-text">{{ number_format(Auth::user()->dcoin, 2) }} DCOIN</p>
+      <p>{{ number_format(Auth::user()->dcoin, 2) }} DCOIN</p>
 
-      <form action="{{ route('paypal.payment') }}" method="post">
-        @csrf
-        <label for="package">Select Package:</label>
-        <select name="package" id="package" class="form-control">
-          <option value="5">5 DCOIN</option>
-          <option value="10">10 DCOIN</option>
-          <option value="50">50 DCOIN</option>
-        </select>
+      <div class="card">
+        <form action="{{ route('paypal.payment') }}" method="post">
+          @csrf
+          <label for="package">Select Package:</label>
+          <select name="package" id="package">
+            <option value="5">5 DCOIN</option>
+            <option value="10">10 DCOIN</option>
+            <option value="50">50 DCOIN</option>
+          </select>
 
-        <input type="text" name="custom_amount" id="custom_amount" placeholder="Enter custom amount"
-          style="display: none;">
-
-        <button type="submit" class="btn btn-success">Pay with PayPal</button>
-      </form>
-    </div>
+          <button type="submit">Pay with PayPal</button>
+        </form>
+      </div>
     </div>
 
   </main>

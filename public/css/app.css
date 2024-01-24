@@ -1371,6 +1371,15 @@ footer {
     background-color: #11151b;
 }
 
+.card select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #11151b;
+}
+
 .card button {
     background-color: #804dce;
     text-transform: uppercase;
