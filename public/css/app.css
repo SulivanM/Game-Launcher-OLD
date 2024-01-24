@@ -1326,13 +1326,12 @@ footer {
 }
 
 .card {
-    background-color: #fff;
+    background-color: #150629;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 300px;
     max-width: 100%;
-    color: #150629;
+    color: #fff;
 }
 
 .card h3 {
@@ -1344,7 +1343,20 @@ footer {
 }
 
 .card form {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+}
+
+.card label {
+    margin-bottom: 5px;
+}
+
+.card input,
+.card textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
 }
 
 .card button {

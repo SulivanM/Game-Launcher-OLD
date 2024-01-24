@@ -59,14 +59,16 @@
     <div class="section" id="open-tickets" style="display:none;">
       <div class="title-space">
         <h2>Support Tickets</h2>
-        <form action="{{ route('tickets.store') }}" method="POST">
-          @csrf
-          <label for="subject">Subject:</label>
-          <input type="text" name="subject" required>
-          <label for="description">Description:</label>
-          <textarea name="description" required></textarea>
-          <button type="submit">Submit Ticket</button>
-        </form>
+        <div class="card">
+          <form action="{{ route('tickets.store') }}" method="POST">
+            @csrf
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" required>
+            <label for="description">Description:</label>
+            <textarea name="description" required></textarea>
+            <button type="submit">Submit Ticket</button>
+          </form>
+        </div>
       </div>
     </div>
     <div class="section" id="faq-tickets" style="display:none;">
