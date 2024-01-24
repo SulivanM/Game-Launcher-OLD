@@ -9,25 +9,31 @@
     <div class="title-space">
       <h2>BALANCE</h2>
     </div>
-    <div class="card-container">
-      <div class="card">
-        <form action="{{ route('paypal.payment') }}" method="post">
-          @csrf
-          <label for="package">Select Package:</label>
-          <select name="package" id="package">
-            <option value="5">5 DCOIN</option>
-            <option value="10">10 DCOIN</option>
-            <option value="50">50 DCOIN</option>
-          </select>
+    <div class="title-space">
+      <span class="dc-loader"></span>
+    </div>
+    <div class="section" id="balance-page" style="display:none;">
+      <div class="card-container">
+        <div class="card">
+          <form action="{{ route('paypal.payment') }}" method="post">
+            @csrf
+            <label for="package">Select Package:</label>
+            <select name="package" id="package">
+              <option value="5">5 DCOIN</option>
+              <option value="10">10 DCOIN</option>
+              <option value="50">50 DCOIN</option>
+            </select>
 
-          <button type="submit">Pay with PayPal</button>
-        </form>
+            <button type="submit">Pay with PayPal</button>
+          </form>
+        </div>
       </div>
     </div>
   </main>
 </div>
 
 <script src="{{ asset('js/index.js') }}"></script>
+<script src="{{ asset('js/balance.js') }}"></script>
 
 @if(session('payment_cancelled'))
 <script>
