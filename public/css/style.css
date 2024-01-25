@@ -6,8 +6,8 @@
 }
 
 @font-face {
-  font-family: 'pirulen';
-  src: url('fonts/pirulen_rg.otf') format('truetype');
+  font-family: 'Monoround';
+  src: url('fonts/Monoround.otf') format('truetype');
 }
 
 /* Chrome, Edge, and Safari */
@@ -27,7 +27,7 @@
 
 body {
   background-color: #11151b;
-  font-family: 'pirulen';
+  font-family: 'Monoround';
   margin: 0;
   padding: 0;
 }
