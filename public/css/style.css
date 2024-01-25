@@ -27,7 +27,7 @@
 
 body {
   background-color: #11151b;
-  font-family: Arial, sans-serif;
+  font-family: 'pirulen';
   margin: 0;
   padding: 0;
 }
@@ -264,17 +264,4 @@ button[type="button"]{
 .slider-tile {
 	margin-top: 80px;
 	max-height: 275px;
-}
-
-footer {
-  background-color: #11151b;
-  border-top: 1px solid var(--color-info-dark);
-  color: #ffffff;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
 }
