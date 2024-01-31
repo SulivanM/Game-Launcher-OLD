@@ -58,41 +58,44 @@ Route::post('/remove-friend/{friend}', [FriendController::class, 'removeFriend']
 Route::get('/preloader', function () {
     return view('preloader');
 });
-Route::get('/games', function () {
-    $games = Game::all();
-    return view('games', compact('games'));
-});
-Route::get('/collections', [CollectionController::class, 'index'])->name('collections.index');
-Route::post('/collections/add/{gameId}', 'App\Http\Controllers\CollectionController@addToCollection')->name('collections.add');
-Route::get('/notifications', function () {
-    return view('notifications');
-});
-Route::get('/trophy', function () {
-    return view('trophy');
-});
-Route::get('/tchat', [ChatController::class, 'index'])->name('chat.index');
-Route::post('/tchat/send-message', [ChatController::class, 'sendMessage'])->name('chat.send');
 
-Route::get('/streams', function () {
-    return view('streams');
-});
-Route::get('/balance', function () {
-    return view('balance');
-})->name('balance')->middleware('auth');
-Route::get('/paypal/payment', [PayPalController::class, 'index'])->name('paypal.payment');
-Route::post('/paypal/payment', [PayPalController::class, 'payment']);
-Route::get('/paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
-Route::get('/paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment.cancel');
-Route::get('/suggests', function () {
-    return view('suggests');
-});
-Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
-Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
-Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
-Route::get('/support', function () {
-    $user = auth()->user();
-    return view('support', compact('user'));
-});
-Route::get('/downloads', function () {
-    return view('downloads');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/games', function () {
+        $games = Game::all();
+        return view('games', compact('games'));
+    });
+    Route::get('/collections', [CollectionController::class, 'index'])->name('collections.index');
+    Route::post('/collections/add/{gameId}', 'App\Http\Controllers\CollectionController@addToCollection')->name('collections.add');
+    Route::get('/notifications', function () {
+        return view('notifications');
+    });
+    Route::get('/trophy', function () {
+        return view('trophy');
+    });
+    Route::get('/tchat', [ChatController::class, 'index'])->name('chat.index');
+    Route::post('/tchat/send-message', [ChatController::class, 'sendMessage'])->name('chat.send');
+
+    Route::get('/streams', function () {
+        return view('streams');
+    });
+    Route::get('/balance', function () {
+        return view('balance');
+    })->name('balance')->middleware('auth');
+    Route::get('/paypal/payment', [PayPalController::class, 'index'])->name('paypal.payment');
+    Route::post('/paypal/payment', [PayPalController::class, 'payment']);
+    Route::get('/paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+    Route::get('/paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment.cancel');
+    Route::get('/suggests', function () {
+        return view('suggests');
+    });
+    Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
+    Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
+    Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
+    Route::get('/support', function () {
+        $user = auth()->user();
+        return view('support', compact('user'));
+    });
+    Route::get('/downloads', function () {
+        return view('downloads');
+    });
 });
