@@ -120,7 +120,7 @@
   }
 
   $('#launcherDL').click(function () {
-    swal({
+    Swal.fire({
       title: 'Install Launcher',
       html: `
             <div>
