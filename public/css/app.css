@@ -1392,23 +1392,22 @@ footer {
 
 .installerBtn {
     display: inline-block;
-    margin: 5px;
+    width: 270px;
     border: 0;
     border-radius: 3px;
     box-shadow: none;
     color: #fff;
-    background-color: transparent;
+    background-color: #11151b;
     border: 2px solid transparent;
     cursor: pointer;
     font-size: 17px;
     font-weight: 500;
-    margin: 30px 5px 0px 5px;
-    padding: 10px 32px;
+    margin: 10px;
+    padding: 12px;
 }
 
 .installerBtn.windows {
     border-color: #0078D7;
-    color: #0078D7;
 }
 .installerBtn.windows i {
     margin-right: 5px;
@@ -1416,7 +1415,6 @@ footer {
 
 .installerBtn.macos {
     border-color: #333333;
-    color: #333333;
 }
 .installerBtn.macos i {
     margin-right: 5px;
@@ -1424,7 +1422,6 @@ footer {
 
 .installerBtn.linux {
     border-color: #FCC624;
-    color: #FCC624;
 }
 .installerBtn.linux i {
     margin-right: 5px;
@@ -1432,7 +1429,6 @@ footer {
 
 .installerBtn.android {
     border-color: #3DDC84;
-    color: #3DDC84;
 }
 .installerBtn.android i {
     margin-right: 5px;
