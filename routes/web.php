@@ -41,15 +41,9 @@ Route::get('auth/github/callback', [SocialAuthController::class, 'handleGitHubCa
 Route::get('auth/discord', [SocialAuthController::class, 'redirectToDiscord'])->name('auth.discord');
 Route::get('auth/discord/callback', [SocialAuthController::class, 'handleDiscordCallback']);
 Route::post('/update-email', 'App\Http\Controllers\HomeController@updateEmail')->name('update.email');
-Route::get('/profile/{pseudo}', [UserController::class, 'showProfile'])->name('profile.show');
-Route::get('/profile', [UserController::class, 'showMyProfile'])->middleware('auth')->name('profile');
-Route::get('/settings', [SettingsController::class, 'show'])->name('settings.show');
 Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
-Route::get('/games/{id}', [GameController::class, 'show'])->name('games.show');
 Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
-Route::get('/search-friends', [FriendController::class, 'searchFriends'])->name('search.friends');
 Route::post('/send-friend-request/{friend}', [FriendController::class, 'sendFriendRequest'])->name('send.friend.request');
 Route::post('/accept-friend-request/{friend}', [FriendController::class, 'acceptFriendRequest'])->name('accept.friend.request');
 Route::post('/decline-friend-request/{friend}', [FriendController::class, 'declineFriendRequest'])->name('decline.friend.request');
@@ -64,6 +58,12 @@ Route::middleware(['auth'])->group(function () {
         $games = Game::all();
         return view('games', compact('games'));
     });
+    Route::get('/profile', [UserController::class, 'showMyProfile'])->middleware('auth')->name('profile');
+    Route::get('/settings', [SettingsController::class, 'show'])->name('settings.show');
+    Route::get('/games/{id}', [GameController::class, 'show'])->name('games.show');
+    Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
+    Route::get('/search-friends', [FriendController::class, 'searchFriends'])->name('search.friends');
+    Route::get('/profile/{pseudo}', [UserController::class, 'showProfile'])->name('profile.show');
     Route::get('/collections', [CollectionController::class, 'index'])->name('collections.index');
     Route::post('/collections/add/{gameId}', 'App\Http\Controllers\CollectionController@addToCollection')->name('collections.add');
     Route::get('/notifications', function () {
