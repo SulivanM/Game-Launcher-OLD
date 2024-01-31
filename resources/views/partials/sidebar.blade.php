@@ -128,6 +128,7 @@
                 <a href="lien_de_téléchargement_linux" class="installerBtn linux"><i class="fab fa-linux"></i> Linux</a><br>
                 <a href="lien_de_téléchargement_android" class="installerBtn android"><i class="fab fa-android"></i> Android</a>
             </div>`,
+      icon: "info",
       showCancelButton: false,
       showConfirmButton: false,
       allowOutsideClick: true
