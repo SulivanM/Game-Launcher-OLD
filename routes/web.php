@@ -40,9 +40,9 @@ Route::get('auth/github', [SocialAuthController::class, 'redirectToGitHub'])->na
 Route::get('auth/github/callback', [SocialAuthController::class, 'handleGitHubCallback']);
 Route::get('auth/discord', [SocialAuthController::class, 'redirectToDiscord'])->name('auth.discord');
 Route::get('auth/discord/callback', [SocialAuthController::class, 'handleDiscordCallback']);
+Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('/update-email', 'App\Http\Controllers\HomeController@updateEmail')->name('update.email');
 Route::post('/settings', [SettingsController::class, 'update'])->name('settings.update');
-Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::post('/send-friend-request/{friend}', [FriendController::class, 'sendFriendRequest'])->name('send.friend.request');
 Route::post('/accept-friend-request/{friend}', [FriendController::class, 'acceptFriendRequest'])->name('accept.friend.request');

@@ -90,7 +90,7 @@
       <h1 class="h1">{{ ('Logout') }}</h1>
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
-    <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe" style="margin-left: 0;" id="launcherDL">
+    <a style="margin-left: 0;" id="launcherDL">
       <button class="launcher-dl-button">INSTALL LAUNCHER</button>
     </a>
   </div>
@@ -117,4 +117,21 @@
       // Nothing
     });
   }
+
+  $('#launcherDL').click(function () {
+    swal({
+      title: 'Install Launcher',
+      html: `
+            <div>
+                <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe" class="customSwalBtn windows"><i class="fab fa-windows"></i> Windows</a><br>
+                <a href="lien_de_téléchargement_macos" class="customSwalBtn macos"><i class="fab fa-apple"></i> MacOS</a><br>
+                <a href="lien_de_téléchargement_linux" class="customSwalBtn linux"><i class="fab fa-linux"></i> Linux</a><br>
+                <a href="lien_de_téléchargement_android" class="customSwalBtn android"><i class="fab fa-android"></i> Android</a>
+            </div>`,
+      showCancelButton: false,
+      showConfirmButton: false,
+      allowOutsideClick: true
+    });
+  });
+
 </script>

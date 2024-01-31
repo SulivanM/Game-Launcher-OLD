@@ -11,7 +11,7 @@
     <img style="width: 500px;" src="{{ asset('images/games/' . $game->game_image) }}" alt="{{ $game->title }}" class="game-image">
     <p>{{ $game->description }}</p>
     <div class="button">
-        <a href="{{ $game->game_link }}" class="strim-btn">PLAY NOW</a>
+        <a href="{{ $game->game_link }}" class="button-all-games">DOWNLOAD NOW</a>
     </div>
 	</div>
   </main>
