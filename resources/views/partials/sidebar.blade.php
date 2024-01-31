@@ -95,7 +95,6 @@
     </a>
   </div>
 </aside>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   const downloadLink = document.getElementById('downloadLink');
 
@@ -125,9 +124,9 @@
       html: `
             <div>
                 <a href="https://cdn.digitalchocolate.online/launcher-prod/win/x64/E74E2B495D30FB57F7BD8D7F10832AEA9FE7019BC74B0C6D873C7DE480260AB3.exe" class="customSwalBtn windows"><i class="fab fa-windows"></i> Windows</a><br>
-                <a href="lien_de_téléchargement_macos" class="customSwalBtn macos"><i class="fab fa-apple"></i> MacOS</a><br>
-                <a href="lien_de_téléchargement_linux" class="customSwalBtn linux"><i class="fab fa-linux"></i> Linux</a><br>
-                <a href="lien_de_téléchargement_android" class="customSwalBtn android"><i class="fab fa-android"></i> Android</a>
+                <a href="lien_de_téléchargement_macos" class="installerBtn macos"><i class="fab fa-apple"></i> MacOS</a><br>
+                <a href="lien_de_téléchargement_linux" class="installerBtn linux"><i class="fab fa-linux"></i> Linux</a><br>
+                <a href="lien_de_téléchargement_android" class="installerBtn android"><i class="fab fa-android"></i> Android</a>
             </div>`,
       showCancelButton: false,
       showConfirmButton: false,
