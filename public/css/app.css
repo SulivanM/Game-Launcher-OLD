@@ -312,7 +312,6 @@ aside .sidebar .message-count {
 }
 
 .active {
-    background: var(--color-primary);
     color: #ffffff;
     border-radius: var(--border-radius-1);
 }

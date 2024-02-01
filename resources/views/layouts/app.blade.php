@@ -83,6 +83,10 @@
     aside .sidebar .message-count {
       background-color: {{ $user->color }};
     }
+
+    .active {
+      background-color: {{ $user->color }};
+    }
   </style>
   <main>@yield('content')</main>
   </div>
