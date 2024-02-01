@@ -79,52 +79,7 @@
           </ul>
         </div>
   </div>
-  <style>
-    .navbar sup {
-      background-color: {{ $user->color }};
-    }
-
-    .play-button {
-      background-color: {{ $user->color }};
-    }
-
-    .aside .sidebar a.active {
-      color: {{ $user->color }};
-    }
-
-    .aside .sidebar a .active span {
-      color: {{ $user->color }};
-    }
-
-    aside .sidebar .message-count {
-      background-color: {{ $user->color }};
-    }
-
-    .active {
-      background-color: {{ $user->color }};
-    }
-
-    .primary {
-      color: {{ $user->color }};
-    }
-
-    .line {
-      border-bottom: 4px solid {{ $user->color }};
-    }
-
-    .strim-btn {
-      background-color: {{ $user->color }};
-    }
-
-    .launcher-dl-button {
-      border: 3px solid {{ $user->color }};
-      
-    }
-
-    .launcher-dl-button:active {
-      box-shadow: 0px 0px {{ $user->color }};
-    }
-  </style>
+  
   <main>@yield('content')</main>
   </div>
   @include('partials.footer')
