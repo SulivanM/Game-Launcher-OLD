@@ -59,11 +59,6 @@
   </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
-<script>
-    new Coloris(document.getElementById('colorPicker'), {
-        theme: 'dark'
-    });
-</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
 <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
 @endsection
