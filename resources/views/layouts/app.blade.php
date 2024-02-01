@@ -79,7 +79,7 @@
           </ul>
         </div>
   </div>
-  <style>
+  <!-- <style>
     .navbar sup {
       background-color: {{ $user->color }};
     }
@@ -123,7 +123,7 @@
 
     .launcher-dl-button:active {
       box-shadow: 0px 0px {{ $user->color }};
-    }
+    } -->
   </style>
   <main>@yield('content')</main>
   </div>
