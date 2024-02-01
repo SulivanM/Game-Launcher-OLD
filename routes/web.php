@@ -33,7 +33,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('auth/twitter', [SocialAuthController::class, 'redirectToTwitter'])->name('auth.twitter');
 Route::get('auth/twitter/callback', [SocialAuthController::class, 'handleTwitterCallback']);
 Route::get('auth/github', [SocialAuthController::class, 'redirectToGitHub'])->name('auth.github');
@@ -54,6 +53,7 @@ Route::get('/preloader', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/games', function () {
         $games = Game::all();
         return view('games', compact('games'));
