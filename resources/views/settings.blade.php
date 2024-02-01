@@ -14,7 +14,7 @@
           @csrf
           @method('POST')
           <label for="color">Color Customisation</label>
-          <input type="color" class="form-control" id="color" name="color" value="{{ $user->color ? $user->color : '#000000' }}">
+          <input type="text" class="form-control" id="colorPicker" name="color" value="{{ $user->color }}">
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
@@ -59,4 +59,12 @@
   </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
+<script>
+    // Initialisez coloris.js pour le champ de couleur
+    new Coloris(document.getElementById('colorPicker'), {
+        theme: 'dark' // Thème sombre
+    });
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
+<script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
 @endsection
