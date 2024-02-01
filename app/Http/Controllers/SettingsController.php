@@ -29,18 +29,16 @@ class SettingsController extends Controller
         $user->nom = $request->input('nom');
         $user->language = $request->input('language');
 
-        if ($request->input('form_type') === 'color') {
-            // Si c'est le formulaire de personnalisation de la couleur
-            $request->validate([
-                'color' => 'nullable|string|max:7',
-            ]);
-    
-            if ($request->has('color')) {
-                $user->color = $request->input('color');
-            }
+        // Vérifie si la couleur est définie dans la requête et la met à jour
+        if ($request->has('color')) {
+            $color = $request->input('color');
+            $user->color = $color;
+            dd($color); // Ajoutez cette ligne pour déboguer la couleur avant la mise à jour
         }
-    
+
         $user->save();
+
+        dd($user->color); // Ajoutez cette ligne pour déboguer la couleur après la mise à jour
 
         return redirect()->route('settings.show')->with('success', 'Paramètres mis à jour avec succès.');
     }
