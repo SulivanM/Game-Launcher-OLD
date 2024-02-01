@@ -108,6 +108,10 @@
       color: {{ $user->color }};
     }
 
+    .line {
+      border-bottom: 4px solid {{ $user->color }};
+    }
+
     .strim-btn {
       background-color: {{ $user->color }};
     }

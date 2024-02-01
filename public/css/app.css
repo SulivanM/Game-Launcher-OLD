@@ -463,7 +463,6 @@ main {
 }
 
 .line {
-    border-bottom: 4px solid var(--color-danger);
     width: 150px;
     margin-top: 40px;
     margin-left: 10px;
