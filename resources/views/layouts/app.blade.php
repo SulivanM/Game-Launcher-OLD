@@ -84,12 +84,32 @@
       background-color: {{ $user->color }};
     }
 
+    .play-button {
+      background-color: {{ $user->color }};
+    }
+
+    .aside .sidebar a.active {
+      color: {{ $user->color }};
+    }
+    
+    .aside .sidebar a.active:before {
+      background-color: {{ $user->color }};
+    }
+
+    .aside .sidebar a .active span {
+      color: {{ $user->color }};
+    }
+
     aside .sidebar .message-count {
       background-color: {{ $user->color }};
     }
 
     .active {
       background-color: {{ $user->color }};
+    }
+
+    .primary {
+      color: {{ $user->color }};
     }
   </style>
   <main>@yield('content')</main>
