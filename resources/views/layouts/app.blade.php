@@ -91,10 +91,6 @@
     .aside .sidebar a.active {
       color: {{ $user->color }};
     }
-    
-    .aside .sidebar a.active:before {
-      background-color: {{ $user->color }};
-    }
 
     .aside .sidebar a .active span {
       color: {{ $user->color }};
@@ -110,6 +106,10 @@
 
     .primary {
       color: {{ $user->color }};
+    }
+
+    .strim-btn {
+      background-color: {{ $user->color }};
     }
   </style>
   <main>@yield('content')</main>
