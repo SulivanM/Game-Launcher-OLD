@@ -25,6 +25,7 @@ class User extends Authenticatable
         'nom',
         'language',
         'dcoin',
+        'color',
         'ip',
         'date_creation',
         'trophies',
