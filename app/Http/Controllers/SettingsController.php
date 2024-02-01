@@ -29,13 +29,6 @@ class SettingsController extends Controller
         $user->nom = $request->input('nom');
         $user->language = $request->input('language');
 
-        // Vérifie si la couleur est définie dans la requête et la met à jour
-        if ($request->has('color')) {
-            $color = $request->input('color');
-            $user->color = $color;
-            dd($color); // Ajoutez cette ligne pour déboguer la couleur avant la mise à jour
-        }
-
         $user->save();
 
         dd($user->color); // Ajoutez cette ligne pour déboguer la couleur après la mise à jour
