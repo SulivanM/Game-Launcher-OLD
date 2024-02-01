@@ -56,6 +56,7 @@ Route::get('/preloader', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/games', function () {
         $games = Game::all();
+        $user = Auth::user();
         return view('games', compact('games'));
     });
     Route::get('/profile', [UserController::class, 'showMyProfile'])->middleware('auth')->name('profile');
