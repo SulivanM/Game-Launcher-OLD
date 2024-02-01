@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameBalanceColumnToDcoinInUsersTable extends Migration
+class AddColorToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class RenameBalanceColumnToDcoinInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('balance', 'dcoin');
+            $table->string('color')->default('#a3bdcc')->after('dcoin');
         });
     }
 
@@ -26,7 +26,7 @@ class RenameBalanceColumnToDcoinInUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('dcoin', 'balance');
+            $table->dropColumn('color');
         });
     }
 }
