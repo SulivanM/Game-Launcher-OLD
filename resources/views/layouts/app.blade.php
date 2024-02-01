@@ -80,6 +80,10 @@
         </div>
   </div>
   <style>
+    .navbar sup {
+      background-color: {{ $user->color }};
+    }
+
     aside .sidebar .message-count {
       background-color: {{ $user->color }};
     }

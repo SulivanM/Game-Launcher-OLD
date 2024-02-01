@@ -615,7 +615,6 @@ main {
 }
 
 .navbar sup {
-    background-color: var(--color-primary);
     color: #ffffff;
     font-size: 9px;
     padding: 3px 7px;
