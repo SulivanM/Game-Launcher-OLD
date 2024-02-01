@@ -27,6 +27,7 @@
 
 	<div class="title-main">
 		<h2>WELCOME TO MOBACHOCOLATE LAUNCHER !</h2>
+        <p>Total Chocolate Users: {{ $totalUsers }} Thanks !</p>
 	</div>
 
 	<div class="slider">
