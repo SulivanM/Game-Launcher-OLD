@@ -62,7 +62,8 @@
 <script>
     // Initialisez coloris.js pour le champ de couleur
     new Coloris(document.getElementById('colorPicker'), {
-        theme: 'dark' // Thème sombre
+        theme: 'dark',
+        alpha: true
     });
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
