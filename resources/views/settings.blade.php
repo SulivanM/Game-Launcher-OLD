@@ -1,4 +1,6 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <div class="container">
   @include('partials.sidebar')
@@ -8,21 +10,18 @@
       <h2>Settings</h2>
     </div>
     <div class="settings-container">
-      <div class="settings-box">
-        <h1>Launcher</h1>
-        <form method="POST" action="{{ route('settings.update') }}">
-          @csrf
-          @method('POST')
+      <form method="POST" action="{{ route('settings.update') }}">
+        @csrf
+        @method('POST')
+
+        <div class="settings-box">
+          <h1>Launcher</h1>
           <label for="color">Color Customisation</label>
           <input type="color" class="form-control" id="color" name="color" value="{{ $user->color }}">
-          <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-      </div>
-      <div class="settings-box">
-        <h1>Profile</h1>
-        <form method="POST" action="{{ route('settings.update') }}">
-          @csrf
-          @method('POST')
+        </div>
+
+        <div class="settings-box">
+          <h1>Profile</h1>
 
           <div class="settings-form-group">
             <label for="prenom">First Name</label>
@@ -51,10 +50,10 @@
               <option value="Arabic" @if($user->language == 'Arabic') selected @endif>Arabic</option>
             </select>
           </div>
+        </div>
 
-          <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-      </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
     </div>
   </main>
 </div>
