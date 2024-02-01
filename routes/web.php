@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SettingsController;
@@ -56,7 +57,6 @@ Route::get('/preloader', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/games', function () {
         $games = Game::all();
-        $user = Auth::user();
         return view('games', compact('games'));
     });
     Route::get('/profile', [UserController::class, 'showMyProfile'])->middleware('auth')->name('profile');
