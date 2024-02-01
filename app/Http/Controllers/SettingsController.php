@@ -28,12 +28,11 @@ class SettingsController extends Controller
         $user->prenom = $request->input('prenom');
         $user->nom = $request->input('nom');
         $user->language = $request->input('language');
-        $user->color = $request->input('color');
+        $user->color = $request->input('color'); // Mettez à jour la colonne de couleur
 
         $user->save();
 
-        dd($user->color); // Ajoutez cette ligne pour déboguer la couleur après la mise à jour
-
-        return redirect()->route('settings.show')->with('success', 'Paramètres mis à jour avec succès.');
+        return redirect()->route('settings.show');
     }
+
 }
