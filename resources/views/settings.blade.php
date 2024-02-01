@@ -34,7 +34,8 @@
             <label for="nom">Last Name</label>
             <input type="text" class="form-control" id="nom" name="nom" value="{{ $user->nom }}">
           </div>
-
+          <label for="color">Color Customisation</label>
+          <input type="text" id="colorPicker" name="color" data-coloris>
           <div class="settings-form-group">
             <label for="language">Nationality</label>
             <select class="form-control" id="language" name="language">
