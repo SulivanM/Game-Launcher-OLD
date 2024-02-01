@@ -10,8 +10,8 @@
     <div class="settings-container">
       <div class="settings-box">
         <h1>Launcher</h1>
-        <label for="background-launcher">Background</label>
-		<label for="soon">SOON</label>
+        <label for="color">Color Customisation</label>
+        <input type="color" class="form-control" id="color" name="color" value="{{ $user->color }}">
       </div>
       <div class="settings-box">
         <h1>Profile</h1>
