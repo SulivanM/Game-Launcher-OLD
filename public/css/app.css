@@ -223,9 +223,7 @@ aside .sidebar a:hover span {
     background-color: #11151b;
     color: #fff;
     font-family: monospace;
-    border: 3px solid #804dce;
     padding: 10px 20px;
-    box-shadow: 5px 5px #804dce;
     transition: 0.25s;
     font-weight: bolder;
     cursor: pointer;
@@ -233,7 +231,6 @@ aside .sidebar a:hover span {
 }
 
 .launcher-dl-button:active {
-    box-shadow: 0px 0px #804dce;
     transform: translate(5px, 5px);
 }
 

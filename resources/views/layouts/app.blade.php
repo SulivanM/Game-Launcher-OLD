@@ -111,6 +111,15 @@
     .strim-btn {
       background-color: {{ $user->color }};
     }
+
+    .launcher-dl-button {
+      border: 3px solid {{ $user->color }};
+      box-shadow: 5px 5px {{ $user->color }};
+    }
+
+    .launcher-dl-button:active {
+      box-shadow: 0px 0px {{ $user->color }};
+    }
   </style>
   <main>@yield('content')</main>
   </div>
