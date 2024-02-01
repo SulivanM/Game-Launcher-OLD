@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-    --color-primary: {{ $user->color }};
+    --color-primary: #804dce;
     --color-danger: #804dce;
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
@@ -260,7 +260,6 @@ aside .sidebar a:hover span {
 }
 
 aside .sidebar .message-count {
-    background-color: var(--color-danger);
     color: #ffffff;
     padding: 2px 10px;
     font-size: 11px;

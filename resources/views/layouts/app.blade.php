@@ -79,6 +79,11 @@
           </ul>
         </div>
   </div>
+  <style>
+    aside .sidebar .message-count {
+      background-color: {{ $user->color }};
+    }
+  </style>
   <main>@yield('content')</main>
   </div>
   @include('partials.footer')
