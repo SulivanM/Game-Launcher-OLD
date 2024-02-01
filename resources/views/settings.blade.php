@@ -14,7 +14,7 @@
           @csrf
           @method('POST')
           <label for="color">Color Customisation</label>
-          <input type="text" data-coloris>
+          <input type="text" id="colorPicker" data-coloris>
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
@@ -60,10 +60,8 @@
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
 <script>
-    // Initialisez coloris.js pour le champ de couleur
     new Coloris(document.getElementById('colorPicker'), {
-        theme: 'dark',
-        alpha: true
+        theme: 'dark'
     });
 </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
