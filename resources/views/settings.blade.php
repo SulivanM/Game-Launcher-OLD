@@ -14,7 +14,7 @@
           @csrf
           @method('POST')
           <label for="color">Color Customisation</label>
-          <input type="text" id="colorPicker" name="color" data-coloris>
+          <input type="text" id="colorPicker" name="color" data-coloris value="{{ Auth::user()->color }}">
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
