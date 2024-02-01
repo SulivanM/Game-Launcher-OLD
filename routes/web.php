@@ -92,7 +92,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tickets', [TicketController::class, 'store'])->name('tickets.store');
     Route::patch('/tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
     Route::get('/support', function () {
-        $user = auth()->user();
         return view('support', compact('user'));
     });
     Route::get('/downloads', function () {
