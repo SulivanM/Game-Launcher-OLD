@@ -81,50 +81,50 @@
   </div>
   <style>
     .navbar sup {
-      background-color: {{ $user->color }};
+        background-color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .play-button {
-      background-color: {{ $user->color }};
+        background-color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .aside .sidebar a.active {
-      color: {{ $user->color }};
+        color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .aside .sidebar a .active span {
-      color: {{ $user->color }};
+        color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     aside .sidebar .message-count {
-      background-color: {{ $user->color }};
+        background-color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .active {
-      background-color: {{ $user->color }};
+        background-color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .primary {
-      color: {{ $user->color }};
+        color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .line {
-      border-bottom: 4px solid {{ $user->color }};
+        border-bottom: 4px solid {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .strim-btn {
-      background-color: {{ $user->color }};
+        background-color: {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .launcher-dl-button {
-      border: 3px solid {{ $user->color }};
-      box-shadow: 5px 5px {{ $user->color }};
+        border: 3px solid {{ optional($user)->color ?? '#FFFFFF' }};
+        box-shadow: 5px 5px {{ optional($user)->color ?? '#FFFFFF' }};
     }
 
     .launcher-dl-button:active {
-      box-shadow: 0px 0px {{ $user->color }};
+        box-shadow: 0px 0px {{ optional($user)->color ?? '#FFFFFF' }};
     }
-  </style>
+</style>
   <main>@yield('content')</main>
   </div>
   @include('partials.footer')
