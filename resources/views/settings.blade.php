@@ -14,7 +14,7 @@
           @csrf
           @method('POST')
           <label for="color">Color Customisation</label>
-          <input type="color" class="form-control" id="color" name="color" value="{{ $user->color }}">
+          <input type="color" class="form-control" id="color" name="color" value="{{ $user->color ? $user->color : '#000000' }}">
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
