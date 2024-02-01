@@ -26,8 +26,7 @@
 }
 
 body {
-  background-position:center;
-  background-image:url(../images/app/home-banner.jpg) no-repeat;
+  background-color: #11151b;
   font-family: 'Monoround';
   margin: 0;
   padding: 0;
