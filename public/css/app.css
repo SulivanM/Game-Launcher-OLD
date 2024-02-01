@@ -557,7 +557,6 @@ main {
 }
 
 .button-all-games {
-    background-color: #804dce;
     color: #fff;
     padding: 10px 20px;
     border-radius: 10px;
@@ -1364,7 +1363,6 @@ footer {
 }
 
 .card button {
-    background-color: #804dce;
     text-transform: uppercase;
     color: #fff;
     border: none;

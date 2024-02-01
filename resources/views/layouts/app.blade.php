@@ -124,6 +124,14 @@
     .launcher-dl-button:active {
         box-shadow: 0px 0px {{ optional($user)->color ?? '#FFFFFF' }};
     }
+
+    .card button {
+      background-color: {{ optional($user)->color ?? '#FFFFFF' }};
+    }
+
+    .button-all-games {
+      background-color: {{ optional($user)->color ?? '#FFFFFF' }};
+    }
 </style>
   <main>@yield('content')</main>
   </div>
