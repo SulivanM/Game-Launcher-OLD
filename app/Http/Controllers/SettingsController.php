@@ -28,6 +28,7 @@ class SettingsController extends Controller
         $user->prenom = $request->input('prenom');
         $user->nom = $request->input('nom');
         $user->language = $request->input('language');
+        $user->color = $request->input('color');
 
         $user->save();
 
