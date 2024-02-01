@@ -36,12 +36,6 @@ class HomeController extends Controller
 		}
 	}
 
-    public function welcome()
-    {
-        $totalUsers = User::count();
-        return view('welcome', ['totalUsers' => $totalUsers]);
-    }
-
     public function updateEmail(Request $request)
     {
         $user = Auth::user();
