@@ -10,8 +10,13 @@
     <div class="settings-container">
       <div class="settings-box">
         <h1>Launcher</h1>
-        <label for="color">Color Customisation</label>
-        <input type="color" class="form-control" id="color" name="color" value="{{ $user->color }}">
+        <form method="POST" action="{{ route('settings.update') }}">
+          @csrf
+          @method('POST')
+          <label for="color">Color Customisation</label>
+          <input type="color" class="form-control" id="color" name="color" value="{{ $user->color }}">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
       </div>
       <div class="settings-box">
         <h1>Profile</h1>
