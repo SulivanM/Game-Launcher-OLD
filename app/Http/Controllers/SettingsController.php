@@ -21,12 +21,19 @@ class SettingsController extends Controller
         $request->validate([
             'prenom' => 'required|string|max:255',
             'nom' => 'required|string|max:255',
-			'language' => 'required|string|max:255',
+            'language' => 'required|string|max:255',
+            'color' => 'nullable|string|max:7',
         ]);
 
         $user->prenom = $request->input('prenom');
         $user->nom = $request->input('nom');
-		$user->language = $request->input('language');
+        $user->language = $request->input('language');
+
+        // Vérifie si la couleur est définie dans la requête et la met à jour
+        if ($request->has('color')) {
+            $user->color = $request->input('color');
+        }
+
         $user->save();
 
         return redirect()->route('settings.show')->with('success', 'Paramètres mis à jour avec succès.');
