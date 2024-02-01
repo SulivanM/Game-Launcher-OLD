@@ -14,9 +14,10 @@
           @csrf
           @method('POST')
           <label for="color">Color Customisation</label>
-          <input type="text" id="colorPicker" data-coloris>
+          <input type="text" id="colorPicker" name="color" data-coloris>
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
+
       </div>
       <div class="settings-box">
         <h1>Profile</h1>
@@ -59,6 +60,6 @@
   </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
 @endsection
