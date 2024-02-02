@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FriendController extends Controller
 {
@@ -42,13 +43,11 @@ class FriendController extends Controller
         $currentUser->acceptFriendRequest($friend);
         $friend->acceptFriendRequest($currentUser);
 
-        $currentUser->touch();
-        $friend->touch();
+        $currentUser->friends()->updateExistingPivot($friend->id, ['accepted' => 1, 'updated_at' => Carbon::now()]);
+        $friend->friends()->updateExistingPivot($currentUser->id, ['accepted' => 1, 'updated_at' => Carbon::now()]);
 
         return redirect()->route('friends.index');
     }
-
-
 
     public function declineFriendRequest(User $friend)
     {
