@@ -33,12 +33,6 @@
         <ul>
             @foreach($users as $user)
             <li>
-                <form method="POST" action="{{ route('send.friend.request') }}"
-                    id="sendFriendRequestForm{{ $user->id }}">
-                    @csrf
-                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
-                    <button type="button" class="send-request-button" data-user-id="{{ $user->id }}">Send Friend Request</button>
-                </form>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
                         const userName = "{{ $user->name }}";
