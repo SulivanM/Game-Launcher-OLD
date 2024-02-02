@@ -39,10 +39,16 @@
         <h2>Available Users</h2>
         <ul>
             @foreach($users as $user)
-            <li>{{ $user->name }}</li>
+            <li>
+                {{ $user->name }}
+                <form method="POST" action="{{ route('send.friend.request') }}">
+                    @csrf
+                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
+                    <button type="submit">Send Friend Request</button>
+                </form>
+            </li>
             @endforeach
         </ul>
-
     </main>
 </div>
 @endsection
