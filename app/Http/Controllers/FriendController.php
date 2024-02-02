@@ -42,7 +42,6 @@ class FriendController extends Controller
         $currentUser->acceptFriendRequest($friend);
         $friend->acceptFriendRequest($currentUser);
 
-        // Mettre à jour la colonne updated_at avec le timestamp actuel
         $currentTime = now()->toDateTimeString();
 
         $currentUser->friends()->updateExistingPivot($friend->id, ['accepted' => 1, 'updated_at' => $currentTime]);
