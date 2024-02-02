@@ -12,10 +12,14 @@ class FriendController extends Controller
         $user = auth()->user();
         $friends = $user->friends;
         $friendRequests = $user->friendRequests;
-        $users = User::where('id', '!=', $user->id)->get();
+
+        $users = User::whereNotIn('id', $friends->pluck('id')->merge($friendRequests->pluck('id')))
+            ->where('id', '!=', $user->id)
+            ->get();
 
         return view('friends', compact('user', 'friends', 'friendRequests', 'users'));
     }
+
 
     public function sendFriendRequest(Request $request)
     {
