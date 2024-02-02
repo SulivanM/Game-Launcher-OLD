@@ -7,13 +7,14 @@
     @include('partials.sidebar')
     <main>
         @include('partials.navbar')
-
-        <h1>Friends</h1>
-
-        <h2>Your Friends</h2>
+        <h2>Friends</h2>
+        @if($friends->isEmpty())
+        <p>You don't have any friends yet.</p>
+        @else
         @foreach($friends as $friend)
         <p>{{ $friend->name }}</p>
         @endforeach
+        @endif
 
         <h2>Pending Friend Requests</h2>
         @foreach($friendRequests as $request)
