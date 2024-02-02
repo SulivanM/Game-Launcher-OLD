@@ -30,17 +30,19 @@
         @endforeach
 
         <h2>Send Friend Request</h2>
-        <form method="POST" action="{{ route('send.friend.request') }}">
+        <form method="GET" action="{{ route('friends.index') }}">
             @csrf
-            <select name="friend_id">
-                @foreach($users as $user)
-                @if($user->id != auth()->id())
-                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endif
-                @endforeach
-            </select>
-            <button type="submit">Send Friend Request</button>
+            <input type="text" name="search" placeholder="Search users">
+            <button type="submit">Search</button>
         </form>
+
+        <h2>Available Users</h2>
+        <ul>
+            @foreach($users as $user)
+            <li>{{ $user->name }}</li>
+            @endforeach
+        </ul>
+
     </main>
 </div>
 @endsection

@@ -7,18 +7,27 @@ use Illuminate\Http\Request;
 
 class FriendController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
         $friends = $user->friends;
         $friendRequests = $user->friendRequests;
 
-        $users = User::whereNotIn('id', $friends->pluck('id')->merge($friendRequests->pluck('id')))
+        $query = User::query();
+
+        // Recherche "like" si un terme de recherche est fourni
+        if ($request->has('search') && $request->search != '') {
+            $searchTerm = $request->search;
+            $query->where('name', 'like', "%$searchTerm%");
+        }
+
+        $users = $query->whereNotIn('id', $friends->pluck('id')->merge($friendRequests->pluck('id')))
             ->where('id', '!=', $user->id)
             ->get();
 
         return view('friends', compact('user', 'friends', 'friendRequests', 'users'));
     }
+
 
 
     public function sendFriendRequest(Request $request)
