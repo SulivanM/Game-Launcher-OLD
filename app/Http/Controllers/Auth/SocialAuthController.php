@@ -36,7 +36,12 @@ class SocialAuthController extends Controller
         $user = User::where('name', $socialUser->getName())->first();
 
         if (!$user) {
-            // Create a new user account if one does not already exist
+            // Si aucun utilisateur n'est trouvé avec ce nom, rechercher par adresse e-mail
+            $user = User::where('email', $socialUser->getEmail())->first();
+        }
+
+        if (!$user) {
+            // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
             $user = User::create([
                 'name' => $socialUser->getName(),
                 'email' => $socialUser->getEmail(),
@@ -63,6 +68,7 @@ class SocialAuthController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
+
     /**
      * Redirect the user to the GitHub authentication page.
      *
@@ -79,40 +85,44 @@ class SocialAuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function handleGitHubCallback()
-{
-    $socialUser = Socialite::driver('github')->user();
-    $username = $socialUser->getNickname();
+    {
+        $socialUser = Socialite::driver('github')->user();
+        $username = $socialUser->getNickname();
 
-    $user = User::where('name', $username)->first();
+        $user = User::where('name', $username)->first();
 
-    if (!$user) {
-        // L'utilisateur n'existe pas encore, nous pouvons le créer
-        $user = User::create([
-            'name' => $username,
-            'email' => $socialUser->getEmail(),
-            'password' => Hash::make(Str::random(32)),
-            'ip' => request()->getClientIp(),
-            'profile_image' => null,
-        ]);
+        if (!$user) {
+            // Si aucun utilisateur n'est trouvé avec ce nom d'utilisateur GitHub, rechercher par adresse e-mail
+            $user = User::where('email', $socialUser->getEmail())->first();
+        }
+
+        if (!$user) {
+            // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
+            $user = User::create([
+                'name' => $username,
+                'email' => $socialUser->getEmail(),
+                'password' => Hash::make(Str::random(32)),
+                'ip' => request()->getClientIp(),
+                'profile_image' => null,
+            ]);
+        }
+
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
+
+        // Log in the user
+        auth()->login($user);
+
+        // Redirect to the user's home page
+        return redirect(RouteServiceProvider::HOME);
     }
-
-    // Store the user's profile image
-    $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-    $imagePath = public_path('images/profiles/' . $imageFilename);
-    file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-    Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
-
-    // Assign the image path to the user's profile image
-    $user->profile_image = $imageFilename;
-    $user->save();
-
-    // Log in the user
-    auth()->login($user);
-
-    // Redirect to the user's home page
-    return redirect(RouteServiceProvider::HOME);
-}
-
 
     /**
      * Redirect the user to the Discord authentication page.
@@ -133,10 +143,15 @@ class SocialAuthController extends Controller
     {
         $socialUser = Socialite::driver('discord')->user();
 
-        $user = User::where('email', $socialUser->getEmail())->first();
+        $user = User::where('name', $socialUser->getName())->first();
 
         if (!$user) {
-            // Create a new user account if one does not already exist
+            // Si aucun utilisateur n'est trouvé avec ce nom, rechercher par adresse e-mail
+            $user = User::where('email', $socialUser->getEmail())->first();
+        }
+
+        if (!$user) {
+            // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
             $user = User::create([
                 'name' => $socialUser->getName(),
                 'email' => $socialUser->getEmail(),
