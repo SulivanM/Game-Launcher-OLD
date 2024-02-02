@@ -32,10 +32,11 @@
             @foreach($users as $user)
             <li>
                 {{ $user->name }}
-                <form method="POST" action="{{ route('send.friend.request') }}">
+                <form id="friend-request-form-{{ $user->id }}" method="POST"
+                    action="{{ route('send.friend.request') }}">
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
-                    <button type="submit">Send Friend Request</button>
+                    <button type="button" onclick="sendFriendRequest({{ $user->id }})">Send Friend Request</button>
                 </form>
             </li>
             @endforeach
@@ -64,4 +65,21 @@
         @endforeach
     </main>
 </div>
+<script src="{{ asset('js/index.js') }}"></script>
+<script>
+    function sendFriendRequest(userId) {
+        Swal.fire({
+            title: 'Send Friend Request',
+            text: 'Are you sure you want to send a friend request?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('friend-request-form-' + userId).submit();
+            }
+        });
+    }
+</script>
 @endsection
