@@ -52,15 +52,18 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Stockage de la nouvelle image de profil
-        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
-        $imagePath = public_path('images/profiles/' . $imageFilename);
-        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Vérifier si l'utilisateur a déjà une image de profil
+        if (!$user->profile_image) {
+            // Stockage de la nouvelle image de profil
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            $imagePath = public_path('images/profiles/' . $imageFilename);
+            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-        // Mise à jour de l'image de profil de l'utilisateur
-        $user->profile_image = $imageFilename;
-        $user->save();
+            // Mise à jour de l'image de profil de l'utilisateur
+            $user->profile_image = $imageFilename;
+            $user->save();
+        }
 
         // Connexion de l'utilisateur
         auth()->login($user);
@@ -108,15 +111,18 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Stockage de la nouvelle image de profil
-        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
-        $imagePath = public_path('images/profiles/' . $imageFilename);
-        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Vérifier si l'utilisateur a déjà une image de profil
+        if (!$user->profile_image) {
+            // Stockage de la nouvelle image de profil
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            $imagePath = public_path('images/profiles/' . $imageFilename);
+            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-        // Mise à jour de l'image de profil de l'utilisateur
-        $user->profile_image = $imageFilename;
-        $user->save();
+            // Mise à jour de l'image de profil de l'utilisateur
+            $user->profile_image = $imageFilename;
+            $user->save();
+        }
 
         // Connexion de l'utilisateur
         auth()->login($user);
@@ -163,15 +169,18 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Stockage de la nouvelle image de profil
-        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
-        $imagePath = public_path('images/profiles/' . $imageFilename);
-        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Vérifier si l'utilisateur a déjà une image de profil
+        if (!$user->profile_image) {
+            // Stockage de la nouvelle image de profil
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            $imagePath = public_path('images/profiles/' . $imageFilename);
+            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-        // Mise à jour de l'image de profil de l'utilisateur
-        $user->profile_image = $imageFilename;
-        $user->save();
+            // Mise à jour de l'image de profil de l'utilisateur
+            $user->profile_image = $imageFilename;
+            $user->save();
+        }
 
         // Connexion de l'utilisateur
         auth()->login($user);
