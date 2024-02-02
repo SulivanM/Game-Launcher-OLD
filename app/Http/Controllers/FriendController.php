@@ -19,6 +19,9 @@ class FriendController extends Controller
         if ($request->has('search') && $request->search != '') {
             $searchTerm = $request->search;
             $query->where('name', 'like', "%$searchTerm%");
+        } else {
+            // Si aucun terme de recherche n'est fourni, ne pas récupérer tous les utilisateurs
+            $query->where('id', '=', 0); // Condition qui ne renvoie aucun utilisateur
         }
 
         $users = $query->whereNotIn('id', $friends->pluck('id')->merge($friendRequests->pluck('id')))
@@ -27,8 +30,6 @@ class FriendController extends Controller
 
         return view('friends', compact('user', 'friends', 'friendRequests', 'users'));
     }
-
-
 
     public function sendFriendRequest(Request $request)
     {
