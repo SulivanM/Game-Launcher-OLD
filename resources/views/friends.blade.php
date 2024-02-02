@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 <div class="container">
     @include('partials.sidebar')
     <main>
