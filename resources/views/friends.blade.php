@@ -7,12 +7,26 @@
     @include('partials.sidebar')
     <main>
         @include('partials.navbar')
-        <form method="GET" action="{{ route('friends.index') }}">
-            @csrf
-            <input type="text" name="search" placeholder="Search users">
-            <button type="submit">Search</button>
-        </form>
-
+        <div class="subv-banner">
+            <header class="subv-header">
+                <div class="left-menu">
+                    <a href="#" class="page-link" data-target="my-friends">My Friends</a>
+                    <a href="#" class="page-link" data-target="pending-friends">Pending Friends</a>
+                </div>
+                <div class="search-box">
+                    <form method="GET" action="{{ route('friends.index') }}">
+                        @csrf
+                        <input type="text" class="search-input" name="query" placeholder="Search User...">
+                        <button type="submit" class="addon-button">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </header>
+            <img src="{{ asset('images/app/banner.jpg') }}" alt="Bannière">
+            <div class="subv-banner-text">
+                <h1>Friends</h1>
+                <p>Add your chocolate friends now !</p>
+            </div>
+        </div>
         <ul>
             @foreach($users as $user)
             <li>
