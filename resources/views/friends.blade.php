@@ -32,13 +32,7 @@
             @foreach($users as $user)
             <li>
                 {{ $user->name }}
-                <form id="friend-request-form-{{ $user->id }}" method="POST"
-                    action="{{ route('send.friend.request') }}">
-                    @csrf
-                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
-                    <button type="button" class="send-friend-request-btn" data-user-id="{{ $user->id }}">Send Friend
-                        Request</button>
-                </form>
+                <button class="send-request-btn" data-user-id="{{ $user->id }}">Send Friend Request</button>
             </li>
             @endforeach
         </ul>
@@ -67,24 +61,30 @@
     </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    // Écouteur d'événement pour les clics sur les boutons d'envoi de demande d'ami
-    document.querySelectorAll('.send-friend-request-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            const userId = this.getAttribute('data-user-id');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez tous les boutons d'envoi de demande d'ami
+        const sendRequestButtons = document.querySelectorAll('.send-request-btn');
 
-            Swal.fire({
-                title: 'Send Friend Request',
-                text: 'Are you sure you want to send a friend request?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Soumettre le formulaire correspondant
-                    document.getElementById('friend-request-form-' + userId).submit();
-                }
+        // Ajoutez un gestionnaire d'événements à chaque bouton
+        sendRequestButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                const userId = this.getAttribute('data-user-id');
+
+                Swal.fire({
+                    title: 'Send Friend Request',
+                    text: 'Are you sure you want to send a friend request?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Soumettre le formulaire correspondant
+                        document.getElementById('friend-request-form-' + userId).submit();
+                    }
+                });
             });
         });
     });
