@@ -7,6 +7,24 @@
     @include('partials.sidebar')
     <main>
         @include('partials.navbar')
+        <form method="GET" action="{{ route('friends.index') }}">
+            @csrf
+            <input type="text" name="search" placeholder="Search users">
+            <button type="submit">Search</button>
+        </form>
+
+        <ul>
+            @foreach($users as $user)
+            <li>
+                {{ $user->name }}
+                <form method="POST" action="{{ route('send.friend.request') }}">
+                    @csrf
+                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
+                    <button type="submit">Send Friend Request</button>
+                </form>
+            </li>
+            @endforeach
+        </ul>
         <h2>Friends</h2>
         @if($friends->isEmpty())
         <p>You don't have any friends yet.</p>
@@ -29,26 +47,6 @@
         </form>
         </p>
         @endforeach
-
-        <h2>Send Friend Request</h2>
-        <form method="GET" action="{{ route('friends.index') }}">
-            @csrf
-            <input type="text" name="search" placeholder="Search users">
-            <button type="submit">Search</button>
-        </form>
-
-        <ul>
-            @foreach($users as $user)
-            <li>
-                {{ $user->name }}
-                <form method="POST" action="{{ route('send.friend.request') }}">
-                    @csrf
-                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
-                    <button type="submit">Send Friend Request</button>
-                </form>
-            </li>
-            @endforeach
-        </ul>
     </main>
 </div>
 @endsection
