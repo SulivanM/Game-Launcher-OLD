@@ -41,11 +41,9 @@
                 </form>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        const userName = "{{ $user->name }}";
-
                         Swal.fire({
                             title: 'Send Friend Request',
-                            text: `Are you sure you want to send a friend request to ${userName}?`,
+                            text: 'Are you sure you want to send a friend request to this user?',
                             icon: 'question',
                             showCancelButton: true,
                             confirmButtonText: 'Yes',
@@ -60,6 +58,7 @@
             </li>
             @endforeach
         </ul>
+
         <div class="section" id="my-friends" style="display:none;">
             <h2>Friends</h2>
             @if($friends->isEmpty())
