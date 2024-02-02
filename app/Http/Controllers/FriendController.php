@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FriendController extends Controller
 {
@@ -19,8 +20,19 @@ class FriendController extends Controller
 
     public function sendFriendRequest(Request $request)
     {
-        $friend = User::findOrFail($request->friend_id);
-        auth()->user()->friends()->attach($friend->id, ['accepted' => 0]);
+        $friendId = $request->input('friend_id');
+        $user = auth()->user();
+
+        // Vérifiez d'abord si une demande d'amitié similaire existe déjà
+        $existingRequest = DB::table('friends')
+            ->where('user_id', $user->id)
+            ->where('friend_id', $friendId)
+            ->where('accepted', 0)
+            ->exists();
+
+        if (!$existingRequest) {
+            $user->friends()->attach($friendId, ['accepted' => 0]);
+        }
 
         return redirect()->route('friends.index');
     }
