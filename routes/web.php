@@ -43,7 +43,7 @@ Route::get('password/reset', 'App\Http\Controllers\Auth\ForgotPasswordController
 Route::post('/update-email', 'App\Http\Controllers\HomeController@updateEmail')->name('update.email');
 Route::post('/settings/updateprofile', [SettingsController::class, 'updateprofile'])->name('settings.updateprofile');
 Route::post('/settings/updatelauncher', [SettingsController::class, 'updatelauncher'])->name('settings.updatelauncher');Route::post('password/email', 'App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::post('/send-friend-request/{friend}', [FriendController::class, 'sendFriendRequest'])->name('send.friend.request');
+Route::post('/send-friend-request', [FriendController::class, 'sendFriendRequest'])->name('send.friend.request');
 Route::post('/accept-friend-request/{friend}', [FriendController::class, 'acceptFriendRequest'])->name('accept.friend.request');
 Route::post('/decline-friend-request/{friend}', [FriendController::class, 'declineFriendRequest'])->name('decline.friend.request');
 
