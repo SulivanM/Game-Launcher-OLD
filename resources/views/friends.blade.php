@@ -36,7 +36,8 @@
                     action="{{ route('send.friend.request') }}">
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
-                    <button type="button" onclick="sendFriendRequest({{ $user->id }})">Send Friend Request</button>
+                    <button type="button" class="send-friend-request-btn" data-user-id="{{ $user->id }}">Send Friend
+                        Request</button>
                 </form>
             </li>
             @endforeach
@@ -67,19 +68,25 @@
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
 <script>
-    function sendFriendRequest(userId) {
-        Swal.fire({
-            title: 'Send Friend Request',
-            text: 'Are you sure you want to send a friend request?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Yes',
-            cancelButtonText: 'No'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById('friend-request-form-' + userId).submit();
-            }
+    // Écouteur d'événement pour les clics sur les boutons d'envoi de demande d'ami
+    document.querySelectorAll('.send-friend-request-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const userId = this.getAttribute('data-user-id');
+
+            Swal.fire({
+                title: 'Send Friend Request',
+                text: 'Are you sure you want to send a friend request?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Soumettre le formulaire correspondant
+                    document.getElementById('friend-request-form-' + userId).submit();
+                }
+            });
         });
-    }
+    });
 </script>
 @endsection
