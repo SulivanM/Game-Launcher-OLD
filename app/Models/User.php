@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function acceptFriendRequest(User $user)
     {
-        $this->friendRequests()->updateExistingPivot($user->id, ['accepted' => 1]);
+        $this->friends()->updateExistingPivot($user->id, ['accepted' => 1]);
     }
 
     public function declineFriendRequest(User $user)
