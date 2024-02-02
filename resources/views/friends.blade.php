@@ -27,6 +27,12 @@
                 <p>Add your chocolate friends now !</p>
             </div>
         </div>
+        <form method="GET" action="{{ route('friends.index') }}">
+            @csrf
+            <input type="text" name="search" placeholder="Search users">
+            <button type="submit">Search</button>
+        </form>
+
         <ul>
             @foreach($users as $user)
             <li>
