@@ -36,24 +36,6 @@
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
                 </form>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const userName = "{{ $user->name }}";
-
-                        Swal.fire({
-                            title: 'Send Friend Request',
-                            text: `Are you sure to send a friend request to ${userName}`,
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Yes !',
-                            cancelButtonText: 'No',
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
-                            }
-                        });
-                    });
-                </script>
             </li>
             @endforeach
         </ul>
@@ -83,4 +65,5 @@
     </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
+<script src="{{ asset('js/friends.js') }}"></script>
 @endsection
