@@ -33,16 +33,15 @@ class SocialAuthController extends Controller
     {
         $socialUser = Socialite::driver('twitter')->user();
 
-        // Recherche de l'utilisateur par nom d'utilisateur
         $user = User::where('name', $socialUser->getName())->first();
 
-        // Si aucun utilisateur n'est trouvé par nom d'utilisateur, recherche par adresse e-mail
         if (!$user) {
+            // Si aucun utilisateur n'est trouvé avec ce nom, rechercher par adresse e-mail
             $user = User::where('email', $socialUser->getEmail())->first();
         }
 
-        // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
         if (!$user) {
+            // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
             $user = User::create([
                 'name' => $socialUser->getName(),
                 'email' => $socialUser->getEmail(),
@@ -52,25 +51,23 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Vérifier si l'utilisateur a déjà une image de profil
-        if (!$user->profile_image) {
-            // Stockage de la nouvelle image de profil
-            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
-            $imagePath = public_path('images/profiles/' . $imageFilename);
-            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-            // Mise à jour de l'image de profil de l'utilisateur
-            $user->profile_image = $imageFilename;
-            $user->save();
-        }
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
 
-        // Connexion de l'utilisateur
+        // Log in the user
         auth()->login($user);
 
-        // Redirection vers la page d'accueil de l'utilisateur
+        // Redirect to the user's home page
         return redirect(RouteServiceProvider::HOME);
     }
+
 
     /**
      * Redirect the user to the GitHub authentication page.
@@ -92,16 +89,15 @@ class SocialAuthController extends Controller
         $socialUser = Socialite::driver('github')->user();
         $username = $socialUser->getNickname();
 
-        // Recherche de l'utilisateur par nom d'utilisateur GitHub
         $user = User::where('name', $username)->first();
 
-        // Si aucun utilisateur n'est trouvé par nom d'utilisateur, recherche par adresse e-mail
         if (!$user) {
+            // Si aucun utilisateur n'est trouvé avec ce nom d'utilisateur GitHub, rechercher par adresse e-mail
             $user = User::where('email', $socialUser->getEmail())->first();
         }
 
-        // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
         if (!$user) {
+            // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
             $user = User::create([
                 'name' => $username,
                 'email' => $socialUser->getEmail(),
@@ -111,23 +107,20 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Vérifier si l'utilisateur a déjà une image de profil
-        if (!$user->profile_image) {
-            // Stockage de la nouvelle image de profil
-            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
-            $imagePath = public_path('images/profiles/' . $imageFilename);
-            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-            // Mise à jour de l'image de profil de l'utilisateur
-            $user->profile_image = $imageFilename;
-            $user->save();
-        }
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
 
-        // Connexion de l'utilisateur
+        // Log in the user
         auth()->login($user);
 
-        // Redirection vers la page d'accueil de l'utilisateur
+        // Redirect to the user's home page
         return redirect(RouteServiceProvider::HOME);
     }
 
@@ -150,16 +143,15 @@ class SocialAuthController extends Controller
     {
         $socialUser = Socialite::driver('discord')->user();
 
-        // Recherche de l'utilisateur par nom d'utilisateur
         $user = User::where('name', $socialUser->getName())->first();
 
-        // Si aucun utilisateur n'est trouvé par nom d'utilisateur, recherche par adresse e-mail
         if (!$user) {
+            // Si aucun utilisateur n'est trouvé avec ce nom, rechercher par adresse e-mail
             $user = User::where('email', $socialUser->getEmail())->first();
         }
 
-        // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
         if (!$user) {
+            // Si aucun utilisateur correspondant n'est trouvé, créer un nouveau compte
             $user = User::create([
                 'name' => $socialUser->getName(),
                 'email' => $socialUser->getEmail(),
@@ -169,23 +161,20 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Vérifier si l'utilisateur a déjà une image de profil
-        if (!$user->profile_image) {
-            // Stockage de la nouvelle image de profil
-            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
-            $imagePath = public_path('images/profiles/' . $imageFilename);
-            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-            // Mise à jour de l'image de profil de l'utilisateur
-            $user->profile_image = $imageFilename;
-            $user->save();
-        }
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
 
-        // Connexion de l'utilisateur
+        // Log in the user
         auth()->login($user);
 
-        // Redirection vers la page d'accueil de l'utilisateur
+        // Redirect to the user's home page
         return redirect(RouteServiceProvider::HOME);
     }
 
