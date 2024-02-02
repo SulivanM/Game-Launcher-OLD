@@ -16,12 +16,14 @@ class FriendController extends Controller
         return view('friends', compact('user', 'friends', 'friendRequests'));
     }
 
-    public function sendFriendRequest(User $friend)
+    public function sendFriendRequest(Request $request)
     {
+        $friend = User::findOrFail($request->friend_id);
         auth()->user()->friends()->attach($friend->id, ['accepted' => 0]);
 
         return redirect()->route('friends.index');
     }
+
 
     public function acceptFriendRequest(User $friend)
     {
