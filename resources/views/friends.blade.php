@@ -33,6 +33,7 @@
         <ul>
             @foreach($users as $user)
             <li>
+                {{ $user->name }}
                 <form method="POST" action="{{ route('send.friend.request') }}"
                     id="sendFriendRequestForm{{ $user->id }}">
                     @csrf
@@ -44,10 +45,10 @@
 
                         Swal.fire({
                             title: 'Send Friend Request',
-                            text: `Are you sure to send a friend request to ${userName}`,
+                            text: `Are you sure you want to send a friend request to ${userName}?`,
                             icon: 'question',
                             showCancelButton: true,
-                            confirmButtonText: 'Yes !',
+                            confirmButtonText: 'Yes',
                             cancelButtonText: 'No',
                         }).then((result) => {
                             if (result.isConfirmed) {
