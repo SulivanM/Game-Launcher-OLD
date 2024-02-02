@@ -55,13 +55,11 @@ class User extends Authenticatable
             ->withPivot('accepted');
     }
 
-    public function sendFriendRequest(Request $request)
+    public function friendRequests()
     {
-        $friendId = $request->input('friend_id');
-        $friend = User::findOrFail($friendId);
-        auth()->user()->friends()->attach($friend->id, ['accepted' => 0]);
-
-        return redirect()->route('friends.index');
+        return $this->belongsToMany(User::class, 'friends', 'friend_id', 'user_id')
+            ->withPivot('accepted')
+            ->wherePivot('accepted', 0);
     }
 
     public function acceptFriendRequest(User $user)
