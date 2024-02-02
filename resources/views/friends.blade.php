@@ -16,8 +16,8 @@
                 <div class="search-box">
                     <form method="GET" action="{{ route('friends.index') }}">
                         @csrf
-                        <input type="text" class="search-input" name="query" placeholder="Search User...">
-                        <button type="submit" class="addon-button">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" class="search-input" name="search" placeholder="Search User...">
+                        <button type="submit" class="addon-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
             </header>
@@ -27,12 +27,6 @@
                 <p>Add your chocolate friends now !</p>
             </div>
         </div>
-        <form method="GET" action="{{ route('friends.index') }}">
-            @csrf
-            <input type="text" name="search" placeholder="Search users">
-            <button type="submit">Search</button>
-        </form>
-
         <ul>
             @foreach($users as $user)
             <li>
