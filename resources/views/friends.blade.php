@@ -36,7 +36,6 @@
             <button type="submit">Search</button>
         </form>
 
-        <h2>Available Users</h2>
         <ul>
             @foreach($users as $user)
             <li>
