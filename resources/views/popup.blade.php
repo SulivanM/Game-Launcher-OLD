@@ -12,4 +12,5 @@
          <i class="fas fa-user-plus"></i> Home </button>
    </div>
 </form>
+<script src="{{ asset('js/index.js') }}"></script>
 @endsection
