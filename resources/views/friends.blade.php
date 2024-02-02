@@ -29,32 +29,36 @@
         </div>
 
         <ul>
-        @foreach($users as $user)
-        <li>
-            {{ $user->name }}
-            <form method="POST" action="{{ route('send.friend.request') }}" id="sendFriendRequestForm{{ $user->id }}">
-                @csrf
-                <input type="hidden" name="friend_id" value="{{ $user->id }}">
-            </form>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    Swal.fire({
-                        title: 'Send Friend Request',
-                        text: 'Are you sure you want to send a friend request to this user?',
-                        icon: 'question',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes',
-                        cancelButtonText: 'No',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
-                        }
+            @foreach($users as $user)
+            <li>
+                {{ $user->name }}
+                <form method="POST" action="{{ route('send.friend.request') }}"
+                    id="sendFriendRequestForm{{ $user->id }}">
+                    @csrf
+                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
+                </form>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const userName = "{{ $user->name }}";
+
+                        Swal.fire({
+                            title: 'Send Friend Request',
+                            text: `Are you sure you want to send a friend request to ${userName}?`,
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes',
+                            cancelButtonText: 'No',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
+                            }
+                        });
                     });
-                });
-            </script>
-        </li>
-        @endforeach
+                </script>
+            </li>
+            @endforeach
         </ul>
+
         <h2>Friends</h2>
         @if($friends->isEmpty())
         <p>You don't have any friends yet.</p>
