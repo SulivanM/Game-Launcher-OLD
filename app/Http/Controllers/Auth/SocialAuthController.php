@@ -51,18 +51,15 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Vérifier si l'utilisateur a déjà une image de profil
-        if (!$user->profile_image) {
-            // Store the user's profile image
-            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-            $imagePath = public_path('images/profiles/' . $imageFilename);
-            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-            // Assign the image path to the user's profile image
-            $user->profile_image = $imageFilename;
-            $user->save();
-        }
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
 
         // Log in the user
         auth()->login($user);
@@ -70,6 +67,7 @@ class SocialAuthController extends Controller
         // Redirect to the user's home page
         return redirect(RouteServiceProvider::HOME);
     }
+
 
     /**
      * Redirect the user to the GitHub authentication page.
@@ -109,18 +107,15 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Vérifier si l'utilisateur a déjà une image de profil
-        if (!$user->profile_image) {
-            // Store the user's profile image
-            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-            $imagePath = public_path('images/profiles/' . $imageFilename);
-            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-            // Assign the image path to the user's profile image
-            $user->profile_image = $imageFilename;
-            $user->save();
-        }
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
 
         // Log in the user
         auth()->login($user);
@@ -166,18 +161,15 @@ class SocialAuthController extends Controller
             ]);
         }
 
-        // Vérifier si l'utilisateur a déjà une image de profil
-        if (!$user->profile_image) {
-            // Store the user's profile image
-            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-            $imagePath = public_path('images/profiles/' . $imageFilename);
-            file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Store the user's profile image
+        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
+        $imagePath = public_path('images/profiles/' . $imageFilename);
+        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
+        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
 
-            // Assign the image path to the user's profile image
-            $user->profile_image = $imageFilename;
-            $user->save();
-        }
+        // Assign the image path to the user's profile image
+        $user->profile_image = $imageFilename;
+        $user->save();
 
         // Log in the user
         auth()->login($user);
