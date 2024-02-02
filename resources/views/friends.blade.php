@@ -17,7 +17,7 @@
                     <form method="GET" action="{{ route('friends.index') }}">
                         @csrf
                         <input type="text" class="search-input" name="search" placeholder="Search User...">
-                        <button type="submit" class="addon-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button type="submit" class="addon-button" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
             </header>
@@ -27,20 +27,22 @@
                 <p>Add your chocolate friends now !</p>
             </div>
         </div>
-        <div class="title-space">
-            <span class="dc-loader"></span>
-        </div>
         <ul>
             @foreach($users as $user)
             <li>
+                <form method="POST" action="{{ route('send.friend.request') }}"
+                    id="sendFriendRequestForm{{ $user->id }}">
+                    @csrf
+                    <input type="hidden" name="friend_id" value="{{ $user->id }}">
+                    <button type="button" class="send-request-button" data-user-id="{{ $user->id }}">Send Friend Request</button>
+                </form>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        const userName = "{{ $user->name }}";
-
-                        document.querySelector(`button[data-user-id="${{ $user->id }}"]`).addEventListener('click', function () {
+                        document.getElementById('searchButton').addEventListener('click', function (event) {
+                            event.preventDefault(); // Prevent form submission
                             Swal.fire({
                                 title: 'Send Friend Request',
-                                text: `Are you sure to send a friend request to ${userName}`,
+                                text: 'Are you sure to send a friend request to this user?',
                                 icon: 'question',
                                 showCancelButton: true,
                                 confirmButtonText: 'Yes !',
@@ -56,6 +58,9 @@
             </li>
             @endforeach
         </ul>
+        <div class="title-space">
+            <span class="dc-loader"></span>
+        </div>
         <div class="section" id="my-friends" style="display:none;">
             <h2>Friends</h2>
             @if($friends->isEmpty())
