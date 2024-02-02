@@ -58,20 +58,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-    const userName = "{{ $user->name }}";
-
-    Swal.fire({
-        title: 'Send Friend Request',
-        text: `Are you sure to send a friend request to ${userName}`,
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Yes !',
-        cancelButtonText: 'No',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
-        }
-    });
-});

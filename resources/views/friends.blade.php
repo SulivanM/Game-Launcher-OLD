@@ -27,7 +27,9 @@
                 <p>Add your chocolate friends now !</p>
             </div>
         </div>
-
+        <div class="title-space">
+            <span class="dc-loader"></span>
+        </div>
         <ul>
             @foreach($users as $user)
             <li>
@@ -36,32 +38,52 @@
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
                 </form>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const userName = "{{ $user->name }}";
+
+                        Swal.fire({
+                            title: 'Send Friend Request',
+                            text: `Are you sure to send a friend request to ${userName}`,
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes !',
+                            cancelButtonText: 'No',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
+                            }
+                        });
+                    });
+                </script>
             </li>
             @endforeach
         </ul>
-
-        <h2>Friends</h2>
-        @if($friends->isEmpty())
-        <p>You don't have any friends yet.</p>
-        @else
-        @foreach($friends as $friend)
-        <p>{{ $friend->name }}</p>
-        @endforeach
-        @endif
-
-        <h2>Pending Friend Requests</h2>
-        @foreach($friendRequests as $request)
-        <p>{{ $request->name }}
-        <form method="POST" action="{{ route('accept.friend.request', $request) }}">
-            @csrf
-            <button type="submit">Accept</button>
-        </form>
-        <form method="POST" action="{{ route('decline.friend.request', $request) }}">
-            @csrf
-            <button type="submit">Decline</button>
-        </form>
-        </p>
-        @endforeach
+        <div class="section" id="my-friends" style="display:none;">
+            <h2>Friends</h2>
+            @if($friends->isEmpty())
+            <p>You don't have any friends yet.</p>
+            @else
+            @foreach($friends as $friend)
+            <p>{{ $friend->name }}</p>
+            @endforeach
+            @endif
+        </div>
+        <div class="section" id="pending-friends" style="display:none;">
+            <h2>Pending Friend Requests</h2>
+            @foreach($friendRequests as $request)
+            <p>{{ $request->name }}
+            <form method="POST" action="{{ route('accept.friend.request', $request) }}">
+                @csrf
+                <button type="submit">Accept</button>
+            </form>
+            <form method="POST" action="{{ route('decline.friend.request', $request) }}">
+                @csrf
+                <button type="submit">Decline</button>
+            </form>
+            </p>
+            @endforeach
+        </div>
     </main>
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
