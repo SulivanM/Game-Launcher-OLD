@@ -27,6 +27,7 @@
                 <p>Add your chocolate friends now !</p>
             </div>
         </div>
+
         <ul>
             @foreach($users as $user)
             <li>
