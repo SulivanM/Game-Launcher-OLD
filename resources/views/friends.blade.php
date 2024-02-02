@@ -32,16 +32,27 @@
         <h2>Send Friend Request</h2>
         <form method="POST" action="{{ route('send.friend.request') }}">
             @csrf
-            <input type="text" name="search" placeholder="Search for a friend">
-            <select name="friend_id">
-                @foreach($users as $user)
-                @if($user->id != auth()->id())
-                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endif
-                @endforeach
-            </select>
-            <button type="submit">Send Friend Request</button>
+            <input type="text" name="search" placeholder="Search for a user">
+            <button type="submit">Search</button>
         </form>
+        @if(isset($searchResults))
+        @if($searchResults->count() > 0)
+        <ul>
+            @foreach($searchResults as $result)
+            <li>
+                {{ $result->name }}
+                <form method="POST" action="{{ route('send.friend.request') }}">
+                    @csrf
+                    <input type="hidden" name="friend_id" value="{{ $result->id }}">
+                    <button type="submit">Send Friend Request</button>
+                </form>
+            </li>
+            @endforeach
+        </ul>
+        @else
+        <p>No results found.</p>
+        @endif
+        @endif
     </main>
 </div>
 @endsection
