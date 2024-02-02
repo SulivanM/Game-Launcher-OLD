@@ -32,6 +32,7 @@
         <h2>Send Friend Request</h2>
         <form method="POST" action="{{ route('send.friend.request') }}">
             @csrf
+            <input type="text" name="search" placeholder="Search for a friend">
             <select name="friend_id">
                 @foreach($users as $user)
                 @if($user->id != auth()->id())

@@ -7,15 +7,20 @@ use Illuminate\Http\Request;
 
 class FriendController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
         $friends = $user->friends;
         $friendRequests = $user->friendRequests;
-        $users = User::where('id', '!=', $user->id)->get();
+
+        $searchTerm = $request->input('search');
+        $users = User::where('id', '!=', $user->id)
+            ->where('name', 'LIKE', "%{$searchTerm}%")
+            ->get();
 
         return view('friends', compact('user', 'friends', 'friendRequests', 'users'));
     }
+
 
     public function sendFriendRequest(Request $request)
     {
