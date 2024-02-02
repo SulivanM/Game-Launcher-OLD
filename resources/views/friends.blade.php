@@ -17,7 +17,7 @@
                     <form method="GET" action="{{ route('friends.index') }}">
                         @csrf
                         <input type="text" class="search-input" name="search" placeholder="Search User...">
-                        <button type="submit" class="addon-button" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button type="submit" class="addon-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
             </header>
@@ -34,24 +34,22 @@
                     id="sendFriendRequestForm{{ $user->id }}">
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
-                    <button type="button" class="send-request-button" data-user-id="{{ $user->id }}">Send Friend Request</button>
                 </form>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        document.getElementById('searchButton').addEventListener('click', function (event) {
-                            event.preventDefault(); // Prevent form submission
-                            Swal.fire({
-                                title: 'Send Friend Request',
-                                text: 'Are you sure to send a friend request to this user?',
-                                icon: 'question',
-                                showCancelButton: true,
-                                confirmButtonText: 'Yes !',
-                                cancelButtonText: 'No',
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
-                                }
-                            });
+                        const userName = "{{ $user->name }}";
+
+                        Swal.fire({
+                            title: 'Send Friend Request',
+                            text: `Are you sure to send a friend request to ${userName}`,
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Yes !',
+                            cancelButtonText: 'No',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
+                            }
                         });
                     });
                 </script>
