@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FriendController extends Controller
 {
@@ -15,6 +16,18 @@ class FriendController extends Controller
         $users = User::where('id', '!=', $user->id)->get();
 
         return view('friends', compact('user', 'friends', 'friendRequests', 'users'));
+    }
+
+    public function searchFriends(Request $request)
+    {
+        $user = Auth::user();
+        $searchTerm = $request->input('search');
+
+        $searchResults = User::where('name', 'LIKE', "%{$searchTerm}%")
+            ->where('id', '!=', $user->id)
+            ->get();
+
+        return view('friends', compact('searchResults', 'user'));
     }
 
     public function sendFriendRequest(Request $request)
