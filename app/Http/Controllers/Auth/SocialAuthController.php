@@ -47,19 +47,31 @@ class SocialAuthController extends Controller
                 'email' => $socialUser->getEmail(),
                 'password' => Hash::make(Str::random(32)),
                 'ip' => request()->getClientIp(),
-                'profile_image' => null,
             ]);
         }
 
-        // Store the user's profile image
-        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-        $imagePath = public_path('images/profiles/' . $imageFilename);
-        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Mettre à jour l'image de profil existante ou ajouter une nouvelle image de profil
+        if ($user->profile_image) {
+            // Mettre à jour l'image de profil existante
+            // Supprimer l'ancienne image de profil du serveur
+            Storage::delete('public/profile_images/' . $user->profile_image);
 
-        // Assign the image path to the user's profile image
-        $user->profile_image = $imageFilename;
-        $user->save();
+            // Sauvegarder la nouvelle image de profil sur le serveur
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+            // Mettre à jour le chemin de l'image de profil dans la base de données
+            $user->profile_image = $imageFilename;
+            $user->save();
+        } else {
+            // Ajouter une nouvelle image de profil si aucune n'existe
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+            // Mettre à jour le chemin de l'image de profil dans la base de données
+            $user->profile_image = $imageFilename;
+            $user->save();
+        }
 
         // Log in the user
         auth()->login($user);
@@ -103,19 +115,31 @@ class SocialAuthController extends Controller
                 'email' => $socialUser->getEmail(),
                 'password' => Hash::make(Str::random(32)),
                 'ip' => request()->getClientIp(),
-                'profile_image' => null,
             ]);
         }
 
-        // Store the user's profile image
-        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-        $imagePath = public_path('images/profiles/' . $imageFilename);
-        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Mettre à jour l'image de profil existante ou ajouter une nouvelle image de profil
+        if ($user->profile_image) {
+            // Mettre à jour l'image de profil existante
+            // Supprimer l'ancienne image de profil du serveur
+            Storage::delete('public/profile_images/' . $user->profile_image);
 
-        // Assign the image path to the user's profile image
-        $user->profile_image = $imageFilename;
-        $user->save();
+            // Sauvegarder la nouvelle image de profil sur le serveur
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+            // Mettre à jour le chemin de l'image de profil dans la base de données
+            $user->profile_image = $imageFilename;
+            $user->save();
+        } else {
+            // Ajouter une nouvelle image de profil si aucune n'existe
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+            // Mettre à jour le chemin de l'image de profil dans la base de données
+            $user->profile_image = $imageFilename;
+            $user->save();
+        }
 
         // Log in the user
         auth()->login($user);
@@ -157,19 +181,31 @@ class SocialAuthController extends Controller
                 'email' => $socialUser->getEmail(),
                 'password' => Hash::make(Str::random(32)),
                 'ip' => request()->getClientIp(),
-                'profile_image' => null,
             ]);
         }
 
-        // Store the user's profile image
-        $imageFilename = $user->id . '-' . Str::random(10) . '.jpg'; // Generate a random filename
-        $imagePath = public_path('images/profiles/' . $imageFilename);
-        file_put_contents($imagePath, file_get_contents($socialUser->getAvatar()));
-        Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+        // Mettre à jour l'image de profil existante ou ajouter une nouvelle image de profil
+        if ($user->profile_image) {
+            // Mettre à jour l'image de profil existante
+            // Supprimer l'ancienne image de profil du serveur
+            Storage::delete('public/profile_images/' . $user->profile_image);
 
-        // Assign the image path to the user's profile image
-        $user->profile_image = $imageFilename;
-        $user->save();
+            // Sauvegarder la nouvelle image de profil sur le serveur
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+            // Mettre à jour le chemin de l'image de profil dans la base de données
+            $user->profile_image = $imageFilename;
+            $user->save();
+        } else {
+            // Ajouter une nouvelle image de profil si aucune n'existe
+            $imageFilename = $user->id . '-' . Str::random(10) . '.jpg';
+            Storage::put('public/profile_images/' . $imageFilename, file_get_contents($socialUser->getAvatar()));
+
+            // Mettre à jour le chemin de l'image de profil dans la base de données
+            $user->profile_image = $imageFilename;
+            $user->save();
+        }
 
         // Log in the user
         auth()->login($user);
