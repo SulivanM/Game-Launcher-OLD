@@ -33,7 +33,7 @@ class FriendController extends Controller
 
     public function sendFriendRequest(User $friend)
     {
-        Auth::user()->friends()->attach($friend->id, ['accepted' => 0]);
+        Auth::user()->friendRequests()->attach($friend->id, ['accepted' => 0]);
 
         // Diffuser l'événement pour informer l'ami de la demande
         broadcast(new FriendRequestSent(Auth::user(), $friend));
