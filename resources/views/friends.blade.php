@@ -33,32 +33,14 @@
         <ul>
             @foreach($users as $user)
             <li>
-                {{ $user->name }}
                 <form method="POST" action="{{ route('send.friend.request') }}"
                     id="sendFriendRequestForm{{ $user->id }}">
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
                 </form>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        Swal.fire({
-                            title: 'Send Friend Request',
-                            text: 'Are you sure you want to send a friend request to this user?',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Yes',
-                            cancelButtonText: 'No',
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
-                            }
-                        });
-                    });
-                </script>
             </li>
             @endforeach
         </ul>
-
         <div class="section" id="my-friends" style="display:none;">
             <h2>Friends</h2>
             @if($friends->isEmpty())
@@ -88,4 +70,24 @@
 </div>
 <script src="{{ asset('js/index.js') }}"></script>
 <script src="{{ asset('js/friends.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @foreach($users as $user)
+        const userName{{ $user->id }} = "{{ $user->name }}";
+
+        Swal.fire({
+            title: 'Send Friend Request',
+            text: `Are you sure you want to send a friend request to ${userName{{ $user->id }}}?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes !',
+            cancelButtonText: 'No',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
+            }
+        });
+        @endforeach
+    });
+</script>
 @endsection
