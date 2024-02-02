@@ -33,35 +33,35 @@
         <ul>
             @foreach($users as $user)
             <li>
-                {{ $user->name }}
                 <form method="POST" action="{{ route('send.friend.request') }}"
                     id="sendFriendRequestForm{{ $user->id }}">
                     @csrf
                     <input type="hidden" name="friend_id" value="{{ $user->id }}">
+                    <button type="button" class="send-request-button" data-user-id="{{ $user->id }}">Send Friend Request</button>
                 </form>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const userName = "{{ $user->name }}";
+
+                        document.querySelector(`button[data-user-id="${{ $user->id }}"]`).addEventListener('click', function () {
+                            Swal.fire({
+                                title: 'Send Friend Request',
+                                text: `Are you sure to send a friend request to ${userName}`,
+                                icon: 'question',
+                                showCancelButton: true,
+                                confirmButtonText: 'Yes !',
+                                cancelButtonText: 'No',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
+                                }
+                            });
+                        });
+                    });
+                </script>
             </li>
             @endforeach
         </ul>
-
-        <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        @foreach($users as $user)
-        const userName{{ $user->id }} = "{{ $user->name }}";
-
-        Swal.fire({
-            title: 'Send Friend Request',
-            text: `Are you sure to send a friend request to ${userName{{ $user->id }}}`,
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Yes !',
-            cancelButtonText: 'No',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById('sendFriendRequestForm{{ $user->id }}').submit();
-            }
-        });
-        @endforeach
-        </script>
         <div class="section" id="my-friends" style="display:none;">
             <h2>Friends</h2>
             @if($friends->isEmpty())
