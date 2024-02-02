@@ -35,15 +35,12 @@ class FriendController extends Controller
         return redirect()->route('friends.index');
     }
 
-    public function acceptFriendRequest(User $friend)
+    public function acceptFriendRequest(User $user)
     {
-        $currentUser = auth()->user();
-
-        $currentUser->acceptFriendRequest($friend);
-        $friend->acceptFriendRequest($currentUser);
-
-        return redirect()->route('friends.index');
+        $this->friends()->syncWithoutDetaching([$user->id => ['accepted' => 1, 'updated_at' => now()]]);
+        $user->friends()->syncWithoutDetaching([$this->id => ['accepted' => 1, 'updated_at' => now()]]);
     }
+
 
 
     public function declineFriendRequest(User $friend)
