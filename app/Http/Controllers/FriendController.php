@@ -33,10 +33,14 @@ class FriendController extends Controller
 
     public function acceptFriendRequest(User $friend)
     {
-        auth()->user()->acceptFriendRequest($friend);
+        $currentUser = auth()->user();
+
+        $currentUser->acceptFriendRequest($friend);
+        $friend->acceptFriendRequest($currentUser);
 
         return redirect()->route('friends.index');
     }
+
 
     public function declineFriendRequest(User $friend)
     {
