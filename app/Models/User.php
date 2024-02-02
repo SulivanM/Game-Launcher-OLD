@@ -52,19 +52,15 @@ class User extends Authenticatable
     public function friends()
     {
         return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id')
-            ->withPivot('accepted')
-            ->with('friends');
+            ->withPivot('accepted');
     }
-
 
     public function friendRequests()
     {
         return $this->belongsToMany(User::class, 'friends', 'friend_id', 'user_id')
-            ->using(Friendship::class)
             ->withPivot('accepted')
             ->wherePivot('accepted', 0);
     }
-
 
     public function acceptFriendRequest(User $user)
     {
