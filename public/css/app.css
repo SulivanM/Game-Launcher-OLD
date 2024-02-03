@@ -1,33 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 :root {
-    --color-success: #41f1b6;
-    --color-warning: #ffbb55;
     --color-white: #fff;
     --color-info-dark: #2f3740;
-    --color-info-light: #dce1eb;
     --color-dark: #363946;
     --color-light: #rgba(132, 139, 200, 0.18);
-    --color-primary-varient: #111e88;
     --color-dark-varient: #677483;
-    --color-background: #f6f6f9;
-
-    --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
-    --border-radius-2: 0.8rem;
-    --border-radius-1: 1.2rem;
-
     --card-padding: 1.8rem;
-    --padding-rem: 1.2rem;
-
-    --box-shadow: 2rem 3rem var(--color-light);
-
     --color-background: #0e0e10;
-    --color-white: #202528;
-    --color-dark: #edeffd;
-    --color-dark-varient: #a3bdcc;
-    --color-light: rgba(0, 0, 0, 0.4);
-    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 * {
