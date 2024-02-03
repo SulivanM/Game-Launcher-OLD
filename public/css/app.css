@@ -721,7 +721,7 @@ main {
     display: inline-block;
     border-radius: 4px;
     color: #ccc;
-    background-color: #f2f2f2;
+    background-color: #212121;
     cursor: not-allowed;
     border: 2px solid #ccc;
     text-decoration: line-through;
