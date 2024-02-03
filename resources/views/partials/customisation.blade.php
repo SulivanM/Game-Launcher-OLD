@@ -15,7 +15,7 @@
    color: {{ optional($user)->color ?? '#FFFFFF' }};
    }
 
-   .aside .sidebar a.active:before {
+   aside .sidebar a.active:before {
    background-color: {{ optional($user)->color ?? '#FFFFFF' }};
    }
    
