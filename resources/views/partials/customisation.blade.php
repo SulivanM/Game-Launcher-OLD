@@ -14,6 +14,10 @@
    .aside .sidebar a .active span {
    color: {{ optional($user)->color ?? '#FFFFFF' }};
    }
+
+   .aside .sidebar a.active:before {
+   background-color: {{ optional($user)->color ?? '#FFFFFF' }};
+   }
    
    aside .sidebar .message-count {
    background-color: {{ optional($user)->color ?? '#FFFFFF' }};
