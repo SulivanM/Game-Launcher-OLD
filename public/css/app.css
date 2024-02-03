@@ -718,9 +718,12 @@ main {
 
 .coming-soon-btn {
     background-color: #212121;
-    cursor: not-allowed;
     border: 2px solid #ccc;
     pointer-events: none;
+}
+
+.coming-soon-btn button {
+    cursor: not-allowed;
 }
 
 .sidebar .play-button {
