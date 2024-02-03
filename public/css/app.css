@@ -203,7 +203,6 @@ aside .sidebar a.active:before {
     content: "";
     width: 6px;
     height: 100%;
-    background-color: #804dce;
 }
 
 aside .sidebar a .active span {
