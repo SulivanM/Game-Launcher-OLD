@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColorToUsersTable extends Migration
+class AddStatusToGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColorToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('color')->default('#a3bdcc')->after('dcoin');
+        Schema::table('games', function (Blueprint $table) {
+            $table->integer('status')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class AddColorToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('color');
+        Schema::table('games', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 }
