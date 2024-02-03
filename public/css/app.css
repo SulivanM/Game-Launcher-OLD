@@ -442,10 +442,6 @@ main {
     padding: 20px;
 }
 
-.strim-btn {
-    border: 2px solid #150629;
-}
-
 .links {
     margin-top: 10px;
 }
@@ -713,6 +709,7 @@ main {
     padding: 10px 20px;
     display: inline-block;
     border-radius: 4px;
+    border: 2px solid #150629;
     color: #fff;
 }
 

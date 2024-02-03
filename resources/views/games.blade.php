@@ -53,7 +53,7 @@
                                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}"
                                         method="post">
                                         @csrf
-                                        <button type="submit" class="strim-btn">ADD TO MY COLLECTION</button>
+                                        <button type="submit">ADD TO MY COLLECTION</button>
                                     </form>
                                     @endif
                                 </div>
