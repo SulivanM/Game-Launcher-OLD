@@ -717,14 +717,9 @@ main {
 }
 
 .coming-soon-btn {
-    padding: 10px 20px;
-    display: inline-block;
-    border-radius: 4px;
-    color: #ccc;
     background-color: #212121;
     cursor: not-allowed;
     border: 2px solid #ccc;
-    text-decoration: line-through;
     pointer-events: none;
 }
 
