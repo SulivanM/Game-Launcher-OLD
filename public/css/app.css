@@ -571,6 +571,17 @@ main {
     background-color: #6c3ab9;
 }
 
+.button-all-games.coming-soon {
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: not-allowed;
+    text-decoration: none;
+    border: none;
+    display: block;
+    background-color: #212121;
+}
+
 .first-txt {
     position: absolute;
     top: 40%;
