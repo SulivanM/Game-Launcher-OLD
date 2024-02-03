@@ -720,9 +720,6 @@ main {
     background-color: #212121;
     border: 2px solid #ccc;
     pointer-events: none;
-}
-
-.coming-soon-btn button {
     cursor: not-allowed;
 }
 

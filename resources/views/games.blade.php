@@ -76,7 +76,7 @@
                     <h1>{{ $game->subtitle }} <span class="primary">!</span></h1>
                     <p>{{ $game->description }}</p>
                     @if($game->status == 0)
-                    <button type="button" class="button-all-games">Coming Soon</button>
+                    <button type="button" class="coming-soon-btn">Coming Soon</button>
                     @else
                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
                         @csrf
