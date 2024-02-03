@@ -716,6 +716,18 @@ main {
     color: #fff;
 }
 
+.coming-soon-btn {
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 4px;
+    color: #ccc;
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+    border: 2px solid #ccc;
+    text-decoration: line-through;
+    pointer-events: none;
+}
+
 .sidebar .play-button {
     position: relative;
     text-align: left;

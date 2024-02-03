@@ -48,7 +48,7 @@
                                 <p>{{ $game->description }}</p>
                                 <div class="button">
                                     @if($game->status == 0)
-                                    <button type="button" class="strim-btn">Coming Soon</button>
+                                    <button type="button" class="coming-soon-btn">Coming Soon</button>
                                     @else
                                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}"
                                         method="post">
