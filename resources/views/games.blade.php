@@ -47,11 +47,15 @@
                                 <h1>{{ $game->subtitle }} <span class="primary">!</span></h1>
                                 <p>{{ $game->description }}</p>
                                 <div class="button">
+                                    @if($game->status == 0)
+                                    <button type="button" class="strim-btn">Coming Soon</button>
+                                    @else
                                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}"
                                         method="post">
                                         @csrf
                                         <button type="submit" class="strim-btn">ADD TO MY COLLECTION</button>
                                     </form>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -71,10 +75,14 @@
                     <h2>{{ $game->title }}</h2>
                     <h1>{{ $game->subtitle }} <span class="primary">!</span></h1>
                     <p>{{ $game->description }}</p>
+                    @if($game->status == 0)
+                    <button type="button" class="button-all-games">Coming Soon</button>
+                    @else
                     <form action="{{ route('collections.add', ['gameId' => $game->id]) }}" method="post">
                         @csrf
                         <button type="submit" class="button-all-games">ADD TO MY COLLECTION</button>
                     </form>
+                    @endif
                 </div>
             </div>
             @endforeach

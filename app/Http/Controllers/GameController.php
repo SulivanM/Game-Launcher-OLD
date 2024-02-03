@@ -11,7 +11,7 @@ class GameController extends Controller
 		$game = Game::find($id);
 
 		if (!$game) {
-			abort(404); // Gérer le cas où le jeu n'est pas trouvé
+			abort(404);
 		}
 
 		return view('games.show', compact('game'));

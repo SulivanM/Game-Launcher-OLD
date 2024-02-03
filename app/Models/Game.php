@@ -10,9 +10,9 @@ class Game extends Model
         'title',
         'subtitle',
         'description',
-        'css_class',
         'game_image',
         'game_link',
+        'status',
     ];
 
     /**
