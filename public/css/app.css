@@ -1303,18 +1303,25 @@ main {
 }
 
 footer {
+    position: relative;
     background-color: #11151b;
     border-top: 1px solid var(--color-info-dark);
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
-    bottom: 0;
 }
 
 .footer-content {
     max-width: 800px;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 }
 
 .card-container {
