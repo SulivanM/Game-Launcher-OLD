@@ -7,7 +7,7 @@
     <div class="game-details">
         <h2>{{ $game->title }}</h2>
         <p>{{ $game->description }}</p>
-        <a href="{{ route('games.download', ['id' => $game->id]) }}" class="btn btn-primary">Download {{ $game->title }}</a>
+        <a href="{{ route('games.downloads', ['id' => $game->id]) }}">Download</a>
     </div>
    @include('partials.navbar')
   </main>
