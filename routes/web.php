@@ -95,8 +95,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/support', function () {
         return view('support');
     });
-    Route::get('/downloads', function () {
-        return view('downloads');
-    });
     Route::get('/downloads', [GameController::class, 'showDownloads'])->name('downloads.show');
 });
