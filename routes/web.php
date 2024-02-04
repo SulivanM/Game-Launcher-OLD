@@ -98,4 +98,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/downloads', function () {
         return view('downloads');
     });
+    Route::get('/downloads', [GameController::class, 'showDownloads'])->name('downloads.show');
 });

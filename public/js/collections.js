@@ -57,37 +57,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-    const downloadButtons = document.querySelectorAll('.download-btn');
-
-    downloadButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Empêche le comportement par défaut du lien
-
-            const gameId = this.getAttribute('data-game-id');
-            downloadGame(gameId);
-        });
-    });
-
-    function downloadGame(gameId) {
-        // Envoyer une requête AJAX pour télécharger le jeu
-        fetch(`/games/${gameId}/download`, {
-            method: 'GET',
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Download successful');
-                // Implémentez ici toute logique supplémentaire après le téléchargement réussi
-            } else {
-                console.error('Download failed');
-            }
-        })
-        .catch(error => {
-            console.error('Error downloading game:', error);
-        });
-    }
-});
