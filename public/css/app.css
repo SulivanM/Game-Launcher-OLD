@@ -543,12 +543,12 @@ main {
 }
 
 .all-games img {
-    width: calc(100% + 40px);
+    width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-left: -20px;
-    margin-right: -20px;
 }
 
 .button-all-games {
