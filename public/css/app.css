@@ -490,7 +490,8 @@ main {
 .game-details {
     background-color: #150629;
     color: #fff;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -543,7 +544,6 @@ main {
 }
 
 .all-games img {
-    width: 110%;
     height: auto;
     display: block;
     object-fit: cover;
