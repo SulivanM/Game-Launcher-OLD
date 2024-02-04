@@ -38,8 +38,15 @@ class GameController extends Controller
 		}
 	}
 
-	public function showDownloads()
+	public function showDownloads($id)
 	{
-		return view('downloads');
+		$game = Game::find($id);
+
+		if (!$game) {
+			abort(404);
+		}
+
+		return view('downloads', compact('game'));
 	}
+
 }
