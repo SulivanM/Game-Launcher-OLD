@@ -20,33 +20,16 @@ class GameController extends Controller
 	}
 
 	public function download($id)
-	{
-		$game = Game::find($id);
+    {
+        $game = Game::findOrFail($id);
 
-		if (!$game) {
-			abort(404);
-		}
+        $filePath = storage_path("app/games/{$game->game_link}");
 
-		$filePath = storage_path("app/games/{$game->game_link}");
-
-		if (file_exists($filePath)) {
-			$fileName = $game->game_link;
-
-			return response()->download($filePath, $fileName);
-		} else {
-			return redirect()->back()->with('error', 'File not found.');
-		}
-	}
-
-	public function showDownloads($id)
-	{
-		$game = Game::find($id);
-
-		if (!$game) {
-			abort(404);
-		}
-
-		return view('downloads', compact('game'));
-	}
+        if (file_exists($filePath)) {
+            return response()->download($filePath, $game->game_link);
+        } else {
+            abort(404);
+        }
+    }
 
 }
