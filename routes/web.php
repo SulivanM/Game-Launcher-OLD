@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserController::class, 'showMyProfile'])->middleware('auth')->name('profile');
     Route::get('/settings', [SettingsController::class, 'show'])->name('settings.show');
     Route::get('/games/{id}', [GameController::class, 'show'])->name('games.show');
+    Route::get('/games/{id}/download', [GameController::class, 'download'])->name('games.download');
     Route::get('/friends', [FriendController::class, 'index'])->name('friends.index');
     Route::get('/search-friends', [FriendController::class, 'searchFriends'])->name('search.friends');
     Route::get('/profile/{pseudo}', [UserController::class, 'showProfile'])->name('profile.show');

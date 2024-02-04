@@ -20,10 +20,7 @@
             <h2>{{ $game->title }}</h2>
             <h1>{{ $game->subtitle }} <span class="primary">!</span></h1>
             <p>{{ $game->description }}</p>
-            <form action="{{ route('games.show', ['id' => $game->id]) }}" method="get">
-              @csrf
-              <button type="submit" class="button-all-games">PLAY NOW FOR FREE !</button>
-            </form>
+            <a href="{{ route('games.download', ['id' => $game->id]) }}" class="button-all-games">Download</a>
           </div>
         </div>
         @endforeach

@@ -3,6 +3,12 @@
 <div class="container">
   @include('partials.sidebar')
   <main>
+  <h1>Downloads</h1>
+    <div class="game-details">
+        <h2>{{ $game->title }}</h2>
+        <p>{{ $game->description }}</p>
+        <a href="{{ route('games.download', ['id' => $game->id]) }}" class="btn btn-primary">Download {{ $game->title }}</a>
+    </div>
    @include('partials.navbar')
   </main>
 </div>
