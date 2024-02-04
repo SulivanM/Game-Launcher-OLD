@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Game;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller
 {
-	public function show($id)
+    public function show($id)
 	{
 		$game = Game::find($id);
 
@@ -18,18 +16,4 @@ class GameController extends Controller
 
 		return view('games.show', compact('game'));
 	}
-
-	public function download($id)
-    {
-        $game = Game::findOrFail($id);
-
-        $filePath = storage_path("app/games/{$game->game_link}");
-
-        if (file_exists($filePath)) {
-            return response()->download($filePath, $game->game_link);
-        } else {
-            abort(404);
-        }
-    }
-
 }
