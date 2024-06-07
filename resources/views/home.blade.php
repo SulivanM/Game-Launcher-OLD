@@ -41,10 +41,10 @@
           <a href="#" class="nav-link" data-target="friends">Friends</a>
         </div>
         <div class="social-links">
-          <a href="#">
-            <i class="fa-brands fa-twitch"></i>
+          <a href="https://digitalchocolate.online/help">
+            <i class="fa-brands fa-circle-info"></i>
           </a>
-          <a href="#">
+          <a href="https://twitter.com/DChocFrance">
             <i class="fa-brands fa-x-twitter"></i>
           </a>
           <a href="#">
@@ -56,7 +56,7 @@
           <a href="#">
             <i class="fa-brands fa-youtube"></i>
           </a>
-          <a href="#">
+          <a href="https://discord.gg/rdpFXhja5Q">
             <i class="fa-brands fa-discord"></i>
           </a>
         </div>

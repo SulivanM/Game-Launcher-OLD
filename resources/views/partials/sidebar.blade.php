@@ -69,12 +69,15 @@
       <h1 class="h1">Downloads</h1>
     </a>
     <div class="icons">
-      <i class="fa-brands fa-twitch"></i>
-      <i class="fa-brands fa-x-twitter"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-youtube"></i>
-      <i class="fa-brands fa-discord"></i>
+      <a href="https://digitalchocolate.online/help">
+        <i class="fa-brands fa-circle-info"></i>
+      </a>
+      <a href="https://twitter.com/DChocFrance">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+      <a href="https://discord.gg/rdpFXhja5Q">
+        <i class="fa-brands fa-discord"></i>
+      </a>
     </div>
     <a href="../support">
       <span class="material-symbols-sharp">logout</span>
