@@ -53,21 +53,31 @@
             var messageInput = document.getElementById('message-input');
             var message = messageInput.value;
 
-            axios.post('{{ route('chat.send') }}', {
-                message: message
-            })
-            .then(function (response) {
-                // Réponse de succès (facultatif)
-                console.log(response.data);
-
-                // Effacer le champ de saisie
-                messageInput.value = '';
-            })
-            .catch(function (error) {
-                // Gérer les erreurs
-                console.error(error);
-            });
+            axios.post('{{ route('
+                    chat.send ') }}', {
+                        message: message
+                    })
+                .then(function(response) {
+                    // Check if the message was sent successfully
+                    if (response.data.status === 'Message sent!') {
+                        // Clear the input field
+                        messageInput.value = '';
+                    } else {
+                        // Handle other status responses (optional)
+                        console.log(response.data);
+                    }
+                })
+                .catch(function(error) {
+                    // Handle validation errors
+                    if (error.response && error.response.status === 422) {
+                        console.log(error.response.data.errors);
+                    } else {
+                        // Handle other errors
+                        console.error(error);
+                    }
+                });
         });
+
     });
 </script>
 @endsection
