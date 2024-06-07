@@ -21,7 +21,7 @@
             <form id="message-form" action="{{ route('chat.send') }}" method="post">
                 @csrf
                 <input type="text" id="message-input" name="message" placeholder="Enter your message...">
-                <button type="button" id="send-message">Send</button>
+                <button type="submit">Send</button>
             </form>
         </div>
     </main>
@@ -31,32 +31,6 @@
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var form = document.getElementById('message-form');
-        var messageInput = document.getElementById('message-input');
-        var sendMessageButton = document.getElementById('send-message');
-
-        sendMessageButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            
-            var message = messageInput.value;
-
-            // Envoyer les données via AJAX
-            axios.post('{{ route('chat.send') }}', {
-                message: message
-            })
-            .then(function (response) {
-                // Réponse de succès
-                console.log(response.data);
-
-                // Effacer le champ de saisie
-                messageInput.value = '';
-            })
-            .catch(function (error) {
-                // Gérer les erreurs
-                console.error(error);
-            });
-        });
-
         // Ecouter les messages envoyés en temps réel avec Pusher
         var pusher = new Pusher('{{ env("PUSHER_APP_KEY") }}', {
             cluster: '{{ env("PUSHER_APP_CLUSTER") }}',
@@ -70,6 +44,32 @@
             messageElement.classList.add('message');
             messageElement.innerHTML = '<strong>' + data.message.user.name + ':</strong> ' + data.message.message;
             messageContainer.appendChild(messageElement);
+
+            // Faire défiler vers le bas pour afficher le dernier message
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        });
+
+        // Envoyer les données via AJAX lors de la soumission du formulaire
+        document.getElementById('message-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var messageInput = document.getElementById('message-input');
+            var message = messageInput.value;
+
+            axios.post('{{ route('chat.send') }}', {
+                message: message
+            })
+            .then(function (response) {
+                // Réponse de succès (facultatif)
+                console.log(response.data);
+
+                // Effacer le champ de saisie
+                messageInput.value = '';
+            })
+            .catch(function (error) {
+                // Gérer les erreurs
+                console.error(error);
+            });
         });
     });
 </script>
