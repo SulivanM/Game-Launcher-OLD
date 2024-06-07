@@ -70,7 +70,7 @@
     </a>
     <a href="https://digitalchocolate.online/help">
       <i class="fa-solid fa-circle-info"></i>
-      <h1 class="h1">HELP</h1>
+      <h1 class="h1">FAQ</h1>
     </a>
     <a href="https://twitter.com/DChocFrance">
       <i class="fa-brands fa-x-twitter"></i>

@@ -33,7 +33,7 @@
         </p>
       </div>
       <div class="dfjsac">
-        <div class="links">
+        <div class="home-links">
           <a href="#" class="nav-link" data-target="basic-information">Basic Information</a>
           <a href="#" class="nav-link" data-target="statistics">Statistics</a>
           <a href="#" class="nav-link" data-target="team">Team</a>

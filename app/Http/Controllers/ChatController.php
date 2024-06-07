@@ -27,23 +27,32 @@ class ChatController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function sendMessage(Request $request)
-{
-    $validatedData = $request->validate([
-        'message' => 'required|string|max:255',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
 
-    // Filter bad words in the message
-    $filteredMessage = $this->filterBadWords($validatedData['message']);
+        // Filter bad words in the message
+        $filteredMessage = $this->filterBadWords($validatedData['message']);
 
-    // Create a new message for the authenticated user
-    auth()->user()->messages()->create(['message' => $filteredMessage]);
+        // Check if the message is empty after filtering
+        if (empty(trim(strip_tags($filteredMessage)))) {
+            return back()->withErrors(['message' => 'Your message contains inappropriate content. Please revise it.']);
+        }
 
-    // Fetch the updated messages
-    $messages = Message::latest()->limit(50)->get();
+        // Create a new message for the authenticated user
+        auth()->user()->messages()->create(['message' => $filteredMessage]);
 
-    // Return to the tchat view with the updated messages
-    return view('tchat', compact('messages'));
-}
+        // Append the new message to the existing messages
+        $newMessage = new Message();
+        $newMessage->user_id = auth()->id();
+        $newMessage->message = $filteredMessage;
+
+        $messages = Message::latest()->limit(50)->get()->prepend($newMessage);
+
+        // Return to the chat view with the updated messages
+        return view('tchat', compact('messages'));
+    }
 
 
     /**
@@ -56,34 +65,34 @@ class ChatController extends Controller
     {
         // Define your list of bad words or use an external source
         $badWords = [
-    'ass',
-    'bastard',
-    'bitch',
-    'bollocks',
-    'bugger',
-    'clit',
-    'cock',
-    'crap',
-    'cunt',
-    'damn',
-    'dick',
-    'fanny',
-    'feck',
-    'fuck',
-    'goddamn',
-    'hell',
-    'horseshit',
-    'jesus',
-    'motherfucker',
-    'nigger',
-    'piss',
-    'prick',
-    'shit',
-    'slut',
-    'son of a bitch',
-    'twat',
-    'whore',
-];
+            'ass',
+            'bastard',
+            'bitch',
+            'bollocks',
+            'bugger',
+            'clit',
+            'cock',
+            'crap',
+            'cunt',
+            'damn',
+            'dick',
+            'fanny',
+            'feck',
+            'fuck',
+            'goddamn',
+            'hell',
+            'horseshit',
+            'jesus',
+            'motherfucker',
+            'nigger',
+            'piss',
+            'prick',
+            'shit',
+            'slut',
+            'son of a bitch',
+            'twat',
+            'whore',
+        ];
 
 
         // Replace bad words with asterisks
