@@ -68,16 +68,19 @@
       <span class="material-symbols-sharp">download</span>
       <h1 class="h1">Downloads</h1>
     </a>
+    <a href="https://digitalchocolate.online/help">
+      <span><i class="fa-brands fa-circle-info"></i></span>
+      <h1 class="h1">HELP</h1>
+    </a>
+    <a href="https://twitter.com/DChocFrance">
+      <span><i class="fa-brands fa-x-twitter"></i></span>
+      <h1 class="h1">X Network</h1>
+    </a>
+    <a href="https://discord.gg/rdpFXhja5Q">
+      <span><i class="fa-brands fa-discord"></i></span>
+      <h1 class="h1">Discord Network</h1>
+    </a>
     <div class="icons">
-      <a href="https://digitalchocolate.online/help">
-        <i class="fa-brands fa-circle-info"></i>
-      </a>
-      <a href="https://twitter.com/DChocFrance">
-        <i class="fa-brands fa-x-twitter"></i>
-      </a>
-      <a href="https://discord.gg/rdpFXhja5Q">
-        <i class="fa-brands fa-discord"></i>
-      </a>
     </div>
     <a href="../support">
       <span class="material-symbols-sharp">logout</span>

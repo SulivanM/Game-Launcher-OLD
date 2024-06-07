@@ -47,15 +47,6 @@
           <a href="https://twitter.com/DChocFrance">
             <i class="fa-brands fa-x-twitter"></i>
           </a>
-          <a href="#">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
           <a href="https://discord.gg/rdpFXhja5Q">
             <i class="fa-brands fa-discord"></i>
           </a>
