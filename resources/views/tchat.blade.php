@@ -8,7 +8,7 @@
         @include('partials.navbar')
 
         <div class="chat-container">
-            <div class="chat-messages">
+            <div class="chat-messages" id="chat-messages">
                 @forelse($messages as $message)
                 <div class="message">
                     <strong>{{ $message->user->name }}:</strong> {{ $message->message }}
@@ -39,14 +39,11 @@
 
         var channel = pusher.subscribe('chat');
         channel.bind('message.sent', function(data) {
-            var messageContainer = document.querySelector('.chat-messages');
+            var messageContainer = document.getElementById('chat-messages');
             var messageElement = document.createElement('div');
             messageElement.classList.add('message');
             messageElement.innerHTML = '<strong>' + data.message.user.name + ':</strong> ' + data.message.message;
             messageContainer.appendChild(messageElement);
-
-            // Faire défiler vers le bas pour afficher le dernier message
-            messageContainer.scrollTop = messageContainer.scrollHeight;
         });
 
         // Envoyer les données via AJAX lors de la soumission du formulaire
