@@ -172,22 +172,6 @@ aside .sidebar a span {
     transition: all 300ms ease;
 }
 
-aside .sidebar .icons {
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-}
-
-aside .sidebar .icons>i {
-    color: #7d8da1;
-    transition: color 0.3s;
-}
-
-aside .sidebar .icons>i:hover {
-    color: #ffffff;
-}
-
 aside .sidebar a.active {
     background: var(--color-light);
     margin-left: 0;

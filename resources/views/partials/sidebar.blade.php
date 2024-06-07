@@ -80,8 +80,6 @@
       <i class="fa-brands fa-discord"></i>
       <h1 class="h1">Discord Network</h1>
     </a>
-    <div class="icons">
-    </div>
     <a href="../support">
       <span class="material-symbols-sharp">logout</span>
       <h1 class="h1">Support</h1>
