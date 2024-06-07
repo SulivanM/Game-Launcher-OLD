@@ -42,7 +42,7 @@
         </div>
         <div class="social-links">
           <a href="https://digitalchocolate.online/help">
-            <i class="fa-brands fa-circle-info"></i>
+            <i class="fa-solid fa-circle-info"></i>
           </a>
           <a href="https://twitter.com/DChocFrance">
             <i class="fa-brands fa-x-twitter"></i>

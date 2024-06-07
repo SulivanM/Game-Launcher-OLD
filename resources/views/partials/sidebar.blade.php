@@ -69,15 +69,15 @@
       <h1 class="h1">Downloads</h1>
     </a>
     <a href="https://digitalchocolate.online/help">
-      <span><i class="fa-brands fa-circle-info"></i></span>
+      <i class="fa-solid fa-circle-info"></i>
       <h1 class="h1">HELP</h1>
     </a>
     <a href="https://twitter.com/DChocFrance">
-      <span><i class="fa-brands fa-x-twitter"></i></span>
+      <i class="fa-brands fa-x-twitter"></i>
       <h1 class="h1">X Network</h1>
     </a>
     <a href="https://discord.gg/rdpFXhja5Q">
-      <span><i class="fa-brands fa-discord"></i></span>
+      <i class="fa-brands fa-discord"></i>
       <h1 class="h1">Discord Network</h1>
     </a>
     <div class="icons">
