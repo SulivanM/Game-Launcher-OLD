@@ -45,7 +45,7 @@
             <i class="fa-brands fa-twitch"></i>
           </a>
           <a href="#">
-            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-x-twitter"></i>
           </a>
           <a href="#">
             <i class="fa-brands fa-instagram"></i>

@@ -781,9 +781,10 @@ main {
 }
 
 .dc-loader {
-    width: calc(100px - 24px);
     height: 50px;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: flippx 2s infinite linear;
 }
 
