@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Events\MessageSent;
 use App\Models\Message;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
@@ -41,19 +41,13 @@ class ChatController extends Controller
         }
 
         // Create a new message for the authenticated user
-        auth()->user()->messages()->create(['message' => $filteredMessage]);
+        $newMessage = Auth::user()->messages()->create(['message' => $filteredMessage]);
 
-        // Append the new message to the existing messages
-        $newMessage = new Message();
-        $newMessage->user_id = auth()->id();
-        $newMessage->message = $filteredMessage;
+        // Broadcast the message to all clients
+        broadcast(new MessageSent($newMessage))->toOthers();
 
-        $messages = Message::latest()->limit(50)->get()->prepend($newMessage);
-
-        // Return to the chat view with the updated messages
-        return view('tchat', compact('messages'));
+        return response()->json(['status' => 'Message sent!']);
     }
-
 
     /**
      * Filter bad words in a given message.
@@ -68,32 +62,7 @@ class ChatController extends Controller
             'ass',
             'bastard',
             'bitch',
-            'bollocks',
-            'bugger',
-            'clit',
-            'cock',
-            'crap',
-            'cunt',
-            'damn',
-            'dick',
-            'fanny',
-            'feck',
-            'fuck',
-            'goddamn',
-            'hell',
-            'horseshit',
-            'jesus',
-            'motherfucker',
-            'nigger',
-            'piss',
-            'prick',
-            'shit',
-            'slut',
-            'son of a bitch',
-            'twat',
-            'whore',
         ];
-
 
         // Replace bad words with asterisks
         $filteredMessage = str_ireplace($badWords, '****** | Warn (Bad Words)', $message);
